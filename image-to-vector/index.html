@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Image to Vector Converter — JPG & PNG to SVG | Printkeg Tools</title>
+  <meta name="description" content="Convert JPG or PNG images to scalable SVG vector files instantly using AI. Free online tool — no sign-up, no software. Perfect for logos, icons, and print artwork." />
+  <meta name="keywords" content="image to vector converter, jpg to svg, png to svg, raster to vector, free vector converter, convert image to svg online, vectorize image free" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://tools.printkeg.com/image-to-vector/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Free Image to Vector Converter — JPG & PNG to SVG" />
+  <meta property="og:description" content="Convert JPG or PNG images to scalable SVG vector files instantly using AI. Free, no sign-up required." />
+  <meta property="og:url" content="https://tools.printkeg.com/image-to-vector/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://tools.printkeg.com/og-vector-tool.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Image to Vector Converter — JPG & PNG to SVG" />
+  <meta name="twitter:description" content="Convert JPG or PNG to scalable SVG instantly using AI. Free tool from Printkeg." />
+
+  <!-- Schema: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Image to Vector Converter",
+    "url": "https://tools.printkeg.com/image-to-vector/",
+    "description": "Free AI-powered tool to convert JPG and PNG raster images into scalable SVG vector files. No sign-up required.",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Printkeg",
+      "url": "https://www.printkeg.com"
+    }
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is an SVG vector file?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SVG (Scalable Vector Graphics) is a file format that stores images as mathematical paths rather than pixels. Unlike JPG or PNG files, SVGs can be scaled to any size — from a business card to a billboard — without losing quality."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What types of images convert best to vector?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Images with simple, bold shapes convert best — logos, icons, flat illustrations, and line art. Complex photographs can be vectorized but will be interpreted and stylized rather than photorealistic."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this tool free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The Printkeg Image to Vector Converter is completely free with no account or sign-up required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use the SVG file for print?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. SVG files are resolution-independent, making them ideal for print. You can also open the SVG in Adobe Illustrator, Inkscape, or Figma to make further edits before sending to print."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Printkeg Tools",
+        "item": "https://tools.printkeg.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Image to Vector Converter",
+        "item": "https://tools.printkeg.com/image-to-vector/"
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d0d;
+      --surface: #141414;
+      --border: #222;
+      --text: #f0ede6;
+      --muted: #666;
+      --accent: #ff5c2b;
+      --accent-dim: rgba(255, 92, 43, 0.08);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      background: rgba(13,13,13,0.92);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+
+    .nav-logo { text-decoration: none; display: flex; align-items: baseline; gap: 10px; }
+    .nav-logo-primary { font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); }
+    .nav-logo-secondary { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; }
+
+    .breadcrumb {
+      font-size: 12px;
+      color: #444;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .breadcrumb a { color: #444; text-decoration: none; transition: color 0.15s; }
+    .breadcrumb a:hover { color: var(--muted); }
+    .breadcrumb span { color: #333; }
+
+    /* PAGE HERO */
+    .page-hero {
+      padding: 52px 40px 40px;
+      max-width: 860px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .page-heading {
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .page-heading strong { font-weight: 500; }
+
+    .page-sub {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 560px;
+      font-weight: 300;
+    }
+
+    /* TOOL AREA */
+    .tool-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 40px;
+    }
+
+    .converter {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .panel {
+      background: var(--surface);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .panel-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #444;
+    }
+
+    .drop-zone {
+      flex: 1;
+      border: 1.5px dashed #2a2a2a;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      position: relative;
+      overflow: hidden;
+      min-height: 240px;
+    }
+
+    .drop-zone:hover, .drop-zone.dragging {
+      border-color: var(--accent);
+      background: var(--accent-dim);
+    }
+
+    .drop-zone input {
+      position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
+    }
+
+    .drop-icon { font-size: 30px; opacity: 0.25; }
+
+    .drop-text {
+      font-size: 13px;
+      color: #555;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .drop-text span {
+      display: block;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: #3a3a3a;
+      margin-top: 4px;
+    }
+
+    .preview-img { max-width: 100%; max-height: 100%; object-fit: contain; }
+
+    .complexity-row { display: flex; align-items: center; gap: 8px; }
+    .complexity-label { font-family: 'Space Mono', monospace; font-size: 10px; color: #555; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; }
+    .complexity-options { display: flex; gap: 1px; flex: 1; }
+
+    .complexity-opt {
+      flex: 1; padding: 7px; background: #1a1a1a; border: 1px solid #2a2a2a; color: #555;
+      font-family: 'Space Mono', monospace; font-size: 10px; cursor: pointer;
+      transition: all 0.15s; text-align: center; text-transform: uppercase; letter-spacing: 0.06em;
+    }
+
+    .complexity-opt:first-child { border-radius: 3px 0 0 3px; }
+    .complexity-opt:last-child { border-radius: 0 3px 3px 0; }
+    .complexity-opt.selected { background: #1e1e1e; border-color: var(--accent); color: var(--accent); }
+
+    .convert-btn {
+      background: var(--accent); color: #fff; border: none;
+      padding: 13px 24px;
+      font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer;
+      border-radius: 3px; transition: background 0.15s, transform 0.1s; width: 100%;
+    }
+
+    .convert-btn:hover:not(:disabled) { background: #e04d20; transform: translateY(-1px); }
+    .convert-btn:disabled { background: #1e1e1e; color: #444; cursor: not-allowed; transform: none; }
+
+    .output-area {
+      flex: 1;
+      border: 1px solid #1e1e1e;
+      border-radius: 4px;
+      background: #0f0f0f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      min-height: 240px;
+    }
+
+    .output-area svg { max-width: 100%; max-height: 100%; }
+    .empty-output { font-family: 'Space Mono', monospace; font-size: 11px; color: #2a2a2a; }
+
+    .download-btn {
+      background: transparent; color: var(--text); border: 1px solid #2a2a2a;
+      padding: 12px 24px;
+      font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em;
+      text-transform: uppercase; cursor: pointer; border-radius: 3px;
+      transition: border-color 0.15s, color 0.15s; width: 100%;
+    }
+
+    .download-btn:hover:not(:disabled) { border-color: var(--text); color: #fff; }
+    .download-btn:disabled { color: #333; border-color: #1e1e1e; cursor: not-allowed; }
+
+    .status-bar {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 0 0;
+    }
+
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; background: #2a2a2a; flex-shrink: 0; }
+    .status-dot.active { background: var(--accent); animation: pulse 1.2s ease-in-out infinite; }
+    .status-dot.done { background: #4caf50; }
+    .status-dot.error { background: #f44336; }
+
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    .status-text { font-family: 'Space Mono', monospace; font-size: 10px; color: #444; letter-spacing: 0.05em; }
+
+    .spinner {
+      width: 28px; height: 28px; border: 2px solid #1e1e1e;
+      border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .processing-overlay {
+      position: absolute; inset: 0; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 12px;
+      background: rgba(13,13,13,0.85);
+    }
+
+    .processing-label { font-family: 'Space Mono', monospace; font-size: 10px; color: #555; letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* CONTENT SECTION */
+    .content-section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 40px 80px;
+    }
+
+    .content-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 48px 0;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .content-block h2 {
+      font-size: 17px;
+      font-weight: 500;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .content-block p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .use-cases {
+      margin-top: 6px;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .use-cases li {
+      font-size: 14px;
+      color: var(--muted);
+      padding-left: 16px;
+      position: relative;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .use-cases li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: #333;
+    }
+
+    .faq { display: flex; flex-direction: column; gap: 0; }
+
+    .faq-item {
+      border-top: 1px solid var(--border);
+      padding: 20px 0;
+    }
+
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+
+    .faq-q {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .faq-a {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .cta-strip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .cta-text h3 { font-size: 16px; font-weight: 500; margin-bottom: 6px; }
+    .cta-text p { font-size: 13px; color: var(--muted); font-weight: 300; }
+
+    .cta-btn {
+      background: var(--accent); color: #fff; text-decoration: none;
+      padding: 12px 24px; font-family: 'Space Mono', monospace; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      border-radius: 3px; transition: background 0.15s; white-space: nowrap;
+    }
+
+    .cta-btn:hover { background: #e04d20; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 40px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+
+    .footer-copy { font-size: 12px; color: #444; }
+    .footer-link { font-size: 12px; color: #444; text-decoration: none; transition: color 0.15s; }
+    .footer-link:hover { color: var(--muted); }
+
+    @media (max-width: 680px) {
+      nav { padding: 16px 20px; }
+      .page-hero { padding: 36px 20px 28px; }
+      .tool-wrapper { padding: 24px 20px; }
+      .converter { grid-template-columns: 1fr; }
+      .content-section { padding: 0 20px 60px; }
+      .content-grid { grid-template-columns: 1fr; gap: 28px; }
+      footer { padding: 24px 20px; }
+      .cta-strip { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-primary">Printkeg</span>
+      <span class="nav-logo-secondary">Tools</span>
+    </a>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Tools</a>
+      <span>›</span>
+      <span>Image to Vector</span>
+    </nav>
+  </nav>
+
+  <main>
+    <div class="page-hero">
+      <p class="page-eyebrow">Free Online Tool</p>
+      <h1 class="page-heading">
+        Image to Vector Converter<br />
+        <strong>JPG & PNG to SVG — Free</strong>
+      </h1>
+      <p class="page-sub">Upload a raster image and convert it to a scalable SVG vector file using AI. No account needed, no software to install.</p>
+    </div>
+
+    <!-- TOOL -->
+    <div class="tool-wrapper">
+      <div class="converter" id="converter">
+
+        <!-- INPUT -->
+        <div class="panel">
+          <div class="panel-label">Input — JPG / PNG</div>
+          <div class="drop-zone" id="dropZone">
+            <input type="file" id="fileInput" accept="image/jpeg,image/png" />
+            <div class="drop-icon">⬆</div>
+            <div class="drop-text">
+              Drop image here or click to browse
+              <span>JPG / PNG — recommended under 4MB</span>
+            </div>
+          </div>
+          <div class="complexity-row">
+            <div class="complexity-label">Detail</div>
+            <div class="complexity-options" id="complexityOptions">
+              <button class="complexity-opt" data-val="simple">Simple</button>
+              <button class="complexity-opt selected" data-val="balanced">Balanced</button>
+              <button class="complexity-opt" data-val="detailed">Detailed</button>
+            </div>
+          </div>
+          <button class="convert-btn" id="convertBtn" disabled>Convert to Vector</button>
+        </div>
+
+        <!-- OUTPUT -->
+        <div class="panel">
+          <div class="panel-label">Output — SVG Vector</div>
+          <div class="output-area" id="outputArea">
+            <span class="empty-output" id="emptyMsg">output appears here</span>
+          </div>
+          <button class="download-btn" id="downloadBtn" disabled>↓ Download SVG</button>
+          <div class="status-bar">
+            <div class="status-dot" id="statusDot"></div>
+            <div class="status-text" id="statusText">Ready</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content-section">
+      <hr class="content-divider" />
+
+      <div class="content-grid">
+        <div class="content-block">
+          <h2>What is a vector SVG file?</h2>
+          <p>SVG (Scalable Vector Graphics) stores images as mathematical paths rather than pixels. Unlike JPG or PNG files, an SVG can be scaled to any size — from a business card to a billboard — without losing sharpness or clarity. It's the standard format for logos, icons, and print-ready artwork.</p>
+        </div>
+        <div class="content-block">
+          <h2>What converts best?</h2>
+          <ul class="use-cases">
+            <li>Logos and wordmarks</li>
+            <li>Icons and simple illustrations</li>
+            <li>Flat or limited-color artwork</li>
+            <li>Line art and sketches</li>
+            <li>Clipart and graphic elements</li>
+          </ul>
+          <p style="margin-top: 12px;">Complex photographs will be stylized and interpreted — not photorealistic.</p>
+        </div>
+        <div class="content-block">
+          <h2>How to use this tool</h2>
+          <p>Upload a JPG or PNG, choose a detail level, and click Convert. The AI analyzes your image and generates a true SVG using only vector paths, shapes, and gradients — no embedded pixels. Download the result and open it in Illustrator, Inkscape, Figma, or any vector editor.</p>
+        </div>
+        <div class="content-block">
+          <h2>Detail level explained</h2>
+          <p><strong style="color:var(--text);font-weight:500;">Simple</strong> — Bold, clean shapes. Best for logos and icons you plan to edit further.<br /><br />
+          <strong style="color:var(--text);font-weight:500;">Balanced</strong> — A mix of accuracy and clean output. Good all-around starting point.<br /><br />
+          <strong style="color:var(--text);font-weight:500;">Detailed</strong> — Maximum complexity with gradients and fine paths. Best for illustrations.</p>
+        </div>
+      </div>
+
+      <hr class="content-divider" />
+
+      <h2 style="font-size:18px;font-weight:500;margin-bottom:24px;">Frequently Asked Questions</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <div class="faq-q">Is this vector converter really free?</div>
+          <div class="faq-a">Yes — completely free. No account, no watermarks, no usage limits. It's one of several free tools Printkeg provides for artists and designers.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Can I use the SVG for commercial printing?</div>
+          <div class="faq-a">Yes. SVG files are resolution-independent, making them ideal for any print size. You can also open the file in Adobe Illustrator or Inkscape to refine it before sending to a print shop.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What's the difference between this and tools like Vectorizer.ai or Adobe Express?</div>
+          <div class="faq-a">Most vectorizers use edge-detection algorithms to trace pixels into paths. This tool uses AI vision to understand and interpret the image, which can produce more stylistically clean results — especially for logos and illustrations.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Is my image stored or saved anywhere?</div>
+          <div class="faq-a">No. Your image is sent directly to the AI model for conversion and is not stored on our servers. The output SVG exists only in your browser session.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What file size should I use?</div>
+          <div class="faq-a">Images under 4MB work best. Very large files may slow processing. For best results, crop your image to just the subject before uploading.</div>
+        </div>
+      </div>
+
+      <hr class="content-divider" />
+
+      <div class="cta-strip">
+        <div class="cta-text">
+          <h3>Need your artwork printed?</h3>
+          <p>Printkeg prints posters, fine art, greeting cards, stickers, and more — shipped fast to artists and small businesses across the US.</p>
+        </div>
+        <a href="https://www.printkeg.com" class="cta-btn" target="_blank" rel="noopener">Shop Printkeg ↗</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span class="footer-copy">© 2025 Printkeg. All rights reserved.</span>
+    <a href="/" class="footer-link">← All Tools</a>
+  </footer>
+
+  <script>
+    // --- Replace this URL with your Railway/Cloudflare Worker proxy endpoint ---
+    const PROXY_URL = 'https://YOUR-PROXY.railway.app/convert';
+
+    let imageFile = null;
+    let imagePreview = null;
+    let svgOutput = null;
+    let complexity = 'balanced';
+    let isLoading = false;
+
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('fileInput');
+    const convertBtn = document.getElementById('convertBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const outputArea = document.getElementById('outputArea');
+    const emptyMsg = document.getElementById('emptyMsg');
+    const statusDot = document.getElementById('statusDot');
+    const statusText = document.getElementById('statusText');
+
+    const COMPLEXITY_PROMPTS = {
+      simple: 'Use simple, clean shapes. Prioritize bold forms over fine detail. Ideal for logos and icons.',
+      balanced: 'Balance detail and simplicity. Capture the main shapes, colors, and key features clearly.',
+      detailed: 'Maximize detail and accuracy. Use many paths and gradients to closely replicate the original.',
+    };
+
+    document.querySelectorAll('.complexity-opt').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.complexity-opt').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        complexity = btn.dataset.val;
+      });
+    });
+
+    function setStatus(type, message) {
+      statusDot.className = 'status-dot' + (type ? ' ' + type : '');
+      statusText.textContent = message;
+    }
+
+    function handleFile(file) {
+      if (!file || !['image/jpeg', 'image/png', 'image/jpg'].includes(file.type)) return;
+      imageFile = file;
+      svgOutput = null;
+      downloadBtn.disabled = true;
+      outputArea.innerHTML = '<span class="empty-output" id="emptyMsg">output appears here</span>';
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        imagePreview = e.target.result;
+        dropZone.innerHTML = `<img src="${imagePreview}" class="preview-img" alt="preview" />`;
+        convertBtn.disabled = false;
+        setStatus('', 'Image loaded — ready to convert');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    fileInput.addEventListener('change', (e) => handleFile(e.target.files[0]));
+
+    dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('dragging'); });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragging'));
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('dragging');
+      handleFile(e.dataTransfer.files[0]);
+    });
+
+    convertBtn.addEventListener('click', async () => {
+      if (!imageFile || !imagePreview || isLoading) return;
+      isLoading = true;
+      svgOutput = null;
+      convertBtn.disabled = true;
+      downloadBtn.disabled = true;
+      setStatus('active', 'Analyzing image with AI...');
+
+      outputArea.innerHTML = `
+        <div class="processing-overlay">
+          <div class="spinner"></div>
+          <div class="processing-label">Generating vectors...</div>
+        </div>`;
+
+      try {
+        const base64 = imagePreview.split(',')[1];
+        const mediaType = imageFile.type;
+
+        const response = await fetch(PROXY_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            base64,
+            mediaType,
+            complexity,
+            prompt: COMPLEXITY_PROMPTS[complexity],
+          }),
+        });
+
+        const data = await response.json();
+        const raw = (data.svg || data.content || '');
+        const match = typeof raw === 'string' ? raw.match(/<svg[\s\S]*<\/svg>/i) : null;
+
+        if (match) {
+          svgOutput = match[0];
+          outputArea.innerHTML = svgOutput;
+          downloadBtn.disabled = false;
+          setStatus('done', 'Vector conversion complete');
+        } else {
+          outputArea.innerHTML = '<span class="empty-output">Conversion failed — try again</span>';
+          setStatus('error', 'Could not extract SVG — try again');
+        }
+      } catch (err) {
+        outputArea.innerHTML = '<span class="empty-output">Error — check proxy connection</span>';
+        setStatus('error', 'Error: ' + err.message);
+      }
+
+      isLoading = false;
+      convertBtn.disabled = false;
+    });
+
+    downloadBtn.addEventListener('click', () => {
+      if (!svgOutput) return;
+      const blob = new Blob([svgOutput], { type: 'image/svg+xml' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = (imageFile?.name?.replace(/\.[^.]+$/, '') || 'vector') + '.svg';
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+  </script>
+
+</body>
+</html>
