@@ -3,36 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Free Print Tools for Artists & Designers | Printkeg</title>
-  <meta name="description" content="Free online tools for artists, designers, and small businesses. Convert images to vector SVG, check print resolution, calculate print sizes, and more — from Printkeg." />
+  <title>Free Print Tools for Artists & Designers | Printkeg Tools</title>
+  <meta name="description" content="Free online tools for artists, designers, and small businesses. Check print resolution, generate bleed guides, verify color mode, calculate print sizes, and more — from Printkeg." />
+  <meta name="keywords" content="free print tools, print file preparation, DPI checker, bleed guide, RGB CMYK checker, print size calculator, print ready file tools" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://tools.printkeg.com/" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Free Print Tools for Artists & Designers | Printkeg" />
-  <meta property="og:description" content="Free online tools for artists, designers, and small businesses — from Printkeg." />
+  <meta property="og:title" content="Free Print Tools for Artists & Designers | Printkeg Tools" />
+  <meta property="og:description" content="Free online tools to help artists, designers, and small businesses prepare print-ready files — from Printkeg." />
   <meta property="og:url" content="https://tools.printkeg.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://tools.printkeg.com/og-image.jpg" />
 
-  <!-- Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Printkeg Tools",
     "url": "https://tools.printkeg.com",
-    "description": "Free online print tools for artists, designers, and small businesses.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Printkeg",
-      "url": "https://www.printkeg.com"
-    }
+    "description": "Free online print preparation tools for artists, designers, and small businesses.",
+    "publisher": { "@type": "Organization", "name": "Printkeg", "url": "https://www.printkeg.com" }
   }
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -40,9 +35,12 @@
     :root {
       --bg: #0d0d0d;
       --surface: #141414;
-      --border: #222;
+      --surface-2: #1c1c1c;
+      --border: #2a2a2a;
       --text: #f0ede6;
-      --muted: #aaa;
+      --muted: #b0aba0;
+      --subtle: #888;
+      --dim: #555;
       --accent: #ff5c2b;
       --accent-dim: rgba(255, 92, 43, 0.08);
     }
@@ -61,107 +59,38 @@
     nav {
       border-bottom: 1px solid var(--border);
       padding: 18px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0;
       background: rgba(13,13,13,0.92);
       backdrop-filter: blur(12px);
       z-index: 100;
     }
 
-    .nav-logo {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-      text-decoration: none;
-    }
-
-    .nav-logo-primary {
-      font-family: 'Space Mono', monospace;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text);
-    }
-
-    .nav-logo-secondary {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      color: var(--accent);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .nav-link {
-      font-size: 13px;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-
+    .nav-logo { display: flex; align-items: baseline; gap: 10px; text-decoration: none; }
+    .nav-logo-primary { font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); }
+    .nav-logo-secondary { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; }
+    .nav-link { font-size: 13px; color: var(--subtle); text-decoration: none; transition: color 0.15s; }
     .nav-link:hover { color: var(--text); }
 
     /* HERO */
-    .hero {
-      padding: 80px 40px 60px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .hero-eyebrow {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 20px;
-    }
-
-    .hero-heading {
-      font-family: 'DM Sans', sans-serif;
-      font-size: clamp(32px, 5vw, 52px);
-      font-weight: 300;
-      line-height: 1.15;
-      color: var(--text);
-      margin-bottom: 20px;
-    }
-
-    .hero-heading strong {
-      font-weight: 500;
-    }
-
-    .hero-sub {
-      font-size: 16px;
-      color: var(--muted);
-      line-height: 1.7;
-      max-width: 560px;
-      font-weight: 300;
-    }
+    .hero { padding: 80px 40px 60px; max-width: 960px; margin: 0 auto; }
+    .hero-eyebrow { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .hero-heading { font-family: 'DM Sans', sans-serif; font-size: clamp(32px, 5vw, 52px); font-weight: 300; line-height: 1.15; color: var(--text); margin-bottom: 20px; }
+    .hero-heading strong { font-weight: 500; }
+    .hero-sub { font-size: 16px; color: var(--muted); line-height: 1.7; max-width: 560px; font-weight: 300; }
 
     /* TOOLS GRID */
-    .tools-section {
-      padding: 20px 40px 80px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
+    .tools-section { padding: 20px 40px 0; max-width: 960px; margin: 0 auto; }
 
     .section-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #888;
-      margin-bottom: 24px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border);
+      font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--subtle); margin-bottom: 24px;
+      padding-bottom: 12px; border-bottom: 1px solid var(--border);
     }
 
     .tools-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1px;
       background: var(--border);
       border: 1px solid var(--border);
@@ -170,112 +99,102 @@
     }
 
     .tool-card {
-      background: var(--surface);
-      padding: 28px;
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      transition: background 0.15s;
-      position: relative;
+      background: var(--surface); padding: 28px;
+      text-decoration: none; display: flex; flex-direction: column; gap: 12px;
+      transition: background 0.15s; position: relative;
     }
+    .tool-card:hover { background: #181818; }
+    .tool-card:hover .tool-arrow { transform: translate(3px, -3px); color: var(--accent); }
 
-    .tool-card:hover {
-      background: #181818;
-    }
+    .tool-card.coming-soon { cursor: default; pointer-events: none; opacity: 0.45; }
+    .tool-card.external { }
 
-    .tool-card:hover .tool-arrow {
-      transform: translate(3px, -3px);
-      color: var(--accent);
-    }
-
-    .tool-card-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-    }
-
+    .tool-card-top { display: flex; align-items: flex-start; justify-content: space-between; }
     .tool-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 4px;
-      background: var(--accent-dim);
-      border: 1px solid rgba(255,92,43,0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 17px;
+      width: 36px; height: 36px; border-radius: 4px;
+      background: var(--accent-dim); border: 1px solid rgba(255,92,43,0.15);
+      display: flex; align-items: center; justify-content: center; font-size: 17px;
     }
-
-    .tool-arrow {
-      font-size: 16px;
-      color: #333;
-      transition: transform 0.2s, color 0.2s;
-    }
-
-    .tool-name {
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--text);
-      line-height: 1.3;
-    }
-
-    .tool-desc {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.6;
-      font-weight: 300;
-    }
-
-    .tool-tag {
-      font-family: 'Space Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #888;
-      margin-top: auto;
-    }
-
+    .tool-arrow { font-size: 16px; color: var(--dim); transition: transform 0.2s, color 0.2s; }
+    .tool-name { font-size: 15px; font-weight: 500; color: var(--text); line-height: 1.3; }
+    .tool-desc { font-size: 13px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+    .tool-tag { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--subtle); margin-top: auto; }
     .tool-tag.live { color: var(--accent); }
-    .tool-tag.soon { color: #666; }
+    .tool-tag.soon { color: var(--dim); }
+    .tool-tag.external { color: #4caf50; }
 
-    /* COMING SOON cards dimmed */
-    .tool-card.coming-soon {
-      cursor: default;
-      pointer-events: none;
-      opacity: 0.5;
+    /* SEO CONTENT */
+    .content-section { max-width: 960px; margin: 0 auto; padding: 0 40px 80px; }
+    .content-divider { border: none; border-top: 1px solid var(--border); margin: 60px 0 48px; }
+
+    .intro-block { max-width: 680px; margin-bottom: 48px; }
+    .intro-block h2 { font-size: 22px; font-weight: 300; line-height: 1.4; color: var(--text); margin-bottom: 16px; }
+    .intro-block h2 strong { font-weight: 500; }
+    .intro-block p { font-size: 15px; color: var(--muted); line-height: 1.8; font-weight: 300; }
+
+    .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin-bottom: 48px; }
+    .pillar { background: var(--surface); padding: 28px; display: flex; flex-direction: column; gap: 10px; }
+    .pillar-num { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--accent); letter-spacing: 0.1em; }
+    .pillar h3 { font-size: 15px; font-weight: 500; color: var(--text); }
+    .pillar p { font-size: 13px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+    .pillar a { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--accent); text-decoration: none; letter-spacing: 0.06em; margin-top: auto; transition: opacity 0.15s; }
+    .pillar a:hover { opacity: 0.75; }
+
+    .guide-section { margin-bottom: 48px; }
+    .guide-heading { font-size: 20px; font-weight: 400; color: var(--text); margin-bottom: 28px; }
+    .guide-heading strong { font-weight: 500; }
+    .steps { display: flex; flex-direction: column; gap: 0; }
+    .step { display: grid; grid-template-columns: 48px 1fr; gap: 20px; padding: 20px 0; border-top: 1px solid var(--border); align-items: start; }
+    .step:last-child { border-bottom: 1px solid var(--border); }
+    .step-num { font-family: 'Space Mono', monospace; font-size: 18px; font-weight: 700; color: var(--accent); padding-top: 2px; }
+    .step-content h4 { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+    .step-content p { font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+    .step-content a { color: var(--accent); text-decoration: none; }
+    .step-content a:hover { text-decoration: underline; }
+
+    .section-heading { font-size: 18px; font-weight: 500; margin-bottom: 24px; color: var(--text); }
+    .faq { display: flex; flex-direction: column; }
+    .faq-item { border-top: 1px solid var(--border); padding: 20px 0; }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+    .faq-q { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 8px; }
+    .faq-a { font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+    .faq-a a { color: var(--accent); text-decoration: none; }
+    .faq-a a:hover { text-decoration: underline; }
+
+    .cta-strip {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+      padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
     }
+    .cta-text h3 { font-size: 16px; font-weight: 500; margin-bottom: 6px; color: var(--text); }
+    .cta-text p { font-size: 13px; color: var(--muted); font-weight: 300; }
+    .cta-btn {
+      background: var(--accent); color: #fff; text-decoration: none; padding: 12px 24px;
+      font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; border-radius: 3px; transition: background 0.15s; white-space: nowrap;
+    }
+    .cta-btn:hover { background: #e04d20; }
 
-    /* FOOTER */
     footer {
-      border-top: 1px solid var(--border);
-      padding: 28px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
+      border-top: 1px solid var(--border); padding: 28px 40px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
     }
-
-    .footer-copy {
-      font-size: 12px;
-      color: #444;
-    }
-
-    .footer-link {
-      font-size: 12px;
-      color: #444;
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-
+    .footer-copy { font-size: 12px; color: var(--dim); }
+    .footer-link { font-size: 12px; color: var(--subtle); text-decoration: none; transition: color 0.15s; }
     .footer-link:hover { color: var(--muted); }
 
-    @media (max-width: 600px) {
+    @media (max-width: 760px) {
       nav { padding: 16px 20px; }
-      .hero { padding: 48px 20px 40px; }
-      .tools-section { padding: 0 20px 60px; }
+      .hero { padding: 48px 20px 36px; }
+      .tools-section { padding: 20px 20px 0; }
+      .tools-grid { grid-template-columns: 1fr 1fr; }
+      .content-section { padding: 0 20px 60px; }
+      .pillars-grid { grid-template-columns: 1fr; }
       footer { padding: 24px 20px; }
+      .cta-strip { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 480px) {
+      .tools-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -296,25 +215,12 @@
         Prep your artwork.<br />
         <strong>Print with confidence.</strong>
       </h1>
-      <p class="hero-sub">
-        A growing collection of free tools for artists, designers, and small businesses — built to help you get print-ready faster.
-      </p>
+      <p class="hero-sub">A growing collection of free tools for artists, designers, and small businesses — built to help you get print-ready faster and avoid costly mistakes before you order.</p>
     </section>
 
     <section class="tools-section">
       <div class="section-label">Available Tools</div>
       <div class="tools-grid" role="list">
-
-        <!-- LIVE -->
-        <a href="/image-to-vector/" class="tool-card" role="listitem">
-          <div class="tool-card-top">
-            <div class="tool-icon">⬡</div>
-            <span class="tool-arrow">↗</span>
-          </div>
-          <div class="tool-name">Image to Vector Converter</div>
-          <div class="tool-desc">Convert a JPG or PNG into a scalable SVG vector file using AI. Great for logos, icons, and illustrations.</div>
-          <div class="tool-tag live">● Live</div>
-        </a>
 
         <a href="/photo-print-size-checker/" class="tool-card" role="listitem">
           <div class="tool-card-top">
@@ -336,45 +242,159 @@
           <div class="tool-tag live">● Live</div>
         </a>
 
-        <!-- COMING SOON placeholders -->
-        <div class="tool-card coming-soon" role="listitem">
+        <a href="/color-mode-checker/" class="tool-card" role="listitem">
+          <div class="tool-card-top">
+            <div class="tool-icon">◑</div>
+            <span class="tool-arrow">↗</span>
+          </div>
+          <div class="tool-name">Color Mode Checker</div>
+          <div class="tool-desc">Upload your image and instantly see if it's RGB or CMYK — with a clear warning if it needs converting before print.</div>
+          <div class="tool-tag live">● Live</div>
+        </a>
+
+        <a href="https://www.printkeg.com/pages/print-size-calculator" class="tool-card external" role="listitem" target="_blank" rel="noopener">
           <div class="tool-card-top">
             <div class="tool-icon">⊡</div>
+            <span class="tool-arrow">↗</span>
           </div>
           <div class="tool-name">Print Size Calculator</div>
           <div class="tool-desc">Enter your pixel dimensions and DPI to find the ideal print size — or work backwards from a target size.</div>
-          <div class="tool-tag soon">○ Coming Soon</div>
-        </div>
+          <div class="tool-tag external">● Printkeg.com</div>
+        </a>
 
-        <div class="tool-card coming-soon" role="listitem">
+        <a href="https://portal.printkeg.com" class="tool-card external" role="listitem" target="_blank" rel="noopener">
           <div class="tool-card-top">
-            <div class="tool-icon">◧</div>
+            <div class="tool-icon">⬡</div>
+            <span class="tool-arrow">↗</span>
           </div>
-          <div class="tool-name">Bleed & Safe Zone Guide</div>
-          <div class="tool-desc">Generate a bleed and safe zone template for any print size. Download as PDF or PNG.</div>
-          <div class="tool-tag soon">○ Coming Soon</div>
-        </div>
+          <div class="tool-name">Printkeg Portal</div>
+          <div class="tool-desc">Sell your art online and connect your storefront directly to Printkeg for automated print fulfillment.</div>
+          <div class="tool-tag external">● portal.printkeg.com</div>
+        </a>
 
         <div class="tool-card coming-soon" role="listitem">
           <div class="tool-card-top">
             <div class="tool-icon">◈</div>
           </div>
           <div class="tool-name">Color Profile Converter</div>
-          <div class="tool-desc">Preview how your RGB artwork will shift when converted to CMYK for press printing.</div>
-          <div class="tool-tag soon">○ Coming Soon</div>
-        </div>
-
-        <div class="tool-card coming-soon" role="listitem">
-          <div class="tool-card-top">
-            <div class="tool-icon">⬙</div>
-          </div>
-          <div class="tool-name">Mockup Generator</div>
-          <div class="tool-desc">Drop in your artwork and preview it on a print mockup — poster, card, tote, and more.</div>
+          <div class="tool-desc">Preview how your RGB artwork will shift when converted to CMYK — side by side, before you send to print.</div>
           <div class="tool-tag soon">○ Coming Soon</div>
         </div>
 
       </div>
     </section>
+
+    <!-- SEO CONTENT -->
+    <div class="content-section">
+      <hr class="content-divider" />
+
+      <div class="intro-block">
+        <h2>Print tools built for artists,<br /><strong>not print engineers.</strong></h2>
+        <p>Getting a file print-ready shouldn't require a design degree. These tools cover the most common mistakes artists make when preparing artwork for professional printing — wrong resolution, missing bleed, RGB color mode — and make them easy to catch and fix before you place an order.</p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar">
+          <div class="pillar-num">01 — Resolution</div>
+          <h3>DPI matters more than file size</h3>
+          <p>A large file doesn't guarantee a sharp print. What matters is pixel density at your target print size. 300 DPI is the professional standard — below 200 DPI and most prints will look noticeably soft.</p>
+          <a href="/photo-print-size-checker/">Check your photo's print sizes →</a>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">02 — Bleed</div>
+          <h3>Without bleed, you get white edges</h3>
+          <p>Print cutting machines aren't perfectly precise. Bleed — typically 0.125" of extra artwork beyond the trim edge — ensures your background fills the entire print even if the cut is slightly off.</p>
+          <a href="/bleed-safe-zone-guide/">Generate a bleed guide →</a>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">03 — Color Mode</div>
+          <h3>RGB looks different in print</h3>
+          <p>Screens use RGB light to create color. Printers use CMYK ink. Vivid screen colors — especially bright blues, purples, and oranges — can shift significantly when converted to CMYK for press printing.</p>
+          <a href="/color-mode-checker/">Check your color mode →</a>
+        </div>
+      </div>
+
+      <div class="guide-section">
+        <h2 class="guide-heading">How to prepare a <strong>print-ready file</strong> — step by step</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">01</div>
+            <div class="step-content">
+              <h4>Set up your document at the correct size with bleed</h4>
+              <p>Create your document at the final print size plus 0.125" bleed on all sides. For an 8×10 print, your canvas should be 8.25" × 10.25". Use <a href="/bleed-safe-zone-guide/">our bleed guide</a> to get the exact dimensions for any size.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">02</div>
+            <div class="step-content">
+              <h4>Work in CMYK color mode from the start</h4>
+              <p>In Photoshop go to Image → Mode → CMYK before you start designing. In Illustrator go to File → Document Color Mode → CMYK. Starting in CMYK means no surprise color shifts at the end. Use <a href="/color-mode-checker/">our color mode checker</a> to verify your file.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">03</div>
+            <div class="step-content">
+              <h4>Design at 300 DPI</h4>
+              <p>Set your document resolution to 300 DPI at the final print size. If you're using photos, check their resolution first — a low-resolution photo can't be sharpened by increasing the DPI setting. Use <a href="/photo-print-size-checker/">our print size checker</a> to see what sizes your photos support.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">04</div>
+            <div class="step-content">
+              <h4>Keep critical content inside the safe zone</h4>
+              <p>Text, logos, faces, and any element you don't want cut off should stay at least 0.125" inside the trim edge. Backgrounds and non-critical design elements can extend all the way to the bleed edge.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">05</div>
+            <div class="step-content">
+              <h4>Export as CMYK TIFF or high-quality PDF</h4>
+              <p>For best results save as a TIFF (no compression) or PDF/X-1a. If saving as JPG, use maximum quality (12 in Photoshop). Avoid PNG for press printing — it uses RGB and doesn't support CMYK profiles well.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="content-divider" />
+
+      <h2 class="section-heading">Frequently Asked Questions</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <div class="faq-q">What DPI do I need for a quality print?</div>
+          <div class="faq-a">300 DPI is the professional standard for sharp, gallery-quality results. 200–299 DPI is acceptable for larger prints viewed at normal distance. Below 200 DPI will usually look noticeably soft or pixelated. Use our <a href="/photo-print-size-checker/">Photo Print Size Checker</a> to see what sizes your image supports at 300 DPI.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What is bleed and why do I need it?</div>
+          <div class="faq-a">Bleed is extra artwork that extends beyond the final trim edge of your print — typically 0.125" on each side. It ensures that if the cutting machine is slightly off, there are no white unprinted edges on your finished piece. Any background that goes to the edge of your design must extend into the bleed area.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What is the difference between RGB and CMYK for printing?</div>
+          <div class="faq-a">RGB is the color model used by screens — it creates color from light. CMYK is the model used by printers — it creates color from ink. Some RGB colors, especially vivid blues, purples, and neons, fall outside the CMYK color gamut and will shift when converted. Always work in CMYK for print projects. Check your file with our <a href="/color-mode-checker/">Color Mode Checker</a>.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Can I print a photo taken on my phone?</div>
+          <div class="faq-a">Often yes — modern smartphones shoot at 12–50 megapixels, which can support surprisingly large prints. The answer depends on your specific photo's pixel dimensions. Upload it to our <a href="/photo-print-size-checker/">Photo Print Size Checker</a> to find out exactly what sizes will look sharp.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What file format should I use for printing?</div>
+          <div class="faq-a">TIFF (uncompressed, CMYK) and PDF/X-1a are the best formats for professional printing. High-quality CMYK JPG is also widely accepted. Avoid PNG for press printing as it uses RGB and doesn't support CMYK color profiles. Printkeg accepts TIFF, PDF, and JPG files.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Are these tools really free?</div>
+          <div class="faq-a">Yes — all tools on this site are completely free with no account, sign-up, or usage limits required. They're built and maintained by Printkeg as a resource for artists, designers, and small businesses.</div>
+        </div>
+      </div>
+
+      <hr class="content-divider" />
+
+      <div class="cta-strip">
+        <div class="cta-text">
+          <h3>Ready to print your artwork?</h3>
+          <p>Printkeg prints fine art prints, posters, greeting cards, stickers, booklets, and more — shipped fast to artists and small businesses across the US.</p>
+        </div>
+        <a href="https://www.printkeg.com" class="cta-btn" target="_blank" rel="noopener">Shop Printkeg ↗</a>
+      </div>
+    </div>
   </main>
 
   <footer>
