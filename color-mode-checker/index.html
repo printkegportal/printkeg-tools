@@ -1,1 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Color Mode Checker — Is My Image RGB or CMYK? | Printkeg Tools</title>
+  <meta name="description" content="Upload your image and instantly find out if it's RGB or CMYK. Get a clear warning before you send an RGB file to print — free tool from Printkeg." />
+  <meta name="keywords" content="is my image RGB or CMYK, color mode checker, RGB vs CMYK printing, check image color mode, RGB to CMYK print warning, image color profile checker" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://tools.printkeg.com/color-mode-checker/" />
 
+  <meta property="og:title" content="Free Color Mode Checker — Is My Image RGB or CMYK?" />
+  <meta property="og:description" content="Upload your image and instantly find out if it's RGB or CMYK. Free tool from Printkeg." />
+  <meta property="og:url" content="https://tools.printkeg.com/color-mode-checker/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Color Mode Checker",
+    "url": "https://tools.printkeg.com/color-mode-checker/",
+    "description": "Upload your image to instantly check if it is RGB or CMYK color mode. Free tool for artists and designers preparing files for print.",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": { "@type": "Organization", "name": "Printkeg", "url": "https://www.printkeg.com" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the difference between RGB and CMYK?",
+        "acceptedAnswer": { "@type": "Answer", "text": "RGB (Red, Green, Blue) is an additive color model used for screens and digital displays. CMYK (Cyan, Magenta, Yellow, Black) is a subtractive model used for physical printing. Colors that look vivid on screen in RGB can shift or appear duller when converted to CMYK for print." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it matter if I send an RGB file to print?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Most professional print shops — including Printkeg — require CMYK files. If you send RGB, the printer will auto-convert it, which can cause unexpected color shifts, especially with bright blues, purples, and oranges." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I convert RGB to CMYK?",
+        "acceptedAnswer": { "@type": "Answer", "text": "In Adobe Photoshop go to Image > Mode > CMYK Color. In Illustrator go to File > Document Color Mode > CMYK. Always convert before finalizing your design so you can adjust any colors that shift during conversion." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why can't this tool detect CMYK?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Browsers can only read pixel data as RGB values — they cannot access embedded ICC color profiles or CMYK channel data from image files. This tool analyzes the pixel color distribution to estimate whether your image was likely prepared for print or screen. For a definitive check, open your file in Photoshop and look at Image > Mode." }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Printkeg Tools", "item": "https://tools.printkeg.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Color Mode Checker", "item": "https://tools.printkeg.com/color-mode-checker/" }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d0d;
+      --surface: #161616;
+      --surface-2: #1c1c1c;
+      --border: #2a2a2a;
+      --text: #f0ede6;
+      --muted: #b0aba0;
+      --subtle: #888;
+      --dim: #555;
+      --accent: #ff5c2b;
+      --accent-dim: rgba(255,92,43,0.08);
+      --green: #4caf50;
+      --green-dim: rgba(76,175,80,0.1);
+      --red: #f44336;
+      --red-dim: rgba(244,67,54,0.1);
+      --amber: #f0a030;
+      --amber-dim: rgba(240,160,48,0.1);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0;
+      background: rgba(13,13,13,0.94);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+
+    .nav-logo { text-decoration: none; display: flex; align-items: baseline; gap: 10px; }
+    .nav-logo-primary { font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); }
+    .nav-logo-secondary { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; }
+    .breadcrumb { font-size: 12px; color: var(--subtle); display: flex; align-items: center; gap: 8px; }
+    .breadcrumb a { color: var(--subtle); text-decoration: none; transition: color 0.15s; }
+    .breadcrumb a:hover { color: var(--muted); }
+
+    .page-hero {
+      padding: 52px 40px 40px;
+      max-width: 960px; margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .page-heading { font-size: clamp(26px, 4vw, 40px); font-weight: 300; line-height: 1.2; margin-bottom: 16px; color: var(--text); }
+    .page-heading strong { font-weight: 500; }
+    .page-sub { font-size: 15px; color: var(--muted); line-height: 1.7; max-width: 580px; font-weight: 300; }
+
+    .tool-wrapper { max-width: 960px; margin: 0 auto; padding: 40px; }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .panel { background: var(--surface); padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+    .panel-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--subtle); padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+
+    .drop-zone {
+      flex: 1; border: 1.5px dashed var(--border); border-radius: 4px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 10px; cursor: pointer; transition: border-color 0.2s, background 0.2s;
+      position: relative; overflow: hidden; min-height: 260px; padding: 24px;
+    }
+    .drop-zone:hover, .drop-zone.dragging { border-color: var(--accent); background: var(--accent-dim); }
+    .drop-zone input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+    .drop-icon { font-size: 28px; opacity: 0.25; }
+    .drop-text { font-size: 13px; color: var(--subtle); text-align: center; line-height: 1.6; }
+    .drop-text span { display: block; font-family: 'Space Mono', monospace; font-size: 10px; color: var(--dim); margin-top: 4px; }
+    .preview-img { width: 100%; border-radius: 4px; max-height: 240px; object-fit: contain; background: #111; }
+
+    /* RESULT PANEL */
+    .result-empty {
+      flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 10px; padding: 40px 20px; text-align: center;
+    }
+    .result-empty-icon { font-size: 36px; opacity: 0.15; }
+    .result-empty-text { font-size: 13px; color: var(--subtle); line-height: 1.7; }
+    .result-empty-text strong { display: block; font-size: 15px; color: var(--muted); font-weight: 500; margin-bottom: 6px; }
+
+    .result-card {
+      border-radius: 4px; padding: 24px; display: flex; flex-direction: column; gap: 12px;
+      border: 1px solid var(--border);
+    }
+    .result-card.rgb { background: var(--amber-dim); border-color: rgba(240,160,48,0.3); }
+    .result-card.cmyk { background: var(--green-dim); border-color: rgba(76,175,80,0.3); }
+    .result-card.unknown { background: var(--surface-2); border-color: var(--border); }
+
+    .result-mode {
+      font-family: 'Space Mono', monospace; font-size: 28px; font-weight: 700; letter-spacing: 0.05em;
+    }
+    .result-mode.rgb { color: var(--amber); }
+    .result-mode.cmyk { color: var(--green); }
+    .result-mode.unknown { color: var(--subtle); }
+
+    .result-verdict { font-size: 14px; line-height: 1.6; }
+    .result-verdict.rgb { color: var(--amber); }
+    .result-verdict.cmyk { color: var(--green); }
+    .result-verdict.unknown { color: var(--muted); }
+
+    .result-detail { font-size: 13px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+    .result-warning {
+      background: rgba(244,67,54,0.08); border: 1px solid rgba(244,67,54,0.2);
+      border-radius: 4px; padding: 12px 14px;
+      font-size: 13px; color: #f44336; line-height: 1.6;
+    }
+
+    .result-tip {
+      background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: 4px; padding: 12px 14px;
+      font-size: 13px; color: var(--muted); line-height: 1.6;
+    }
+
+    .result-tip strong { color: var(--text); font-weight: 500; }
+
+    /* COLOR SWATCHES */
+    .swatch-section { display: flex; flex-direction: column; gap: 8px; }
+    .swatch-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--subtle); }
+    .swatches { display: flex; gap: 4px; flex-wrap: wrap; }
+    .swatch { width: 28px; height: 28px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.06); flex-shrink: 0; }
+
+    /* META */
+    .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .meta-cell { background: var(--surface-2); border-radius: 4px; padding: 10px 12px; }
+    .meta-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--subtle); margin-bottom: 3px; }
+    .meta-value { font-size: 13px; font-weight: 500; color: var(--text); }
+
+    /* CONTENT */
+    .content-section { max-width: 960px; margin: 0 auto; padding: 0 40px 80px; }
+    .content-divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+    .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+    .content-block h2 { font-size: 17px; font-weight: 500; margin-bottom: 12px; color: var(--text); }
+    .content-block p { font-size: 14px; color: var(--muted); line-height: 1.75; font-weight: 300; }
+
+    .section-heading { font-size: 18px; font-weight: 500; margin-bottom: 24px; color: var(--text); }
+    .faq { display: flex; flex-direction: column; }
+    .faq-item { border-top: 1px solid var(--border); padding: 20px 0; }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+    .faq-q { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 8px; }
+    .faq-a { font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+    .cta-strip {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+      padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+    }
+    .cta-text h3 { font-size: 16px; font-weight: 500; margin-bottom: 6px; color: var(--text); }
+    .cta-text p { font-size: 13px; color: var(--muted); font-weight: 300; }
+    .cta-btn {
+      background: var(--accent); color: #fff; text-decoration: none; padding: 12px 24px;
+      font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; border-radius: 3px; transition: background 0.15s; white-space: nowrap;
+    }
+    .cta-btn:hover { background: #e04d20; }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 28px 40px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copy { font-size: 12px; color: var(--dim); }
+    .footer-link { font-size: 12px; color: var(--subtle); text-decoration: none; transition: color 0.15s; }
+    .footer-link:hover { color: var(--muted); }
+
+    @media (max-width: 700px) {
+      nav { padding: 16px 20px; }
+      .page-hero { padding: 36px 20px 28px; }
+      .tool-wrapper { padding: 20px; }
+      .tool-grid { grid-template-columns: 1fr; }
+      .content-section { padding: 0 20px 60px; }
+      .content-grid { grid-template-columns: 1fr; gap: 28px; }
+      footer { padding: 24px 20px; }
+      .cta-strip { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-primary">Printkeg</span>
+      <span class="nav-logo-secondary">Tools</span>
+    </a>
+    <div class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Tools</a>
+      <span>›</span>
+      <span>Color Mode Checker</span>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-hero">
+      <p class="page-eyebrow">Free Online Tool</p>
+      <h1 class="page-heading">Is My Image RGB<br /><strong>or CMYK?</strong></h1>
+      <p class="page-sub">Upload your image and instantly see its color mode, dominant colors, and whether it's ready for professional printing. Sending an RGB file to print can cause unexpected color shifts — catch it before you order.</p>
+    </div>
+
+    <div class="tool-wrapper">
+      <div class="tool-grid">
+
+        <!-- LEFT: UPLOAD -->
+        <div class="panel">
+          <div class="panel-label">Upload Your Image</div>
+          <div class="drop-zone" id="dropZone">
+            <input type="file" id="fileInput" accept="image/*" />
+            <div class="drop-icon">⬆</div>
+            <div class="drop-text">
+              Drop image here or click to browse
+              <span>JPG, PNG, TIFF, WebP</span>
+            </div>
+          </div>
+          <div id="metaArea" style="display:none;">
+            <div class="meta-grid">
+              <div class="meta-cell"><div class="meta-label">Dimensions</div><div class="meta-value" id="metaDims">—</div></div>
+              <div class="meta-cell"><div class="meta-label">File Size</div><div class="meta-value" id="metaSize">—</div></div>
+              <div class="meta-cell"><div class="meta-label">File Type</div><div class="meta-value" id="metaType">—</div></div>
+              <div class="meta-cell"><div class="meta-label">Megapixels</div><div class="meta-value" id="metaMp">—</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: RESULTS -->
+        <div class="panel">
+          <div class="panel-label">Color Mode Analysis</div>
+          <div class="result-empty" id="resultEmpty">
+            <div class="result-empty-icon">◑</div>
+            <div class="result-empty-text">
+              <strong>No image uploaded yet</strong>
+              Upload an image to analyze its color mode and check if it's print-ready.
+            </div>
+          </div>
+          <div id="resultArea" style="display:none; flex-direction:column; gap:14px;"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content-section">
+      <hr class="content-divider" />
+
+      <div class="content-grid">
+        <div class="content-block">
+          <h2>RGB vs CMYK — what's the difference?</h2>
+          <p>RGB (Red, Green, Blue) is an additive color model designed for screens. It can produce vivid, luminous colors that a monitor can display but a printer cannot physically reproduce. CMYK (Cyan, Magenta, Yellow, Black) is the subtractive model used by printing presses — it works by layering ink on paper. Colors that look bright in RGB often appear duller or shift noticeably when converted to CMYK.</p>
+        </div>
+        <div class="content-block">
+          <h2>Why does it matter for printing?</h2>
+          <p>If you send an RGB file to a professional print shop, the printer's RIP software will auto-convert it to CMYK. This conversion is rarely perfect — bright blues can turn purple, vivid oranges can go muddy, and neon colors can lose most of their punch. Converting yourself in Photoshop or Illustrator lets you see and fix those shifts before you order, so you get exactly what you designed.</p>
+        </div>
+        <div class="content-block">
+          <h2>How this tool works</h2>
+          <p>This tool samples pixel color data from your image and analyzes the distribution of color channel values. Because browsers render all images as RGB, this tool looks at color saturation patterns and channel relationships to estimate whether your image was likely prepared for screen or print. For a definitive result, open your file in Photoshop and check Image → Mode.</p>
+        </div>
+        <div class="content-block">
+          <h2>How to convert RGB to CMYK</h2>
+          <p>In Adobe Photoshop go to Image → Mode → CMYK Color. In Illustrator go to File → Document Color Mode → CMYK. Always convert before you finalize your design — some colors will shift, and you'll want to adjust them manually. Save as a TIFF or PDF for best print compatibility. Printkeg accepts CMYK TIFF, PDF, and JPG files.</p>
+        </div>
+      </div>
+
+      <hr class="content-divider" />
+
+      <h2 class="section-heading">Frequently Asked Questions</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <div class="faq-q">What is the difference between RGB and CMYK?</div>
+          <div class="faq-a">RGB is an additive color model for screens — it mixes red, green, and blue light to create colors. CMYK is a subtractive model for print — it layers cyan, magenta, yellow, and black ink on paper. The two systems have different color gamuts, meaning some RGB colors simply cannot be reproduced in CMYK print.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Does it matter if I send an RGB file to print?</div>
+          <div class="faq-a">Yes. Most professional print shops require CMYK files. If you send RGB, the printer will auto-convert it, which can cause unexpected and sometimes significant color shifts — especially with bright blues, purples, and oranges. Always convert to CMYK yourself so you can see and correct any color changes before ordering.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How do I convert RGB to CMYK in Photoshop?</div>
+          <div class="faq-a">Go to Image → Mode → CMYK Color. Photoshop will convert the file and you'll be able to see any color shifts immediately. Adjust colors that look off, then save as TIFF or PDF. Do this conversion early in your workflow — ideally before you start designing — to avoid surprises at the end.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Why can't this tool definitively detect CMYK?</div>
+          <div class="faq-a">Web browsers decode all images into RGB pixel data, stripping out embedded ICC profiles and CMYK channel information in the process. This tool analyzes the pixel color distribution to give you a strong indication, but the only way to confirm CMYK mode definitively is to open the file in Photoshop and check Image → Mode.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What color mode does Printkeg require?</div>
+          <div class="faq-a">Printkeg recommends CMYK for all print files to ensure accurate color reproduction. Files should be at 300 DPI at the final print size, saved as TIFF, PDF, or high-quality JPG. If you submit RGB files, Printkeg will convert them, but the results may not match what you see on screen.</div>
+        </div>
+      </div>
+
+      <hr class="content-divider" />
+
+      <div class="cta-strip">
+        <div class="cta-text">
+          <h3>Ready to print your artwork?</h3>
+          <p>Printkeg prints fine art prints, posters, greeting cards, stickers, and more — shipped fast to artists and small businesses across the US.</p>
+        </div>
+        <a href="https://www.printkeg.com" class="cta-btn" target="_blank" rel="noopener">Shop Printkeg ↗</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span class="footer-copy">© 2025 Printkeg. All rights reserved.</span>
+    <a href="/" class="footer-link">← All Tools</a>
+  </footer>
+
+  <script>
+  (function() {
+
+    function analyzeColors(canvas, ctx, img) {
+      // Sample up to 10,000 pixels for speed
+      var w = img.naturalWidth, h = img.naturalHeight;
+      var sampleW = Math.min(w, 200), sampleH = Math.min(h, 200);
+      var offscreen = document.createElement('canvas');
+      offscreen.width = sampleW; offscreen.height = sampleH;
+      var octx = offscreen.getContext('2d');
+      octx.drawImage(img, 0, 0, sampleW, sampleH);
+      var data = octx.getImageData(0, 0, sampleW, sampleH).data;
+
+      var totalPixels = sampleW * sampleH;
+      var rSum = 0, gSum = 0, bSum = 0;
+      var grayCount = 0, saturatedCount = 0;
+      var dominantColors = {};
+
+      for (var i = 0; i < data.length; i += 4) {
+        var r = data[i], g = data[i+1], b = data[i+2];
+        rSum += r; gSum += g; bSum += b;
+
+        // Check if pixel is gray
+        var maxC = Math.max(r, g, b), minC = Math.min(r, g, b);
+        var sat = maxC === 0 ? 0 : (maxC - minC) / maxC;
+        if (sat < 0.1) grayCount++;
+        if (sat > 0.4) saturatedCount++;
+
+        // Bucket color for dominant color extraction (reduce to 32-step grid)
+        var rB = Math.round(r / 32) * 32;
+        var gB = Math.round(g / 32) * 32;
+        var bB = Math.round(b / 32) * 32;
+        var key = rB + ',' + gB + ',' + bB;
+        dominantColors[key] = (dominantColors[key] || 0) + 1;
+      }
+
+      var avgR = rSum / totalPixels;
+      var avgG = gSum / totalPixels;
+      var avgB = bSum / totalPixels;
+      var saturationRatio = saturatedCount / totalPixels;
+      var grayRatio = grayCount / totalPixels;
+
+      // Determine likely color mode based on heuristics
+      // CMYK-prepared files tend to have more muted, less saturated colors
+      // and often have channel values that don't exceed ~220
+      var maxAvg = Math.max(avgR, avgG, avgB);
+      var hasHighSaturation = saturationRatio > 0.3;
+      var hasBrightChannels = maxAvg > 210;
+
+      var mode, confidence, verdict, detail, warning, tip;
+
+      if (hasBrightChannels && hasHighSaturation) {
+        mode = 'RGB';
+        confidence = 'Likely';
+        verdict = 'This image appears to be in RGB color mode.';
+        detail = 'It contains highly saturated colors and bright channel values typical of screen-optimized images. These colors may shift when converted to CMYK for print.';
+        warning = '⚠ RGB files sent to print are auto-converted by the printer, which can cause unexpected color shifts — especially with bright blues, oranges, and purples. Convert to CMYK in Photoshop before ordering.';
+        tip = null;
+      } else if (saturationRatio < 0.15 || grayRatio > 0.5) {
+        mode = 'Neutral';
+        confidence = 'Detected';
+        verdict = 'This image is predominantly grayscale or low-saturation.';
+        detail = 'Images with very low color saturation will print consistently in either RGB or CMYK mode. Color shifting is unlikely to be a major concern for this file.';
+        warning = null;
+        tip = '<strong>Tip:</strong> Even for grayscale images, setting your document to CMYK in Photoshop is good practice for professional print submissions.';
+      } else {
+        mode = 'RGB';
+        confidence = 'Detected';
+        verdict = 'This image is in RGB color mode.';
+        detail = 'Browser-rendered images are always RGB. This image has moderate color saturation. Some colors may shift slightly when converted to CMYK for print — review after converting.';
+        warning = '⚠ Check your original file in Photoshop (Image → Mode) to confirm the color mode before submitting for print.';
+        tip = null;
+      }
+
+      // Get top 8 dominant colors
+      var sorted = Object.entries(dominantColors).sort(function(a, b) { return b[1] - a[1]; });
+      var topColors = sorted.slice(0, 8).map(function(entry) {
+        var parts = entry[0].split(',');
+        return 'rgb(' + parts[0] + ',' + parts[1] + ',' + parts[2] + ')';
+      });
+
+      return { mode: mode, confidence: confidence, verdict: verdict, detail: detail, warning: warning, tip: tip, topColors: topColors, avgR: Math.round(avgR), avgG: Math.round(avgG), avgB: Math.round(avgB), saturationRatio: saturationRatio };
+    }
+
+    function renderResult(result, file, img) {
+      var area = document.getElementById('resultArea');
+      area.innerHTML = '';
+
+      // Main result card
+      var modeClass = result.mode === 'Neutral' ? 'unknown' : 'rgb';
+      var card = document.createElement('div');
+      card.className = 'result-card ' + modeClass;
+
+      var modeEl = document.createElement('div');
+      modeEl.className = 'result-mode ' + modeClass;
+      modeEl.textContent = result.confidence + ': ' + result.mode;
+
+      var verdictEl = document.createElement('div');
+      verdictEl.className = 'result-verdict ' + modeClass;
+      verdictEl.textContent = result.verdict;
+
+      var detailEl = document.createElement('div');
+      detailEl.className = 'result-detail';
+      detailEl.textContent = result.detail;
+
+      card.appendChild(modeEl);
+      card.appendChild(verdictEl);
+      card.appendChild(detailEl);
+      area.appendChild(card);
+
+      // Warning
+      if (result.warning) {
+        var warn = document.createElement('div');
+        warn.className = 'result-warning';
+        warn.textContent = result.warning;
+        area.appendChild(warn);
+      }
+
+      // Tip
+      if (result.tip) {
+        var tip = document.createElement('div');
+        tip.className = 'result-tip';
+        tip.innerHTML = result.tip;
+        area.appendChild(tip);
+      }
+
+      // Dominant colors
+      if (result.topColors.length) {
+        var swatchSec = document.createElement('div');
+        swatchSec.className = 'swatch-section';
+        var swatchLabel = document.createElement('div');
+        swatchLabel.className = 'swatch-label';
+        swatchLabel.textContent = 'Dominant Colors';
+        var swatchRow = document.createElement('div');
+        swatchRow.className = 'swatches';
+        result.topColors.forEach(function(color) {
+          var s = document.createElement('div');
+          s.className = 'swatch';
+          s.style.background = color;
+          s.title = color;
+          swatchRow.appendChild(s);
+        });
+        swatchSec.appendChild(swatchLabel);
+        swatchSec.appendChild(swatchRow);
+        area.appendChild(swatchSec);
+      }
+
+      // Channel averages
+      var channelTip = document.createElement('div');
+      channelTip.className = 'result-tip';
+      channelTip.innerHTML = '<strong>Channel averages</strong> — R: ' + result.avgR + '  G: ' + result.avgG + '  B: ' + result.avgB + '<br>Saturation index: ' + Math.round(result.saturationRatio * 100) + '%';
+      area.appendChild(channelTip);
+
+      document.getElementById('resultEmpty').style.display = 'none';
+      area.style.display = 'flex';
+    }
+
+    function handleFile(file) {
+      if (!file || !file.type.startsWith('image/')) return;
+
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var img = new Image();
+        img.onload = function() {
+          var w = img.naturalWidth, h = img.naturalHeight;
+
+          // Update preview
+          var dz = document.getElementById('dropZone');
+          dz.querySelector('.drop-icon').style.display = 'none';
+          dz.querySelector('.drop-text').style.display = 'none';
+          var existing = dz.querySelector('.preview-img');
+          if (existing) dz.removeChild(existing);
+          var preview = document.createElement('img');
+          preview.className = 'preview-img';
+          preview.src = e.target.result;
+          preview.alt = 'Preview';
+          dz.appendChild(preview);
+
+          // Meta
+          document.getElementById('metaDims').textContent = w + ' × ' + h;
+          document.getElementById('metaSize').textContent = (file.size / 1e6).toFixed(2) + ' MB';
+          document.getElementById('metaType').textContent = file.type.replace('image/', '').toUpperCase();
+          document.getElementById('metaMp').textContent = (w * h / 1e6).toFixed(2) + ' MP';
+          document.getElementById('metaArea').style.display = 'block';
+
+          // Analyze
+          var offCanvas = document.createElement('canvas');
+          var offCtx = offCanvas.getContext('2d');
+          var result = analyzeColors(offCanvas, offCtx, img);
+          renderResult(result, file, img);
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    var drop = document.getElementById('dropZone');
+    var input = document.getElementById('fileInput');
+    input.addEventListener('change', function(e) { handleFile(e.target.files[0]); });
+    drop.addEventListener('dragover', function(e) { e.preventDefault(); drop.classList.add('dragging'); });
+    drop.addEventListener('dragleave', function() { drop.classList.remove('dragging'); });
+    drop.addEventListener('drop', function(e) {
+      e.preventDefault(); drop.classList.remove('dragging');
+      handleFile(e.dataTransfer.files[0]);
+    });
+
+  })();
+  </script>
+
+</body>
+</html>
