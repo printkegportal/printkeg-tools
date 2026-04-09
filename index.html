@@ -3,51 +3,91 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Free Print Tools for Artists & Designers | Printkeg</title>
-  <meta name="description" content="Free online tools for artists, designers, and small businesses. Convert images to vector SVG, check print resolution, calculate print sizes, and more — from Printkeg." />
+  <title>Free Bleed & Safe Zone Guide for Print — Visual Template Generator | Printkeg Tools</title>
+  <meta name="description" content="Instantly generate a bleed and safe zone diagram for any print size. Learn what bleed is, why it matters, and download a visual template for your artwork. Free tool from Printkeg." />
+  <meta name="keywords" content="what is bleed in printing, bleed safe zone guide, print bleed template, how to add bleed to artwork, bleed margin printing, safe zone for printing, print template generator" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://tools.printkeg.com/" />
+  <link rel="canonical" href="https://tools.printkeg.com/bleed-safe-zone-guide/" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Free Print Tools for Artists & Designers | Printkeg" />
-  <meta property="og:description" content="Free online tools for artists, designers, and small businesses — from Printkeg." />
-  <meta property="og:url" content="https://tools.printkeg.com/" />
+  <meta property="og:title" content="Free Bleed & Safe Zone Guide — Visual Print Template Generator" />
+  <meta property="og:description" content="Generate a bleed and safe zone diagram for any print size. Free tool from Printkeg." />
+  <meta property="og:url" content="https://tools.printkeg.com/bleed-safe-zone-guide/" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://tools.printkeg.com/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Printkeg Tools",
-    "url": "https://tools.printkeg.com",
-    "description": "Free online print tools for artists, designers, and small businesses.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Printkeg",
-      "url": "https://www.printkeg.com"
-    }
+    "@type": "WebApplication",
+    "name": "Bleed & Safe Zone Guide",
+    "url": "https://tools.printkeg.com/bleed-safe-zone-guide/",
+    "description": "Generate a visual bleed and safe zone diagram for any print size. Free tool for artists and designers.",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": { "@type": "Organization", "name": "Printkeg", "url": "https://www.printkeg.com" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is bleed in printing?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Bleed is extra artwork that extends beyond the edge of your final print size. When a printer cuts printed sheets to size, the blade isn't always perfectly precise — bleed ensures there are no white edges even if the cut is slightly off. Standard bleed is 0.125 inches (1/8\") on each side." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a safe zone in printing?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The safe zone (also called the 'live area') is the inner boundary where all important content — text, logos, faces — should stay. It's typically 0.125\" inset from the trim edge. Content outside the safe zone risks being cut off." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need bleed for every print?",
+        "acceptedAnswer": { "@type": "Answer", "text": "You need bleed whenever your design has color, images, or patterns that go all the way to the edge. If your design has a white border around it, you don't need bleed. Most professional print files require bleed." }
+      },
+      {
+        "@type": "Question",
+        "name": "What size should I set my document in Photoshop or Illustrator?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Set your document to the final print size PLUS bleed on all sides. For an 8x10 print with 0.125\" bleed, your document should be 8.25\" x 10.25\". This tool shows you the exact document size to use." }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Printkeg Tools", "item": "https://tools.printkeg.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Bleed & Safe Zone Guide", "item": "https://tools.printkeg.com/bleed-safe-zone-guide/" }
+    ]
   }
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --bg: #0d0d0d;
-      --surface: #141414;
-      --border: #222;
+      --surface: #161616;
+      --surface-2: #1c1c1c;
+      --border: #2a2a2a;
       --text: #f0ede6;
-      --muted: #aaa;
+      --muted: #b0aba0;
+      --subtle: #888;
+      --dim: #555;
       --accent: #ff5c2b;
-      --accent-dim: rgba(255, 92, 43, 0.08);
+      --accent-dim: rgba(255,92,43,0.08);
+      --bleed-color: #ff3b3b;
+      --trim-color: #ff5c2b;
+      --safe-color: #4caf50;
     }
-
-    html { scroll-behavior: smooth; }
 
     body {
       background: var(--bg);
@@ -57,111 +97,39 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* NAV */
     nav {
       border-bottom: 1px solid var(--border);
       padding: 18px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      background: rgba(13,13,13,0.92);
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0;
+      background: rgba(13,13,13,0.94);
       backdrop-filter: blur(12px);
       z-index: 100;
     }
 
-    .nav-logo {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-      text-decoration: none;
-    }
+    .nav-logo { text-decoration: none; display: flex; align-items: baseline; gap: 10px; }
+    .nav-logo-primary { font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); }
+    .nav-logo-secondary { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; }
+    .breadcrumb { font-size: 12px; color: var(--subtle); display: flex; align-items: center; gap: 8px; }
+    .breadcrumb a { color: var(--subtle); text-decoration: none; transition: color 0.15s; }
+    .breadcrumb a:hover { color: var(--muted); }
 
-    .nav-logo-primary {
-      font-family: 'Space Mono', monospace;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text);
-    }
-
-    .nav-logo-secondary {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      color: var(--accent);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .nav-link {
-      font-size: 13px;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-
-    .nav-link:hover { color: var(--text); }
-
-    /* HERO */
-    .hero {
-      padding: 80px 40px 60px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .hero-eyebrow {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 20px;
-    }
-
-    .hero-heading {
-      font-family: 'DM Sans', sans-serif;
-      font-size: clamp(32px, 5vw, 52px);
-      font-weight: 300;
-      line-height: 1.15;
-      color: var(--text);
-      margin-bottom: 20px;
-    }
-
-    .hero-heading strong {
-      font-weight: 500;
-    }
-
-    .hero-sub {
-      font-size: 16px;
-      color: var(--muted);
-      line-height: 1.7;
-      max-width: 560px;
-      font-weight: 300;
-    }
-
-    /* TOOLS GRID */
-    .tools-section {
-      padding: 20px 40px 80px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .section-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #888;
-      margin-bottom: 24px;
-      padding-bottom: 12px;
+    .page-hero {
+      padding: 52px 40px 40px;
+      max-width: 960px; margin: 0 auto;
       border-bottom: 1px solid var(--border);
     }
+    .page-eyebrow { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .page-heading { font-size: clamp(26px, 4vw, 40px); font-weight: 300; line-height: 1.2; margin-bottom: 16px; color: var(--text); }
+    .page-heading strong { font-weight: 500; }
+    .page-sub { font-size: 15px; color: var(--muted); line-height: 1.7; max-width: 580px; font-weight: 300; }
 
-    .tools-grid {
+    /* TOOL LAYOUT */
+    .tool-wrapper { max-width: 960px; margin: 0 auto; padding: 40px; }
+
+    .tool-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      grid-template-columns: 300px 1fr;
       gap: 1px;
       background: var(--border);
       border: 1px solid var(--border);
@@ -169,113 +137,163 @@
       overflow: hidden;
     }
 
-    .tool-card {
-      background: var(--surface);
-      padding: 28px;
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      transition: background 0.15s;
-      position: relative;
-    }
+    .panel { background: var(--surface); padding: 28px; display: flex; flex-direction: column; gap: 20px; }
+    .panel-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--subtle); padding-bottom: 12px; border-bottom: 1px solid var(--border); }
 
-    .tool-card:hover {
-      background: #181818;
-    }
+    /* CONTROLS */
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--subtle); }
 
-    .tool-card:hover .tool-arrow {
-      transform: translate(3px, -3px);
-      color: var(--accent);
-    }
-
-    .tool-card-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-    }
-
-    .tool-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 4px;
-      background: var(--accent-dim);
-      border: 1px solid rgba(255,92,43,0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 17px;
-    }
-
-    .tool-arrow {
-      font-size: 16px;
-      color: #333;
-      transition: transform 0.2s, color 0.2s;
-    }
-
-    .tool-name {
-      font-size: 15px;
-      font-weight: 500;
+    select, input[type="number"] {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
       color: var(--text);
-      line-height: 1.3;
+      padding: 10px 12px;
+      border-radius: 4px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      width: 100%;
+      transition: border-color 0.15s;
+      appearance: none;
     }
 
-    .tool-desc {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.6;
-      font-weight: 300;
-    }
+    select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; cursor: pointer; }
 
-    .tool-tag {
-      font-family: 'Space Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #888;
+    select:focus, input[type="number"]:focus { outline: none; border-color: var(--accent); }
+
+    .custom-dims { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+    .orientation-row { display: flex; gap: 1px; }
+    .orient-btn {
+      flex: 1; padding: 9px; background: var(--surface-2); border: 1px solid var(--border);
+      color: var(--subtle); font-family: 'Space Mono', monospace; font-size: 10px;
+      cursor: pointer; transition: all 0.15s; text-align: center; text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .orient-btn:first-child { border-radius: 4px 0 0 4px; }
+    .orient-btn:last-child { border-radius: 0 4px 4px 0; }
+    .orient-btn.active { background: var(--surface); border-color: var(--accent); color: var(--accent); }
+
+    .bleed-options { display: flex; gap: 1px; }
+    .bleed-opt {
+      flex: 1; padding: 9px 6px; background: var(--surface-2); border: 1px solid var(--border);
+      color: var(--subtle); font-family: 'Space Mono', monospace; font-size: 10px;
+      cursor: pointer; transition: all 0.15s; text-align: center; text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .bleed-opt:first-child { border-radius: 4px 0 0 4px; }
+    .bleed-opt:last-child { border-radius: 0 4px 4px 0; }
+    .bleed-opt.active { background: var(--surface); border-color: var(--bleed-color); color: var(--bleed-color); }
+
+    /* SPECS BOX */
+    .specs-box { background: var(--surface-2); border-radius: 4px; border: 1px solid var(--border); padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+    .spec-row { display: flex; justify-content: space-between; align-items: center; }
+    .spec-key { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .spec-val { font-size: 13px; font-weight: 500; }
+    .spec-val.bleed { color: var(--bleed-color); }
+    .spec-val.trim { color: var(--trim-color); }
+    .spec-val.safe { color: var(--safe-color); }
+    .spec-key { color: var(--subtle); }
+
+    .art-drop {
+      border: 1.5px dashed var(--border); border-radius: 4px;
+      position: relative; overflow: hidden; cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      min-height: 64px;
+    }
+    .art-drop:hover, .art-drop.dragging { border-color: var(--accent); background: var(--accent-dim); }
+    .art-drop input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+    .art-drop-inner { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px; }
+    .clear-art-btn {
+      background: transparent; color: var(--subtle); border: 1px solid var(--border);
+      padding: 6px 12px; font-family: 'Space Mono', monospace; font-size: 10px;
+      letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer;
+      border-radius: 3px; transition: color 0.15s, border-color 0.15s; width: 100%; margin-top: 6px;
+    }
+    .clear-art-btn:hover { color: var(--muted); border-color: #444; }
+
+    .download-btn {
+      background: var(--accent); color: #fff; border: none; padding: 13px 24px;
+      font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer;
+      border-radius: 3px; transition: background 0.15s, transform 0.1s; width: 100%;
       margin-top: auto;
     }
+    .download-btn:hover { background: #e04d20; transform: translateY(-1px); }
 
-    .tool-tag.live { color: var(--accent); }
-    .tool-tag.soon { color: #666; }
-
-    /* COMING SOON cards dimmed */
-    .tool-card.coming-soon {
-      cursor: default;
-      pointer-events: none;
-      opacity: 0.5;
-    }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 28px 40px;
+    /* CANVAS PANEL */
+    .canvas-panel {
+      background: #111;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
+      padding: 40px;
+      gap: 24px;
+      min-height: 500px;
+    }
+
+    #diagramCanvas {
+      max-width: 100%;
+      max-height: 420px;
+      border-radius: 2px;
+      display: block;
+    }
+
+    /* LEGEND */
+    .canvas-legend {
+      display: flex;
+      gap: 20px;
       flex-wrap: wrap;
-      gap: 12px;
+      justify-content: center;
     }
 
-    .footer-copy {
-      font-size: 12px;
-      color: #444;
-    }
+    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
+    .legend-swatch { width: 20px; height: 3px; border-radius: 2px; flex-shrink: 0; }
 
-    .footer-link {
-      font-size: 12px;
-      color: #444;
-      text-decoration: none;
-      transition: color 0.15s;
-    }
+    /* CONTENT */
+    .content-section { max-width: 960px; margin: 0 auto; padding: 0 40px 80px; }
+    .content-divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+    .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+    .content-block h2 { font-size: 17px; font-weight: 500; margin-bottom: 12px; color: var(--text); }
+    .content-block p { font-size: 14px; color: var(--muted); line-height: 1.75; font-weight: 300; }
 
+    .section-heading { font-size: 18px; font-weight: 500; margin-bottom: 24px; color: var(--text); }
+    .faq { display: flex; flex-direction: column; }
+    .faq-item { border-top: 1px solid var(--border); padding: 20px 0; }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+    .faq-q { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 8px; }
+    .faq-a { font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+    .cta-strip {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+      padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+    }
+    .cta-text h3 { font-size: 16px; font-weight: 500; margin-bottom: 6px; color: var(--text); }
+    .cta-text p { font-size: 13px; color: var(--muted); font-weight: 300; }
+    .cta-btn {
+      background: var(--accent); color: #fff; text-decoration: none; padding: 12px 24px;
+      font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; border-radius: 3px; transition: background 0.15s; white-space: nowrap;
+    }
+    .cta-btn:hover { background: #e04d20; }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 28px 40px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copy { font-size: 12px; color: var(--dim); }
+    .footer-link { font-size: 12px; color: var(--subtle); text-decoration: none; transition: color 0.15s; }
     .footer-link:hover { color: var(--muted); }
 
-    @media (max-width: 600px) {
+    @media (max-width: 760px) {
       nav { padding: 16px 20px; }
-      .hero { padding: 48px 20px 40px; }
-      .tools-section { padding: 0 20px 60px; }
+      .page-hero { padding: 36px 20px 28px; }
+      .tool-wrapper { padding: 20px; }
+      .tool-grid { grid-template-columns: 1fr; }
+      .canvas-panel { min-height: 300px; padding: 24px; }
+      .content-section { padding: 0 20px 60px; }
+      .content-grid { grid-template-columns: 1fr; gap: 28px; }
       footer { padding: 24px 20px; }
+      .cta-strip { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -286,91 +304,527 @@
       <span class="nav-logo-primary">Printkeg</span>
       <span class="nav-logo-secondary">Tools</span>
     </a>
-    <a href="https://www.printkeg.com" class="nav-link" target="_blank" rel="noopener">Back to Printkeg ↗</a>
+    <div class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Tools</a>
+      <span>›</span>
+      <span>Bleed & Safe Zone Guide</span>
+    </div>
   </nav>
 
   <main>
-    <section class="hero">
-      <p class="hero-eyebrow">Free tools by Printkeg</p>
-      <h1 class="hero-heading">
-        Prep your artwork.<br />
-        <strong>Print with confidence.</strong>
-      </h1>
-      <p class="hero-sub">
-        A growing collection of free tools for artists, designers, and small businesses — built to help you get print-ready faster.
-      </p>
-    </section>
+    <div class="page-hero">
+      <p class="page-eyebrow">Free Online Tool</p>
+      <h1 class="page-heading">Bleed &amp; Safe Zone Guide<br /><strong>Visual Print Template Generator</strong></h1>
+      <p class="page-sub">Pick a print size, choose your bleed amount, and instantly get a visual diagram showing exactly how to set up your artwork. Download it as a reference image for Photoshop, Illustrator, or any design app.</p>
+    </div>
 
-    <section class="tools-section">
-      <div class="section-label">Available Tools</div>
-      <div class="tools-grid" role="list">
+    <div class="tool-wrapper">
+      <div class="tool-grid">
 
-        <!-- LIVE -->
-        <a href="/image-to-vector/" class="tool-card" role="listitem">
-          <div class="tool-card-top">
-            <div class="tool-icon">⬡</div>
-            <span class="tool-arrow">↗</span>
+        <!-- CONTROLS -->
+        <div class="panel">
+          <div class="panel-label">Configure Your Print</div>
+
+          <div class="field">
+            <div class="field-label">Print Size</div>
+            <select id="sizeSelect">
+              <option value="custom">Custom Size</option>
+              <optgroup label="Cards & Postcards">
+                <option value="3x4">3 × 4 in</option>
+                <option value="3.5x5">3.5 × 5 in</option>
+                <option value="4x6">4 × 6 in</option>
+                <option value="4.25x5.5">4.25 × 5.5 in</option>
+                <option value="5x7">5 × 7 in</option>
+              </optgroup>
+              <optgroup label="Art Prints">
+                <option value="8x8">8 × 8 in</option>
+                <option value="8x10" selected>8 × 10 in</option>
+                <option value="8.5x11">8.5 × 11 in</option>
+                <option value="8x12">8 × 12 in</option>
+                <option value="11x14">11 × 14 in</option>
+                <option value="11x17">11 × 17 in</option>
+                <option value="12x12">12 × 12 in</option>
+                <option value="12x18">12 × 18 in</option>
+                <option value="13x19">13 × 19 in</option>
+              </optgroup>
+              <optgroup label="Posters & Large Prints">
+                <option value="16x20">16 × 20 in</option>
+                <option value="18x24">18 × 24 in</option>
+                <option value="20x30">20 × 30 in</option>
+                <option value="24x36">24 × 36 in</option>
+                <option value="36x48">36 × 48 in</option>
+              </optgroup>
+            </select>
           </div>
-          <div class="tool-name">Image to Vector Converter</div>
-          <div class="tool-desc">Convert a JPG or PNG into a scalable SVG vector file using AI. Great for logos, icons, and illustrations.</div>
-          <div class="tool-tag live">● Live</div>
-        </a>
 
-        <a href="/photo-print-size-checker/" class="tool-card" role="listitem">
-          <div class="tool-card-top">
-            <div class="tool-icon">⬚</div>
-            <span class="tool-arrow">↗</span>
+          <div class="field" id="customDimsField" style="display:none;">
+            <div class="field-label">Custom Dimensions (inches)</div>
+            <div class="custom-dims">
+              <input type="number" id="customW" placeholder="Width" min="1" max="60" step="0.25" value="8" />
+              <input type="number" id="customH" placeholder="Height" min="1" max="60" step="0.25" value="10" />
+            </div>
           </div>
-          <div class="tool-name">Photo Print Size Checker</div>
-          <div class="tool-desc">Upload your photo and instantly see every print size it supports at professional quality — no math needed.</div>
-          <div class="tool-tag live">● Live</div>
-        </a>
 
-        <!-- COMING SOON placeholders -->
-        <div class="tool-card coming-soon" role="listitem">
-          <div class="tool-card-top">
-            <div class="tool-icon">⊡</div>
+          <div class="field">
+            <div class="field-label">Orientation</div>
+            <div class="orientation-row">
+              <button class="orient-btn active" data-orient="portrait">Portrait</button>
+              <button class="orient-btn" data-orient="landscape">Landscape</button>
+            </div>
           </div>
-          <div class="tool-name">Print Size Calculator</div>
-          <div class="tool-desc">Enter your pixel dimensions and DPI to find the ideal print size — or work backwards from a target size.</div>
-          <div class="tool-tag soon">○ Coming Soon</div>
+
+          <div class="field">
+            <div class="field-label">Bleed Amount</div>
+            <div class="bleed-options">
+              <button class="bleed-opt active" data-bleed="0.125">0.125"</button>
+              <button class="bleed-opt" data-bleed="0.25">0.25"</button>
+              <button class="bleed-opt" data-bleed="0">No Bleed</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="field-label">Safe Zone Inset</div>
+            <div class="bleed-options" id="safeOptions">
+              <button class="bleed-opt active" data-safe="0.125">0.125"</button>
+              <button class="bleed-opt" data-safe="0.25">0.25"</button>
+              <button class="bleed-opt" data-safe="0">None</button>
+            </div>
+          </div>
+
+          <!-- SPECS -->
+          <div class="specs-box">
+            <div class="spec-row">
+              <span class="spec-key">Document Size</span>
+              <span class="spec-val bleed" id="specDocument">8.25 × 10.25 in</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">Trim Size</span>
+              <span class="spec-val trim" id="specTrim">8 × 10 in</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">Safe Zone</span>
+              <span class="spec-val safe" id="specSafe">7.75 × 9.75 in</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">Bleed Per Side</span>
+              <span class="spec-val bleed" id="specBleed">0.125 in</span>
+            </div>
+          </div>
+
+          <button class="download-btn" id="downloadBtn">↓ Download PNG Template</button>
+
+          <div class="field" style="margin-top:4px;">
+            <div class="field-label">Preview Your Artwork (Optional)</div>
+            <div class="art-drop" id="artDrop">
+              <input type="file" id="artFile" accept="image/*" />
+              <div class="art-drop-inner" id="artDropInner">
+                <span style="font-size:20px;opacity:0.25;">🖼</span>
+                <span style="font-size:12px;color:var(--subtle);">Drop artwork to overlay<br><span style="font-size:10px;color:var(--dim);">JPG, PNG, TIFF, WebP, GIF</span></span>
+              </div>
+            </div>
+            <button class="clear-art-btn" id="clearArt" style="display:none;">✕ Remove artwork</button>
+          </div>
         </div>
 
-        <div class="tool-card coming-soon" role="listitem">
-          <div class="tool-card-top">
-            <div class="tool-icon">◧</div>
+        <!-- CANVAS -->
+        <div class="canvas-panel">
+          <canvas id="diagramCanvas" width="500" height="600"></canvas>
+          <div class="canvas-legend">
+            <div class="legend-item"><div class="legend-swatch" style="background:var(--bleed-color);"></div>Bleed boundary</div>
+            <div class="legend-item"><div class="legend-swatch" style="background:var(--trim-color);"></div>Trim / cut line</div>
+            <div class="legend-item"><div class="legend-swatch" style="background:var(--safe-color);"></div>Safe zone</div>
           </div>
-          <div class="tool-name">Bleed & Safe Zone Guide</div>
-          <div class="tool-desc">Generate a bleed and safe zone template for any print size. Download as PDF or PNG.</div>
-          <div class="tool-tag soon">○ Coming Soon</div>
-        </div>
-
-        <div class="tool-card coming-soon" role="listitem">
-          <div class="tool-card-top">
-            <div class="tool-icon">◈</div>
-          </div>
-          <div class="tool-name">Color Profile Converter</div>
-          <div class="tool-desc">Preview how your RGB artwork will shift when converted to CMYK for press printing.</div>
-          <div class="tool-tag soon">○ Coming Soon</div>
-        </div>
-
-        <div class="tool-card coming-soon" role="listitem">
-          <div class="tool-card-top">
-            <div class="tool-icon">⬙</div>
-          </div>
-          <div class="tool-name">Mockup Generator</div>
-          <div class="tool-desc">Drop in your artwork and preview it on a print mockup — poster, card, tote, and more.</div>
-          <div class="tool-tag soon">○ Coming Soon</div>
         </div>
 
       </div>
-    </section>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content-section">
+      <hr class="content-divider" />
+
+      <div class="content-grid">
+        <div class="content-block">
+          <h2>What is bleed?</h2>
+          <p>Bleed is extra artwork that extends beyond your final print size. After printing, sheets are cut to size — and cutting machines aren't always pixel-perfect. Bleed provides a buffer of 0.125" on each side so that even if the cut is slightly off, there are no unprinted white edges on your final piece. Any background colors or images that reach the edge of your design must extend into the bleed area.</p>
+        </div>
+        <div class="content-block">
+          <h2>What is the safe zone?</h2>
+          <p>The safe zone (or "live area") is the inner boundary where all critical content must stay. Text, logos, faces, and any element you don't want cut off should sit within this zone. It's typically 0.125" inset from the trim edge. Content between the safe zone and trim line may be partially cut off — keep only background elements there.</p>
+        </div>
+        <div class="content-block">
+          <h2>How to use this guide</h2>
+          <p>Select your print size and bleed amount, then download the PNG template. Open it in Photoshop or Illustrator as a reference layer, or use the document dimensions shown to set up your canvas at the correct size with bleed included. The colored lines show exactly where each boundary falls.</p>
+        </div>
+        <div class="content-block">
+          <h2>Printkeg bleed requirements</h2>
+          <p>Printkeg requires 0.125" bleed on all sides for most print products. For very large format prints (24" and above), 0.25" bleed is recommended. Set your document to the full bleed size — for example, an 8×10 print should be set up as an 8.25×10.25" document at 300 DPI in CMYK color mode.</p>
+        </div>
+      </div>
+
+      <hr class="content-divider" />
+
+      <h2 class="section-heading">Frequently Asked Questions</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <div class="faq-q">What is bleed in printing?</div>
+          <div class="faq-a">Bleed is extra artwork that extends beyond the final trim edge of your print. It ensures that when the printer cuts the sheet to size, there are no white edges — even if the cut is slightly off. Standard bleed is 0.125 inches (⅛") on each side.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What is a safe zone and why does it matter?</div>
+          <div class="faq-a">The safe zone is the inner boundary where all important content — text, logos, faces — should stay. It sits 0.125" inside the trim line. Anything between the safe zone and the trim edge may be cut off during production, so keep it background-only.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Do I need bleed if my design has a white border?</div>
+          <div class="faq-a">If your design intentionally has a white border and no content reaches the edge, you technically don't need bleed. However, most print shops (including Printkeg) still recommend setting up with bleed to avoid any slight color variation at the edges.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What size should I set my Photoshop or Illustrator document?</div>
+          <div class="faq-a">Set your document to the final print size plus bleed on all four sides. For 0.125" bleed on an 8×10 print, your canvas should be 8.25" × 10.25". This tool shows you the exact document size in the specs panel.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What color mode should I use for printing?</div>
+          <div class="faq-a">Always use CMYK color mode for print files, not RGB. RGB is for screens and will shift noticeably when converted to CMYK for press printing. Set your document to CMYK at 300 DPI before you start designing.</div>
+        </div>
+      </div>
+
+      <hr class="content-divider" />
+
+      <div class="cta-strip">
+        <div class="cta-text">
+          <h3>Ready to send your file to print?</h3>
+          <p>Printkeg prints posters, fine art prints, greeting cards, stickers, and more — shipped fast to artists and small businesses across the US.</p>
+        </div>
+        <a href="https://www.printkeg.com" class="cta-btn" target="_blank" rel="noopener">Shop Printkeg ↗</a>
+      </div>
+    </div>
   </main>
 
   <footer>
     <span class="footer-copy">© 2025 Printkeg. All rights reserved.</span>
-    <a href="https://www.printkeg.com" class="footer-link" target="_blank" rel="noopener">printkeg.com</a>
+    <a href="/" class="footer-link">← All Tools</a>
   </footer>
+
+  <script>
+  (function() {
+    var SIZES = {
+      '3x4':     [3, 4],   '3.5x5':  [3.5, 5],  '4x6':    [4, 6],
+      '4.25x5.5':[4.25,5.5],'5x7':   [5, 7],     '8x8':    [8, 8],
+      '8x10':    [8, 10],  '8.5x11': [8.5, 11],  '8x12':   [8, 12],
+      '11x14':   [11, 14], '11x17':  [11, 17],   '12x12':  [12, 12],
+      '12x18':   [12, 18], '13x19':  [13, 19],   '16x20':  [16, 20],
+      '18x24':   [18, 24], '20x30':  [20, 30],   '24x36':  [24, 36],
+      '36x48':   [36, 48]
+    };
+
+    var state = {
+      w: 8, h: 10,
+      bleed: 0.125,
+      safe: 0.125,
+      orient: 'portrait'
+    };
+
+    var artImage = null;
+
+    var canvas = document.getElementById('diagramCanvas');
+    var ctx = canvas.getContext('2d');
+
+    function getEffectiveDims() {
+      var w = state.w, h = state.h;
+      if (state.orient === 'landscape') { var t = w; w = h; h = t; }
+      return [w, h];
+    }
+
+    function updateSpecs() {
+      var dims = getEffectiveDims();
+      var w = dims[0], h = dims[1];
+      var b = state.bleed, s = state.safe;
+      var dw = (w + b*2).toFixed(3).replace(/\.?0+$/, '');
+      var dh = (h + b*2).toFixed(3).replace(/\.?0+$/, '');
+      var sw = (w - s*2).toFixed(3).replace(/\.?0+$/, '');
+      var sh = (h - s*2).toFixed(3).replace(/\.?0+$/, '');
+
+      document.getElementById('specDocument').textContent = dw + ' × ' + dh + ' in';
+      document.getElementById('specTrim').textContent = w + ' × ' + h + ' in';
+      document.getElementById('specSafe').textContent = sw + ' × ' + sh + ' in';
+      document.getElementById('specBleed').textContent = b > 0 ? b + ' in' : 'None';
+    }
+
+    function drawDiagram() {
+      var dims = getEffectiveDims();
+      var w = dims[0], h = dims[1];
+      var b = state.bleed, s = state.safe;
+
+      // Canvas sizing — fit within 500x560 keeping aspect ratio
+      var maxW = 480, maxH = 520;
+      var totalW = w + b * 2;
+      var totalH = h + b * 2;
+      var scale = Math.min(maxW / totalW, maxH / totalH);
+      var cw = Math.round(totalW * scale);
+      var ch = Math.round(totalH * scale);
+
+      canvas.width = cw + 80;
+      canvas.height = ch + 80;
+
+      var ox = 40, oy = 40; // offset for labels
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      var bPx = b * scale;
+      var sPx = s * scale;
+
+      // Background (bleed area)
+      ctx.fillStyle = '#1a1a1a';
+      ctx.fillRect(ox, oy, cw, ch);
+
+      // Bleed zone fill (subtle red tint)
+      ctx.fillStyle = 'rgba(255,59,59,0.08)';
+      ctx.fillRect(ox, oy, cw, ch);
+
+      // Trim area fill
+      ctx.fillStyle = '#222';
+      ctx.fillRect(ox + bPx, oy + bPx, cw - bPx*2, ch - bPx*2);
+
+      // Artwork preview — draw inside trim area maintaining aspect ratio
+      if (artImage) {
+        var trimW = cw - bPx*2;
+        var trimH = ch - bPx*2;
+        var imgAR = artImage.width / artImage.height;
+        var trimAR = trimW / trimH;
+        var drawW, drawH;
+        if (imgAR > trimAR) { drawW = trimW; drawH = trimW / imgAR; }
+        else { drawH = trimH; drawW = trimH * imgAR; }
+        var imgX = ox + bPx + (trimW - drawW) / 2;
+        var imgY = oy + bPx + (trimH - drawH) / 2;
+        ctx.drawImage(artImage, imgX, imgY, drawW, drawH);
+      }
+
+      // Safe zone fill
+      if (s > 0) {
+        ctx.fillStyle = 'rgba(76,175,80,0.06)';
+        ctx.fillRect(ox + bPx + sPx, oy + bPx + sPx, cw - (bPx+sPx)*2, ch - (bPx+sPx)*2);
+      }
+
+      // Center label area
+      var cx2 = ox + cw/2;
+      var cy2 = oy + ch/2;
+      ctx.fillStyle = 'rgba(240,237,230,0.04)';
+      ctx.fillRect(ox + bPx + sPx + 8, oy + bPx + sPx + 8, cw - (bPx+sPx)*2 - 16, ch - (bPx+sPx)*2 - 16);
+
+      // Content label
+      ctx.fillStyle = 'rgba(240,237,230,0.2)';
+      ctx.font = '500 ' + Math.max(11, Math.round(scale * 0.55)) + 'px DM Sans, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('Your Artwork', cx2, cy2 - 10);
+      ctx.font = Math.max(9, Math.round(scale * 0.38)) + 'px Space Mono, monospace';
+      ctx.fillStyle = 'rgba(240,237,230,0.12)';
+      ctx.fillText('keep content inside safe zone', cx2, cy2 + 14);
+
+      // Draw bleed boundary (dashed red)
+      if (b > 0) {
+        ctx.strokeStyle = '#ff3b3b';
+        ctx.lineWidth = 1.5;
+        ctx.setLineDash([5, 4]);
+        ctx.strokeRect(ox + 0.75, oy + 0.75, cw - 1.5, ch - 1.5);
+        ctx.setLineDash([]);
+      }
+
+      // Draw trim line (solid orange)
+      ctx.strokeStyle = '#ff5c2b';
+      ctx.lineWidth = 1.5;
+      ctx.strokeRect(ox + bPx, oy + bPx, cw - bPx*2, ch - bPx*2);
+
+      // Draw safe zone (dashed green)
+      if (s > 0) {
+        ctx.strokeStyle = '#4caf50';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([4, 3]);
+        ctx.strokeRect(ox + bPx + sPx, oy + bPx + sPx, cw - (bPx+sPx)*2, ch - (bPx+sPx)*2);
+        ctx.setLineDash([]);
+      }
+
+      // --- DIMENSION LABELS ---
+      ctx.font = '11px Space Mono, monospace';
+      ctx.fillStyle = '#888';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+
+      var totalWStr = (w + b*2).toFixed(3).replace(/\.?0+$/, '') + '"';
+      var trimWStr  = w + '"';
+      var totalHStr = (h + b*2).toFixed(3).replace(/\.?0+$/, '') + '"';
+      var trimHStr  = h + '"';
+
+      // Top label — document width
+      if (b > 0) {
+        ctx.fillStyle = '#ff3b3b';
+        ctx.fillText(totalWStr, ox + cw/2, oy - 18);
+      }
+      // Below — trim width
+      ctx.fillStyle = '#ff5c2b';
+      ctx.fillText(trimWStr, ox + bPx + (cw - bPx*2)/2, oy + ch + 20);
+
+      // Right — document height
+      ctx.save();
+      ctx.translate(ox + cw + 20, oy + ch/2);
+      ctx.rotate(Math.PI/2);
+      if (b > 0) {
+        ctx.fillStyle = '#ff3b3b';
+        ctx.fillText(totalHStr, 0, 0);
+      }
+      ctx.restore();
+
+      // Left — trim height
+      ctx.save();
+      ctx.translate(ox - 20, oy + bPx + (ch - bPx*2)/2);
+      ctx.rotate(-Math.PI/2);
+      ctx.fillStyle = '#ff5c2b';
+      ctx.fillText(trimHStr, 0, 0);
+      ctx.restore();
+
+      // Bleed arrow indicators
+      if (b > 0 && bPx > 6) {
+        ctx.font = '9px Space Mono, monospace';
+        ctx.fillStyle = 'rgba(255,59,59,0.6)';
+        ctx.textAlign = 'center';
+        ctx.fillText('bleed', ox + bPx/2, oy + ch/2);
+        ctx.fillText('bleed', ox + cw - bPx/2, oy + ch/2);
+      }
+    }
+
+    function update() {
+      updateSpecs();
+      drawDiagram();
+    }
+
+    // SIZE SELECT
+    document.getElementById('sizeSelect').addEventListener('change', function() {
+      var val = this.value;
+      var customField = document.getElementById('customDimsField');
+      if (val === 'custom') {
+        customField.style.display = 'flex';
+        state.w = parseFloat(document.getElementById('customW').value) || 8;
+        state.h = parseFloat(document.getElementById('customH').value) || 10;
+      } else {
+        customField.style.display = 'none';
+        state.w = SIZES[val][0];
+        state.h = SIZES[val][1];
+      }
+      update();
+    });
+
+    // CUSTOM DIMS
+    ['customW','customH'].forEach(function(id) {
+      document.getElementById(id).addEventListener('input', function() {
+        state.w = parseFloat(document.getElementById('customW').value) || 8;
+        state.h = parseFloat(document.getElementById('customH').value) || 10;
+        update();
+      });
+    });
+
+    // ORIENTATION
+    document.querySelectorAll('.orient-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.orient-btn').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        state.orient = btn.dataset.orient;
+        update();
+      });
+    });
+
+    // BLEED
+    document.querySelectorAll('.bleed-opt').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var parent = btn.parentElement;
+        parent.querySelectorAll('.bleed-opt').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        if (btn.dataset.bleed !== undefined) state.bleed = parseFloat(btn.dataset.bleed);
+        if (btn.dataset.safe !== undefined) state.safe = parseFloat(btn.dataset.safe);
+        update();
+      });
+    });
+
+    // DOWNLOAD
+    document.getElementById('downloadBtn').addEventListener('click', function() {
+      var dims = getEffectiveDims();
+
+      // Redraw diagram fresh onto a clean export canvas
+      var dl = document.createElement('canvas');
+      dl.width = canvas.width;
+      dl.height = canvas.height;
+      var dlCtx = dl.getContext('2d');
+
+      // Dark background
+      dlCtx.fillStyle = '#111111';
+      dlCtx.fillRect(0, 0, dl.width, dl.height);
+
+      // Copy the live canvas
+      dlCtx.drawImage(canvas, 0, 0);
+
+      // Title strip at top using safe system font
+      dlCtx.fillStyle = 'rgba(0,0,0,0.6)';
+      dlCtx.fillRect(0, 0, dl.width, 22);
+      dlCtx.fillStyle = '#f0ede6';
+      dlCtx.font = 'bold 11px monospace';
+      dlCtx.textAlign = 'left';
+      dlCtx.textBaseline = 'middle';
+      dlCtx.fillText('Printkeg — Bleed & Safe Zone Guide — ' + dims[0] + ' x ' + dims[1] + ' in', 8, 11);
+
+      try {
+        var dataURL = dl.toDataURL('image/png');
+        var link = document.createElement('a');
+        link.download = 'bleed-guide-' + dims[0] + 'x' + dims[1] + '.png';
+        link.href = dataURL;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } catch(e) {
+        alert('Download failed: ' + e.message);
+      }
+    });
+
+    // ARTWORK UPLOAD
+    var artDrop = document.getElementById('artDrop');
+    var artFile = document.getElementById('artFile');
+    var clearArt = document.getElementById('clearArt');
+    var artDropInner = document.getElementById('artDropInner');
+
+    function loadArtwork(file) {
+      if (!file || !file.type.startsWith('image/')) return;
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var img = new Image();
+        img.onload = function() {
+          artImage = img;
+          artDropInner.innerHTML = '<span style="font-size:11px;color:var(--accent);">✓ Artwork loaded</span>';
+          clearArt.style.display = 'block';
+          update();
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    artFile.addEventListener('change', function(e) { loadArtwork(e.target.files[0]); });
+    artDrop.addEventListener('dragover', function(e) { e.preventDefault(); artDrop.classList.add('dragging'); });
+    artDrop.addEventListener('dragleave', function() { artDrop.classList.remove('dragging'); });
+    artDrop.addEventListener('drop', function(e) {
+      e.preventDefault(); artDrop.classList.remove('dragging');
+      loadArtwork(e.dataTransfer.files[0]);
+    });
+
+    clearArt.addEventListener('click', function() {
+      artImage = null;
+      artDropInner.innerHTML = '<span style=\'font-size:20px;opacity:0.25;\'>🖼</span><span style=\'font-size:12px;color:var(--subtle);\'>Drop artwork to overlay</span>';
+      clearArt.style.display = 'none';
+      artFile.value = '';
+      update();
+    });
+
+    // INIT
+    update();
+  })();
+  </script>
 
 </body>
 </html>
