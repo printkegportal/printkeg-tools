@@ -1,1 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Size Can I Print My Photo? — Free Image DPI Checker | Printkeg Tools</title>
+  <meta name="description" content="Upload your photo and instantly find out what print sizes it supports at professional quality. Free DPI checker — see exactly which sizes will look sharp before you order." />
+  <meta name="keywords" content="what size can I print my photo, image DPI checker, photo print resolution checker, can I print this photo large, image resolution for printing, photo print quality checker" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://tools.printkeg.com/photo-print-size-checker/" />
 
+  <meta property="og:title" content="What Size Can I Print My Photo? — Free DPI Checker" />
+  <meta property="og:description" content="Upload your image and instantly see which print sizes it supports at professional quality. Free tool from Printkeg." />
+  <meta property="og:url" content="https://tools.printkeg.com/photo-print-size-checker/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://tools.printkeg.com/og-dpi-checker.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="What Size Can I Print My Photo? Free DPI Checker" />
+  <meta name="twitter:description" content="Find out what sizes your photo can print at sharply — free tool from Printkeg." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Photo Print Size Checker",
+    "url": "https://tools.printkeg.com/photo-print-size-checker/",
+    "description": "Upload your photo to instantly see which print sizes it supports at 200+ DPI professional quality.",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": { "@type": "Organization", "name": "Printkeg", "url": "https://www.printkeg.com" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What DPI do I need for a quality print?",
+        "acceptedAnswer": { "@type": "Answer", "text": "300 DPI is the professional standard for sharp, gallery-quality prints. 200–299 DPI is generally acceptable for prints viewed at normal distance, especially larger sizes. Below 200 DPI will usually look noticeably soft or pixelated." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I print a phone photo as a large poster?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It depends on your phone's camera resolution. Modern smartphones shoot at 12–50 megapixels, which is often enough for 18x24 or even 24x36 prints. Upload your photo to this tool to find out exactly what sizes your image supports." }
+      },
+      {
+        "@type": "Question",
+        "name": "What does 'fit percentage' mean?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Fit percentage shows how closely your image's aspect ratio matches the print size. 100% means no cropping needed. Lower values mean some edges will be cropped to fill the print size." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this tool upload or store my photo?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Everything runs locally in your browser. Your image is never uploaded to any server." }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Printkeg Tools", "item": "https://tools.printkeg.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Photo Print Size Checker", "item": "https://tools.printkeg.com/photo-print-size-checker/" }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d0d;
+      --surface: #161616;
+      --surface-2: #1c1c1c;
+      --border: #2a2a2a;
+      --text: #f0ede6;
+      --muted: #b0aba0;
+      --subtle: #888;
+      --dim: #555;
+      --accent: #ff5c2b;
+      --accent-dim: rgba(255,92,43,0.08);
+      --green: #4caf50;
+      --green-dim: rgba(76,175,80,0.1);
+      --amber: #f0a030;
+      --amber-dim: rgba(240,160,48,0.1);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      background: rgba(13,13,13,0.94);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+
+    .nav-logo { text-decoration: none; display: flex; align-items: baseline; gap: 10px; }
+    .nav-logo-primary { font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); }
+    .nav-logo-secondary { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; }
+
+    .breadcrumb { font-size: 12px; color: var(--subtle); display: flex; align-items: center; gap: 8px; }
+    .breadcrumb a { color: var(--subtle); text-decoration: none; transition: color 0.15s; }
+    .breadcrumb a:hover { color: var(--muted); }
+
+    /* HERO */
+    .page-hero {
+      padding: 52px 40px 40px;
+      max-width: 960px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-eyebrow { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .page-heading { font-size: clamp(26px, 4vw, 40px); font-weight: 300; line-height: 1.2; margin-bottom: 16px; color: var(--text); }
+    .page-heading strong { font-weight: 500; }
+    .page-sub { font-size: 15px; color: var(--muted); line-height: 1.7; max-width: 580px; font-weight: 300; }
+
+    /* TOOL */
+    .tool-wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .panel { background: var(--surface); padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+
+    .panel-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--subtle); padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+
+    /* DROP ZONE */
+    .drop-zone {
+      border: 1.5px dashed var(--border); border-radius: 4px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 10px; cursor: pointer; transition: border-color 0.2s, background 0.2s;
+      position: relative; overflow: hidden; min-height: 200px; padding: 24px;
+    }
+    .drop-zone:hover, .drop-zone.dragging { border-color: var(--accent); background: var(--accent-dim); }
+    .drop-zone input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+    .drop-icon { font-size: 28px; opacity: 0.25; }
+    .drop-text { font-size: 13px; color: var(--subtle); text-align: center; line-height: 1.6; }
+    .drop-text span { display: block; font-family: 'Space Mono', monospace; font-size: 10px; color: var(--dim); margin-top: 4px; }
+    .preview-img { width: 100%; border-radius: 4px; max-height: 220px; object-fit: contain; background: #111; }
+
+    /* META GRID */
+    .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .meta-cell { background: var(--surface-2); border-radius: 4px; padding: 12px 14px; }
+    .meta-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--subtle); margin-bottom: 4px; }
+    .meta-value { font-size: 14px; font-weight: 500; color: var(--text); }
+
+    /* RESULTS */
+    .empty-state { padding: 32px 20px; text-align: center; color: var(--subtle); font-size: 13px; line-height: 1.7; }
+    .empty-state strong { display: block; font-size: 15px; color: var(--muted); font-weight: 500; margin-bottom: 8px; }
+
+    .sizes-list { display: flex; flex-direction: column; gap: 6px; }
+
+    .size-row {
+      display: grid;
+      grid-template-columns: 100px 1fr auto;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 4px;
+      background: var(--surface-2);
+      border: 1px solid transparent;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .size-row:hover { border-color: var(--border); background: #222; }
+    .size-row.excellent { border-color: rgba(76,175,80,0.3); background: var(--green-dim); }
+    .size-row.excellent:hover { border-color: var(--green); }
+    .size-row.good { border-color: rgba(240,160,48,0.3); background: var(--amber-dim); }
+    .size-row.good:hover { border-color: var(--amber); }
+
+    .size-name { font-size: 13px; font-weight: 500; color: var(--text); white-space: nowrap; }
+    .size-dpi { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--subtle); margin-top: 2px; }
+
+    .bars { display: flex; flex-direction: column; gap: 5px; }
+    .bar-row { display: flex; align-items: center; gap: 6px; }
+    .bar-key { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--dim); width: 22px; text-align: right; flex-shrink: 0; }
+    .bar-track { flex: 1; background: rgba(255,255,255,0.06); border-radius: 2px; height: 4px; overflow: hidden; }
+    .bar-fill { height: 4px; border-radius: 2px; transition: width 0.4s ease; }
+    .bar-fill.excellent { background: var(--green); }
+    .bar-fill.good { background: var(--amber); }
+    .fit-pct { font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700; min-width: 32px; text-align: right; }
+
+    .badge { font-family: 'Space Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; white-space: nowrap; }
+    .badge.excellent { background: var(--green-dim); color: var(--green); border: 1px solid rgba(76,175,80,0.3); }
+    .badge.good { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(240,160,48,0.3); }
+
+    .order-label { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--dim); margin-top: 4px; }
+
+    .badge-col { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+
+    /* EXCLUDED */
+    .excluded-section { border-top: 1px solid var(--border); padding-top: 16px; margin-top: 4px; }
+    .excluded-heading { font-size: 11px; font-weight: 500; color: var(--subtle); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.08em; font-family: 'Space Mono', monospace; }
+    .excluded-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .excluded-tag {
+      font-size: 11px; color: var(--dim); background: var(--surface-2);
+      border: 1px solid var(--border); border-radius: 3px; padding: 3px 10px;
+      text-decoration: none; transition: color 0.15s, border-color 0.15s;
+    }
+    .excluded-tag:hover { color: var(--muted); border-color: #444; }
+
+    /* LEGEND */
+    .legend { border-top: 1px solid var(--border); padding-top: 16px; margin-top: 4px; display: flex; flex-direction: column; gap: 8px; }
+    .legend-row { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
+    .legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .legend-note { font-size: 11px; color: var(--subtle); line-height: 1.6; }
+
+    /* CONTENT */
+    .content-section { max-width: 960px; margin: 0 auto; padding: 0 40px 80px; }
+    .content-divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+    .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+    .content-block h2 { font-size: 17px; font-weight: 500; margin-bottom: 12px; color: var(--text); }
+    .content-block p { font-size: 14px; color: var(--muted); line-height: 1.75; font-weight: 300; }
+
+    .section-heading { font-size: 18px; font-weight: 500; margin-bottom: 24px; color: var(--text); }
+
+    .faq { display: flex; flex-direction: column; }
+    .faq-item { border-top: 1px solid var(--border); padding: 20px 0; }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+    .faq-q { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 8px; }
+    .faq-a { font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+    .cta-strip {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+      padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+    }
+    .cta-text h3 { font-size: 16px; font-weight: 500; margin-bottom: 6px; color: var(--text); }
+    .cta-text p { font-size: 13px; color: var(--muted); font-weight: 300; }
+    .cta-btn {
+      background: var(--accent); color: #fff; text-decoration: none; padding: 12px 24px;
+      font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; border-radius: 3px; transition: background 0.15s; white-space: nowrap;
+    }
+    .cta-btn:hover { background: #e04d20; }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 28px 40px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copy { font-size: 12px; color: var(--dim); }
+    .footer-link { font-size: 12px; color: var(--subtle); text-decoration: none; transition: color 0.15s; }
+    .footer-link:hover { color: var(--muted); }
+
+    @media (max-width: 700px) {
+      nav { padding: 16px 20px; }
+      .page-hero { padding: 36px 20px 28px; }
+      .tool-wrapper { padding: 20px; }
+      .tool-grid { grid-template-columns: 1fr; }
+      .content-section { padding: 0 20px 60px; }
+      .content-grid { grid-template-columns: 1fr; gap: 28px; }
+      footer { padding: 24px 20px; }
+      .cta-strip { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-primary">Printkeg</span>
+      <span class="nav-logo-secondary">Tools</span>
+    </a>
+    <div class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Tools</a>
+      <span>›</span>
+      <span>Photo Print Size Checker</span>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-hero">
+      <p class="page-eyebrow">Free Online Tool</p>
+      <h1 class="page-heading">What Size Can I Print<br /><strong>My Photo?</strong></h1>
+      <p class="page-sub">Upload your image and instantly see every print size it supports at professional quality — no guessing, no wasted orders. Works entirely in your browser, nothing is uploaded.</p>
+    </div>
+
+    <div class="tool-wrapper">
+      <div class="tool-grid">
+
+        <!-- LEFT: UPLOAD -->
+        <div class="panel">
+          <div class="panel-label">Upload Your Photo</div>
+          <div class="drop-zone" id="dropZone">
+            <input type="file" id="fileInput" accept="image/*" />
+            <div class="drop-icon">⬆</div>
+            <div class="drop-text">
+              Drop image here or click to browse
+              <span>JPG, PNG, TIFF, WebP</span>
+            </div>
+          </div>
+          <div id="previewArea" style="display:none;">
+            <img id="previewImg" class="preview-img" alt="Preview" />
+            <div class="meta-grid" style="margin-top:12px;">
+              <div class="meta-cell"><div class="meta-label">Dimensions</div><div class="meta-value" id="metaDims">—</div></div>
+              <div class="meta-cell"><div class="meta-label">Megapixels</div><div class="meta-value" id="metaMp">—</div></div>
+              <div class="meta-cell"><div class="meta-label">Aspect Ratio</div><div class="meta-value" id="metaRatio">—</div></div>
+              <div class="meta-cell"><div class="meta-label">File Size</div><div class="meta-value" id="metaSize">—</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: RESULTS -->
+        <div class="panel">
+          <div class="panel-label">Print Sizes You Can Order</div>
+          <div id="emptyState" class="empty-state">
+            <strong>No image uploaded yet</strong>
+            Upload a photo on the left to see which print sizes it supports at 200+ DPI professional quality.
+          </div>
+          <div id="resultsList" class="sizes-list" style="display:none;"></div>
+          <div id="excludedSection" class="excluded-section" style="display:none;">
+            <div class="excluded-heading">Below quality threshold for:</div>
+            <div id="excludedTags" class="excluded-tags"></div>
+          </div>
+          <div id="legend" class="legend" style="display:none;">
+            <div class="legend-row"><div class="legend-dot" style="background:var(--green);"></div>Excellent — 300+ DPI</div>
+            <div class="legend-row"><div class="legend-dot" style="background:var(--amber);"></div>Good — 200–299 DPI</div>
+            <div class="legend-note">Fit % shows how closely your image ratio matches the print size. 100% = no cropping needed.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content-section">
+      <hr class="content-divider" />
+
+      <div class="content-grid">
+        <div class="content-block">
+          <h2>How DPI affects print quality</h2>
+          <p>DPI (dots per inch) determines how much detail your image contains at a given print size. A 3000 x 2000px image printed at 8x10 inches gives you 300 DPI — the professional standard. Print it at 20x30 and the DPI drops to around 100, which will look noticeably soft. This tool does that math for every standard print size automatically.</p>
+        </div>
+        <div class="content-block">
+          <h2>Phone photos & large prints</h2>
+          <p>Modern smartphones capture 12–50 megapixels, which is often enough for surprisingly large prints. A 12MP photo at roughly 4000 x 3000px can comfortably print at 13x19 inches at 300 DPI, or up to 20x24 at a still-sharp 200 DPI. Upload your photo to find out exactly what your specific image supports.</p>
+        </div>
+        <div class="content-block">
+          <h2>What "fit %" means</h2>
+          <p>Not every image ratio matches every print size perfectly. Fit percentage shows how closely your image's proportions match a given print size. 100% means no cropping — the image fills the print exactly. 85% means roughly 15% of the image edges will need to be cropped. This helps you choose sizes that showcase your full composition.</p>
+        </div>
+        <div class="content-block">
+          <h2>Privacy — runs in your browser</h2>
+          <p>Your photo never leaves your device. All calculations run locally in your browser using JavaScript — no server, no upload, no storage. You can even use this tool offline once the page has loaded.</p>
+        </div>
+      </div>
+
+      <hr class="content-divider" />
+
+      <h2 class="section-heading">Frequently Asked Questions</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <div class="faq-q">What DPI do I need for a quality print?</div>
+          <div class="faq-a">300 DPI is the professional standard and what Printkeg recommends for sharp, gallery-quality results. 200–299 DPI is generally acceptable for prints viewed at normal distance, especially at larger sizes where you stand further back. Below 200 DPI will usually look noticeably soft or pixelated.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Can I print a phone photo as a large poster?</div>
+          <div class="faq-a">Often yes. Modern smartphones shoot at 12–50 megapixels, which can be enough for 18x24 or even 24x36 prints. The answer depends on your specific photo's pixel dimensions — upload it here to find out exactly what sizes will look sharp.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Why does my image show as "below quality threshold" for some sizes?</div>
+          <div class="faq-a">Those sizes would require printing at below 200 DPI with your image, which would result in a visibly soft or blurry print. They're shown separately so you know which sizes to avoid rather than ordering something that won't look right.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Does this tool upload or store my photo?</div>
+          <div class="faq-a">No. Everything runs entirely in your browser. Your image is never sent to any server and nothing is stored. Refresh the page and the image is gone.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What's the difference between this and Printkeg's print size calculator?</div>
+          <div class="faq-a">Printkeg's on-site calculator lets you enter pixel dimensions manually to find print sizes. This tool skips the math — just upload your actual photo and it automatically detects the dimensions and shows you every compatible size at a glance.</div>
+        </div>
+      </div>
+
+      <hr class="content-divider" />
+
+      <div class="cta-strip">
+        <div class="cta-text">
+          <h3>Ready to print?</h3>
+          <p>Printkeg ships fine art prints, posters, greeting cards, stickers, and more — fast and direct to artists and small businesses across the US.</p>
+        </div>
+        <a href="https://www.printkeg.com" class="cta-btn" target="_blank" rel="noopener">Shop Printkeg ↗</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span class="footer-copy">© 2025 Printkeg. All rights reserved.</span>
+    <a href="/" class="footer-link">← All Tools</a>
+  </footer>
+
+  <script>
+  (function() {
+    var SIZES = [
+      { name: '2 x 6 in',      w: 2,    h: 6,  url: 'https://www.printkeg.com/products/2x6-custom-bookmarks' },
+      { name: '2 x 7 in',      w: 2,    h: 7,  url: 'https://www.printkeg.com/products/custom-2x7-bookmarks-tickets' },
+      { name: '3 x 4 in',      w: 3,    h: 4,  url: 'https://www.printkeg.com/products/3x4-postcards' },
+      { name: '3.5 x 5 in',    w: 3.5,  h: 5,  url: 'https://www.printkeg.com/products/3x4-postcards?variant=44274576064744' },
+      { name: '4 x 6 in',      w: 4,    h: 6,  url: 'https://www.printkeg.com/products/4x6-postcards' },
+      { name: '4.25 x 5.5 in', w: 4.25, h: 5.5,url: 'https://www.printkeg.com/products/4-25-x-5-5-postcards' },
+      { name: '5 x 7 in',      w: 5,    h: 7,  url: 'https://www.printkeg.com/products/5x7-postcards' },
+      { name: '8 x 8 in',      w: 8,    h: 8,  url: 'https://www.printkeg.com/products/custom-square-prints?variant=21498456801385' },
+      { name: '8 x 10 in',     w: 8,    h: 10, url: 'https://www.printkeg.com/products/8x10-art-prints' },
+      { name: '8.5 x 11 in',   w: 8.5,  h: 11, url: 'https://www.printkeg.com/products/8-5x11-art-prints' },
+      { name: '8 x 12 in',     w: 8,    h: 12, url: 'https://www.printkeg.com/products/8x12-professional-prints' },
+      { name: '9 x 12 in',     w: 9,    h: 12, url: 'https://www.printkeg.com/products/8x12-professional-prints' },
+      { name: '10 x 10 in',    w: 10,   h: 10, url: 'https://www.printkeg.com/products/custom-square-prints?variant=21498464796777' },
+      { name: '11 x 14 in',    w: 11,   h: 14, url: 'https://www.printkeg.com/products/11x14-art-prints' },
+      { name: '11 x 17 in',    w: 11,   h: 17, url: 'https://www.printkeg.com/products/11x17-small-posters' },
+      { name: '12 x 12 in',    w: 12,   h: 12, url: 'https://www.printkeg.com/products/custom-square-prints?variant=21498466074729' },
+      { name: '12 x 18 in',    w: 12,   h: 18, url: 'https://www.printkeg.com/products/12x18-small-posters' },
+      { name: '12 x 24 in',    w: 12,   h: 24, url: 'https://www.printkeg.com/products/panoramic-prints?variant=1904535939' },
+      { name: '13 x 19 in',    w: 13,   h: 19, url: 'https://www.printkeg.com/products/13x19-small-posters' },
+      { name: '16 x 16 in',    w: 16,   h: 16, url: 'https://www.printkeg.com/products/large-prints?variant=48186613072104' },
+      { name: '16 x 20 in',    w: 16,   h: 20, url: 'https://www.printkeg.com/products/large-posters' },
+      { name: '16 x 24 in',    w: 16,   h: 24, url: 'https://www.printkeg.com/products/large-prints?variant=32795154514025' },
+      { name: '18 x 24 in',    w: 18,   h: 24, url: 'https://www.printkeg.com/products/18x24-poster-print' },
+      { name: '20 x 24 in',    w: 20,   h: 24, url: 'https://www.printkeg.com/products/large-prints?variant=32795157594217' },
+      { name: '20 x 30 in',    w: 20,   h: 30, url: 'https://www.printkeg.com/products/large-prints?variant=1272029715' },
+      { name: '24 x 24 in',    w: 24,   h: 24, url: 'https://www.printkeg.com/products/large-prints?variant=32795160182889' },
+      { name: '24 x 36 in',    w: 24,   h: 36, url: 'https://www.printkeg.com/products/24x36-poster-print' },
+      { name: '30 x 30 in',    w: 30,   h: 30, url: 'https://www.printkeg.com/products/large-prints?variant=44560596041960' },
+      { name: '30 x 40 in',    w: 30,   h: 40, url: 'https://www.printkeg.com/products/large-prints?variant=32795163689065' },
+      { name: '36 x 36 in',    w: 36,   h: 36, url: 'https://www.printkeg.com/products/large-prints?variant=32795164508265' },
+      { name: '36 x 48 in',    w: 36,   h: 48, url: 'https://www.printkeg.com/products/large-posters?variant=791061571' },
+      { name: '36 x 60 in',    w: 36,   h: 60, url: 'https://www.printkeg.com/products/large-posters?variant=791061795' }
+    ];
+
+    function gcd(a, b) { return b === 0 ? a : gcd(b, a % b); }
+
+    function calcDpi(iw, ih, pw, ph) {
+      return Math.max(
+        Math.min(iw / pw, ih / ph),
+        Math.min(iw / ph, ih / pw)
+      );
+    }
+
+    function calcFit(iw, ih, pw, ph) {
+      var iar = iw / ih;
+      var m1 = Math.min(iar, pw/ph) / Math.max(iar, pw/ph);
+      var m2 = Math.min(iar, ph/pw) / Math.max(iar, ph/pw);
+      return Math.round(Math.max(m1, m2) * 100);
+    }
+
+    function render(iw, ih) {
+      var passing = [], excluded = [];
+
+      SIZES.forEach(function(s) {
+        var dpi = calcDpi(iw, ih, s.w, s.h);
+        var fit = calcFit(iw, ih, s.w, s.h);
+        var q = dpi >= 300 ? 'excellent' : 'good';
+        if (fit >= 88 && dpi >= 200) {
+          passing.push({ s: s, dpi: dpi, fit: fit, q: q });
+        } else {
+          excluded.push(s);
+        }
+      });
+
+      var list = document.getElementById('resultsList');
+      list.innerHTML = '';
+
+      passing.forEach(function(p) {
+        var dpiPct = Math.min(100, Math.round((p.dpi / 300) * 100));
+        var fitColor = p.fit >= 90 ? 'var(--green)' : 'var(--amber)';
+
+        var a = document.createElement('a');
+        a.href = p.s.url;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.className = 'size-row ' + p.q;
+
+        // Col 1: name + dpi
+        var col1 = document.createElement('div');
+        col1.innerHTML = '<div class="size-name">' + p.s.name + '</div><div class="size-dpi">' + Math.round(p.dpi) + ' DPI</div>';
+
+        // Col 2: bars
+        var col2 = document.createElement('div');
+        col2.className = 'bars';
+        col2.innerHTML =
+          '<div class="bar-row"><span class="bar-key">res</span><div class="bar-track"><div class="bar-fill ' + p.q + '" style="width:' + dpiPct + '%"></div></div></div>' +
+          '<div class="bar-row"><span class="bar-key">fit</span><div class="bar-track"><div class="bar-fill ' + p.q + '" style="width:' + p.fit + '%"></div></div><span class="fit-pct" style="color:' + fitColor + '">' + p.fit + '%</span></div>';
+
+        // Col 3: badge
+        var col3 = document.createElement('div');
+        col3.className = 'badge-col';
+        col3.innerHTML = '<span class="badge ' + p.q + '">' + (p.q === 'excellent' ? 'Excellent' : 'Good') + '</span><span class="order-label">Order →</span>';
+
+        a.appendChild(col1);
+        a.appendChild(col2);
+        a.appendChild(col3);
+        list.appendChild(a);
+      });
+
+      document.getElementById('emptyState').style.display  = passing.length ? 'none' : 'block';
+      list.style.display = passing.length ? 'flex' : 'none';
+      document.getElementById('legend').style.display = passing.length ? 'flex' : 'none';
+
+      var excEl = document.getElementById('excludedSection');
+      if (excluded.length) {
+        var tags = document.getElementById('excludedTags');
+        tags.innerHTML = '';
+        excluded.forEach(function(s) {
+          var a = document.createElement('a');
+          a.href = s.url; a.target = '_blank'; a.rel = 'noopener';
+          a.className = 'excluded-tag';
+          a.textContent = s.name;
+          tags.appendChild(a);
+        });
+        excEl.style.display = 'block';
+      } else {
+        excEl.style.display = 'none';
+      }
+    }
+
+    function handleFile(file) {
+      if (!file || !file.type.startsWith('image/')) return;
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var img = new Image();
+        img.onload = function() {
+          var w = img.naturalWidth, h = img.naturalHeight;
+          var g = gcd(w, h);
+          document.getElementById('previewImg').src = e.target.result;
+          document.getElementById('previewArea').style.display = 'block';
+          document.getElementById('metaDims').textContent  = w + ' × ' + h;
+          document.getElementById('metaMp').textContent    = (w * h / 1e6).toFixed(2) + ' MP';
+          document.getElementById('metaRatio').textContent = (w/g) + ':' + (h/g);
+          document.getElementById('metaSize').textContent  = (file.size / 1e6).toFixed(2) + ' MB';
+
+          // hide drop zone text, show image
+          var dz = document.getElementById('dropZone');
+          dz.querySelector('.drop-icon').style.display = 'none';
+          dz.querySelector('.drop-text').style.display = 'none';
+
+          render(w, h);
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    var drop  = document.getElementById('dropZone');
+    var input = document.getElementById('fileInput');
+    input.addEventListener('change', function(e) { handleFile(e.target.files[0]); });
+    drop.addEventListener('dragover',  function(e) { e.preventDefault(); drop.classList.add('dragging'); });
+    drop.addEventListener('dragleave', function()  { drop.classList.remove('dragging'); });
+    drop.addEventListener('drop', function(e) {
+      e.preventDefault(); drop.classList.remove('dragging');
+      handleFile(e.dataTransfer.files[0]);
+    });
+  })();
+  </script>
+
+</body>
+</html>
