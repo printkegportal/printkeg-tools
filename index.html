@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Free Print Tools for Artists & Designers | Printkeg Tools</title>
-  <meta name="description" content="Free online tools for artists, designers, and small businesses. Check print resolution, generate bleed guides, verify color mode, calculate print sizes, and more — from Printkeg." />
-  <meta name="keywords" content="free print tools, print file preparation, DPI checker, bleed guide, RGB CMYK checker, print size calculator, print ready file tools" />
+  <meta name="description" content="Free online tools for artists, designers, and photographers. Check print resolution, generate bleed guides, verify color mode, calculate session rates, price print packages, and more — from Printkeg." />
+  <meta name="keywords" content="free print tools, print file preparation, DPI checker, bleed guide, RGB CMYK checker, print size calculator, photographer pricing calculator, photography session rate calculator" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://tools.printkeg.com/" />
 
   <meta property="og:title" content="Free Print Tools for Artists & Designers | Printkeg Tools" />
-  <meta property="og:description" content="Free online tools to help artists, designers, and small businesses prepare print-ready files — from Printkeg." />
+  <meta property="og:description" content="Free online tools to help artists, designers, and photographers prepare print-ready files and price their work — from Printkeg." />
   <meta property="og:url" content="https://tools.printkeg.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://tools.printkeg.com/og-image.jpg" />
@@ -21,7 +21,7 @@
     "@type": "WebSite",
     "name": "Printkeg Tools",
     "url": "https://tools.printkeg.com",
-    "description": "Free online print preparation tools for artists, designers, and small businesses.",
+    "description": "Free online print preparation and pricing tools for artists, designers, and photographers.",
     "publisher": { "@type": "Organization", "name": "Printkeg", "url": "https://www.printkeg.com" }
   }
   </script>
@@ -55,7 +55,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* NAV */
     nav {
       border-bottom: 1px solid var(--border);
       padding: 18px 40px;
@@ -72,14 +71,12 @@
     .nav-link { font-size: 13px; color: var(--subtle); text-decoration: none; transition: color 0.15s; }
     .nav-link:hover { color: var(--text); }
 
-    /* HERO */
     .hero { padding: 80px 40px 60px; max-width: 960px; margin: 0 auto; }
     .hero-eyebrow { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
-    .hero-heading { font-family: 'DM Sans', sans-serif; font-size: clamp(32px, 5vw, 52px); font-weight: 300; line-height: 1.15; color: var(--text); margin-bottom: 20px; }
+    .hero-heading { font-size: clamp(32px, 5vw, 52px); font-weight: 300; line-height: 1.15; color: var(--text); margin-bottom: 20px; }
     .hero-heading strong { font-weight: 500; }
     .hero-sub { font-size: 16px; color: var(--muted); line-height: 1.7; max-width: 560px; font-weight: 300; }
 
-    /* TOOLS GRID */
     .tools-section { padding: 20px 40px 0; max-width: 960px; margin: 0 auto; }
 
     .section-label {
@@ -101,24 +98,23 @@
     .tool-card {
       background: var(--surface); padding: 28px;
       text-decoration: none; display: flex; flex-direction: column; gap: 12px;
-      transition: background 0.15s; position: relative;
+      transition: background 0.15s;
     }
     .tool-card:hover { background: #181818; }
     .tool-card:hover .tool-arrow { transform: translate(3px, -3px); color: var(--accent); }
-
     .tool-card.coming-soon { cursor: default; pointer-events: none; opacity: 0.65; }
-    .tool-card.external { }
 
     .tool-card-top { display: flex; align-items: flex-start; justify-content: space-between; }
     .tool-icon {
       width: 36px; height: 36px; border-radius: 4px;
       background: var(--accent-dim); border: 1px solid rgba(255,92,43,0.15);
-      display: flex; align-items: center; justify-content: center; font-size: 17px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-family: 'Space Mono', monospace; color: var(--accent);
     }
     .tool-arrow { font-size: 16px; color: var(--dim); transition: transform 0.2s, color 0.2s; }
     .tool-name { font-size: 15px; font-weight: 500; color: var(--text); line-height: 1.3; }
     .tool-desc { font-size: 13px; color: var(--muted); line-height: 1.6; font-weight: 300; }
-    .tool-tag { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--subtle); margin-top: auto; }
+    .tool-tag { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; margin-top: auto; }
     .tool-tag.live { color: var(--accent); }
     .tool-tag.soon { color: #f0c040; }
     .tool-tag.external { color: #4caf50; }
@@ -143,7 +139,7 @@
     .guide-section { margin-bottom: 48px; }
     .guide-heading { font-size: 20px; font-weight: 400; color: var(--text); margin-bottom: 28px; }
     .guide-heading strong { font-weight: 500; }
-    .steps { display: flex; flex-direction: column; gap: 0; }
+    .steps { display: flex; flex-direction: column; }
     .step { display: grid; grid-template-columns: 48px 1fr; gap: 20px; padding: 20px 0; border-top: 1px solid var(--border); align-items: start; }
     .step:last-child { border-bottom: 1px solid var(--border); }
     .step-num { font-family: 'Space Mono', monospace; font-size: 18px; font-weight: 700; color: var(--accent); padding-top: 2px; }
@@ -215,13 +211,14 @@
         Prep your artwork.<br />
         <strong>Print with confidence.</strong>
       </h1>
-      <p class="hero-sub">A growing collection of free tools for artists, designers, and small businesses — built to help you get print-ready faster and avoid costly mistakes before you order.</p>
+      <p class="hero-sub">A growing collection of free tools for artists, designers, and photographers — built to help you get print-ready and price your work with confidence.</p>
     </section>
 
     <section class="tools-section">
       <div class="section-label">Available Tools</div>
       <div class="tools-grid" role="list">
 
+        <!-- ROW 1 -->
         <a href="/photo-print-size-checker/" class="tool-card" role="listitem">
           <div class="tool-card-top">
             <div class="tool-icon">⬚</div>
@@ -252,7 +249,28 @@
           <div class="tool-tag live">● Live</div>
         </a>
 
-        <a href="https://www.printkeg.com/pages/print-size-calculator" class="tool-card external" role="listitem" target="_blank" rel="noopener">
+        <!-- ROW 2 -->
+        <a href="/photographer-session-rate-calculator/" class="tool-card" role="listitem">
+          <div class="tool-card-top">
+            <div class="tool-icon">$</div>
+            <span class="tool-arrow">↗</span>
+          </div>
+          <div class="tool-name">Photographer Session Rate Calculator</div>
+          <div class="tool-desc">Enter your time, expenses, and profit margin to get a suggested session rate with a full pricing breakdown.</div>
+          <div class="tool-tag live">● Live</div>
+        </a>
+
+        <a href="/photographer-pricing-calculator/" class="tool-card" role="listitem">
+          <div class="tool-card-top">
+            <div class="tool-icon">▤</div>
+            <span class="tool-arrow">↗</span>
+          </div>
+          <div class="tool-name">Photography Print Pricing Strategies</div>
+          <div class="tool-desc">Market-based print package tiers, client positioning copy, and pricing psychology by shoot type and market level.</div>
+          <div class="tool-tag live">● Live</div>
+        </a>
+
+        <a href="https://www.printkeg.com/pages/print-size-calculator" class="tool-card" role="listitem" target="_blank" rel="noopener">
           <div class="tool-card-top">
             <div class="tool-icon">⊡</div>
             <span class="tool-arrow">↗</span>
@@ -262,25 +280,33 @@
           <div class="tool-tag external">● Printkeg.com</div>
         </a>
 
+        <!-- ROW 3 — COMING SOON -->
         <div class="tool-card coming-soon" role="listitem">
           <div class="tool-card-top">
             <div class="tool-icon">⬡</div>
           </div>
           <div class="tool-name">Printkeg Portal</div>
-          <div class="tool-desc">Sell your art online and connect your Shopify storefront directly to Printkeg for automated print fulfillment.</div>
+          <div class="tool-desc">Connect your Shopify storefront directly to Printkeg for automated print fulfillment.</div>
           <div class="tool-tag soon">○ Coming Soon</div>
         </div>
 
-        <a href="/photographer-pricing-calculator/" class="tool-card" role="listitem">
+        <div class="tool-card coming-soon" role="listitem">
           <div class="tool-card-top">
-            <div class="tool-icon">$</div>
-            <span class="tool-arrow">↗</span>
+            <div class="tool-icon">◈</div>
           </div>
-          <div class="tool-name">Photography Print Pricing Strategies</div>
-          <div class="tool-desc">Market-based print package tiers, client positioning copy, and pricing psychology by shoot type and market level.</div>
-          <div class="tool-tag live">● Live</div>
-        </a>
+          <div class="tool-name">Color Profile Converter</div>
+          <div class="tool-desc">Preview how your RGB artwork will shift when converted to CMYK — side by side, before you send to print.</div>
+          <div class="tool-tag soon">○ Coming Soon</div>
+        </div>
 
+        <div class="tool-card coming-soon" role="listitem">
+          <div class="tool-card-top">
+            <div class="tool-icon">◉</div>
+          </div>
+          <div class="tool-name">Color Palette Extractor</div>
+          <div class="tool-desc">Upload any image and extract the dominant colors as hex codes and RGB values — perfect for branding and print series.</div>
+          <div class="tool-tag soon">○ Coming Soon</div>
+        </div>
 
       </div>
     </section>
@@ -373,16 +399,16 @@
           <div class="faq-a">RGB is the color model used by screens — it creates color from light. CMYK is the model used by printers — it creates color from ink. Some RGB colors, especially vivid blues, purples, and neons, fall outside the CMYK color gamut and will shift when converted. Always work in CMYK for print projects. Check your file with our <a href="/color-mode-checker/">Color Mode Checker</a>.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">Can I print a photo taken on my phone?</div>
-          <div class="faq-a">Often yes — modern smartphones shoot at 12–50 megapixels, which can support surprisingly large prints. The answer depends on your specific photo's pixel dimensions. Upload it to our <a href="/photo-print-size-checker/">Photo Print Size Checker</a> to find out exactly what sizes will look sharp.</div>
+          <div class="faq-q">How do I calculate my photography session rate?</div>
+          <div class="faq-a">Add up your total labor hours — prep, shoot, and editing — multiplied by your hourly rate. Add all direct expenses. Apply your desired profit margin on top. Add tax if applicable. Our <a href="/photographer-session-rate-calculator/">Session Rate Calculator</a> does all of that math automatically and shows a full breakdown.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">What file format should I use for printing?</div>
-          <div class="faq-a">TIFF (uncompressed, CMYK) and PDF/X-1a are the best formats for professional printing. High-quality CMYK JPG is also widely accepted. Avoid PNG for press printing as it uses RGB and doesn't support CMYK color profiles. Printkeg accepts TIFF, PDF, and JPG files.</div>
+          <div class="faq-q">Can I print a photo taken on my phone?</div>
+          <div class="faq-a">Often yes — modern smartphones shoot at 12–50 megapixels, which can support surprisingly large prints. Upload it to our <a href="/photo-print-size-checker/">Photo Print Size Checker</a> to find out exactly what sizes will look sharp.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q">Are these tools really free?</div>
-          <div class="faq-a">Yes — all tools on this site are completely free with no account, sign-up, or usage limits required. They're built and maintained by Printkeg as a resource for artists, designers, and small businesses.</div>
+          <div class="faq-a">Yes — all tools on this site are completely free with no account, sign-up, or usage limits required. They're built and maintained by Printkeg as a resource for artists, designers, and photographers.</div>
         </div>
       </div>
 
