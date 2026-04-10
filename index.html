@@ -106,7 +106,7 @@
     .tool-card:hover { background: #181818; }
     .tool-card:hover .tool-arrow { transform: translate(3px, -3px); color: var(--accent); }
 
-    .tool-card.coming-soon { cursor: default; pointer-events: none; opacity: 0.45; }
+    .tool-card.coming-soon { cursor: default; pointer-events: none; opacity: 0.65; }
     .tool-card.external { }
 
     .tool-card-top { display: flex; align-items: flex-start; justify-content: space-between; }
@@ -120,7 +120,7 @@
     .tool-desc { font-size: 13px; color: var(--muted); line-height: 1.6; font-weight: 300; }
     .tool-tag { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--subtle); margin-top: auto; }
     .tool-tag.live { color: var(--accent); }
-    .tool-tag.soon { color: var(--dim); }
+    .tool-tag.soon { color: #f0c040; }
     .tool-tag.external { color: #4caf50; }
 
     /* SEO CONTENT */
@@ -262,24 +262,25 @@
           <div class="tool-tag external">● Printkeg.com</div>
         </a>
 
-        <a href="https://portal.printkeg.com" class="tool-card external" role="listitem" target="_blank" rel="noopener">
-          <div class="tool-card-top">
-            <div class="tool-icon">⬡</div>
-            <span class="tool-arrow">↗</span>
-          </div>
-          <div class="tool-name">Printkeg Portal</div>
-          <div class="tool-desc">Sell your art online and connect your storefront directly to Printkeg for automated print fulfillment.</div>
-          <div class="tool-tag external">● portal.printkeg.com</div>
-        </a>
-
         <div class="tool-card coming-soon" role="listitem">
           <div class="tool-card-top">
-            <div class="tool-icon">◈</div>
+            <div class="tool-icon">⬡</div>
           </div>
-          <div class="tool-name">Color Profile Converter</div>
-          <div class="tool-desc">Preview how your RGB artwork will shift when converted to CMYK — side by side, before you send to print.</div>
+          <div class="tool-name">Printkeg Portal</div>
+          <div class="tool-desc">Sell your art online and connect your Shopify storefront directly to Printkeg for automated print fulfillment.</div>
           <div class="tool-tag soon">○ Coming Soon</div>
         </div>
+
+        <a href="/photographer-pricing-calculator/" class="tool-card" role="listitem">
+          <div class="tool-card-top">
+            <div class="tool-icon">$</div>
+            <span class="tool-arrow">↗</span>
+          </div>
+          <div class="tool-name">Photographer Pricing Strategies</div>
+          <div class="tool-desc">Get market-based print package tiers, positioning copy, and pricing psychology by photography type and market level.</div>
+          <div class="tool-tag live">● Live</div>
+        </a>
+
 
       </div>
     </section>
