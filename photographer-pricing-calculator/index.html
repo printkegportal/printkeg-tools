@@ -1,1 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photography Print Pricing Strategies — Package Tiers & Positioning Guide | Printkeg</title>
+  <meta name="description" content="Free photography print pricing strategy guide. Get market-based package tiers, client positioning copy, and pricing psychology by shoot type — wedding, newborn, senior, boudoir, pet, and event." />
+  <meta name="keywords" content="photographer pricing strategies, how to price photography prints, photography print package pricing, how much to charge for print packages, photographer pricing guide, print pricing for photographers, photography pricing calculator, wedding photographer pricing, newborn photographer pricing" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://tools.printkeg.com/photographer-pricing-calculator/" />
 
+  <meta property="og:title" content="Photography Print Pricing Strategies — Free Package Guide" />
+  <meta property="og:description" content="Market-based print package tiers, positioning copy, and pricing psychology by photography type. Free from Printkeg." />
+  <meta property="og:url" content="https://tools.printkeg.com/photographer-pricing-calculator/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Photographer Print Pricing Strategy Calculator",
+    "url": "https://tools.printkeg.com/photographer-pricing-calculator/",
+    "description": "Free pricing strategy tool for photographers. Get market-based package tiers, positioning language, and pricing psychology by photography type and market level.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": { "@type": "Organization", "name": "Printkeg", "url": "https://www.printkeg.com" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Printkeg Tools", "item": "https://tools.printkeg.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Photographer Pricing Calculator", "item": "https://tools.printkeg.com/photographer-pricing-calculator/" }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #faf8f4;
+      --surface: #ffffff;
+      --surface-2: #f3f0ea;
+      --border: #e8e2d8;
+      --text: #1a1612;
+      --muted: #5a5248;
+      --subtle: #9a9088;
+      --dim: #c8c0b4;
+      --accent: #c4501a;
+      --accent-light: #fdf0eb;
+      --accent-dim: rgba(196,80,26,0.08);
+      --gold: #b8860b;
+      --gold-light: #fdf8e8;
+      --green: #2d6e3e;
+      --green-light: #edf5f0;
+      --blue: #1a4a8a;
+      --blue-light: #eef3fb;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(250,248,244,0.95);
+      backdrop-filter: blur(12px);
+      position: sticky; top: 0; z-index: 100;
+    }
+
+    .nav-logo { text-decoration: none; display: flex; align-items: baseline; gap: 10px; }
+    .nav-logo-primary { font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); }
+    .nav-logo-secondary { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; }
+    .breadcrumb { font-size: 12px; color: var(--subtle); display: flex; align-items: center; gap: 8px; }
+    .breadcrumb a { color: var(--subtle); text-decoration: none; transition: color 0.15s; }
+    .breadcrumb a:hover { color: var(--muted); }
+
+    /* HERO */
+    .hero {
+      max-width: 860px; margin: 0 auto;
+      padding: 72px 40px 52px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-eyebrow {
+      font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 20px;
+    }
+
+    .hero-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 54px);
+      font-weight: 400; line-height: 1.15;
+      color: var(--text); margin-bottom: 20px;
+    }
+
+    .hero-heading em { font-style: italic; color: var(--accent); }
+
+    .hero-sub {
+      font-size: 16px; color: var(--muted); line-height: 1.75;
+      max-width: 560px; font-weight: 300;
+    }
+
+    /* CALCULATOR */
+    .calc-wrapper { max-width: 860px; margin: 0 auto; padding: 48px 40px; }
+
+    .calc-label {
+      font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--subtle); margin-bottom: 20px;
+      padding-bottom: 12px; border-bottom: 1px solid var(--border);
+    }
+
+    /* STEP SELECTORS */
+    .steps-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-bottom: 40px; }
+
+    .step-block { display: flex; flex-direction: column; gap: 12px; }
+
+    .step-heading {
+      display: flex; align-items: baseline; gap: 10px;
+    }
+
+    .step-num {
+      font-family: 'Space Mono', monospace; font-size: 11px; color: var(--accent);
+      font-weight: 700; letter-spacing: 0.08em;
+    }
+
+    .step-title { font-size: 13px; font-weight: 500; color: var(--text); }
+
+    .option-list { display: flex; flex-direction: column; gap: 6px; }
+
+    .option-btn {
+      padding: 10px 14px; background: var(--surface); border: 1px solid var(--border);
+      border-radius: 4px; text-align: left; cursor: pointer;
+      font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--muted);
+      transition: all 0.15s; line-height: 1.3;
+    }
+
+    .option-btn:hover { border-color: var(--accent); color: var(--text); background: var(--accent-light); }
+
+    .option-btn.selected {
+      border-color: var(--accent); background: var(--accent-light);
+      color: var(--text); font-weight: 500;
+    }
+
+    .option-btn .opt-sub {
+      display: block; font-size: 11px; color: var(--subtle); font-weight: 300; margin-top: 2px;
+    }
+
+    .option-btn.selected .opt-sub { color: var(--muted); }
+
+    /* GENERATE BUTTON */
+    .generate-btn {
+      width: 100%; padding: 16px; background: var(--accent); color: #fff; border: none;
+      font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer;
+      border-radius: 4px; transition: background 0.15s, transform 0.1s;
+      margin-bottom: 40px;
+    }
+    .generate-btn:hover:not(:disabled) { background: #a84414; transform: translateY(-1px); }
+    .generate-btn:disabled { background: var(--dim); cursor: not-allowed; transform: none; }
+
+    /* RESULTS */
+    .results-area { display: none; flex-direction: column; gap: 0; }
+    .results-area.visible { display: flex; }
+
+    .results-intro {
+      padding: 24px 0 28px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+
+    .results-intro-label {
+      font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--subtle); margin-bottom: 8px;
+    }
+
+    .results-intro-headline {
+      font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 400;
+      color: var(--text); line-height: 1.3;
+    }
+
+    .results-intro-headline em { font-style: italic; color: var(--accent); }
+
+    .tiers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 40px; }
+
+    .tier-card {
+      border-radius: 6px; overflow: hidden;
+      border: 1px solid var(--border);
+      display: flex; flex-direction: column;
+    }
+
+    .tier-header { padding: 18px 20px 14px; }
+    .tier-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 6px; }
+    .tier-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 500; line-height: 1.2; }
+    .tier-price { font-family: 'Space Mono', monospace; font-size: 28px; font-weight: 700; margin-top: 10px; }
+    .tier-price-range { font-family: 'Space Mono', monospace; font-size: 11px; margin-top: 2px; opacity: 0.7; }
+
+    .tier-body { padding: 18px 20px; background: var(--surface); flex: 1; display: flex; flex-direction: column; gap: 14px; }
+
+    .tier-section-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--subtle); margin-bottom: 6px; }
+
+    .tier-includes { display: flex; flex-direction: column; gap: 5px; }
+    .tier-include-item { font-size: 13px; color: var(--muted); padding-left: 14px; position: relative; line-height: 1.5; font-weight: 300; }
+    .tier-include-item::before { content: '—'; position: absolute; left: 0; color: var(--dim); }
+
+    .tier-pitch { font-size: 13px; color: var(--text); line-height: 1.65; font-style: italic; border-left: 2px solid var(--border); padding-left: 12px; }
+
+    .tier-why { font-size: 12px; color: var(--muted); line-height: 1.65; font-weight: 300; }
+
+    /* Tier color themes */
+    .tier-card.starter .tier-header { background: var(--surface-2); }
+    .tier-card.starter .tier-label { color: var(--subtle); }
+    .tier-card.starter .tier-name { color: var(--text); }
+    .tier-card.starter .tier-price { color: var(--text); }
+
+    .tier-card.popular .tier-header { background: var(--accent); }
+    .tier-card.popular .tier-label { color: rgba(255,255,255,0.7); }
+    .tier-card.popular .tier-name { color: #fff; }
+    .tier-card.popular .tier-price { color: #fff; }
+    .tier-card.popular .tier-price-range { color: rgba(255,255,255,0.75); }
+    .tier-card.popular { border-color: var(--accent); }
+
+    .tier-card.premium .tier-header { background: var(--text); }
+    .tier-card.premium .tier-label { color: rgba(255,255,255,0.5); }
+    .tier-card.premium .tier-name { color: #f0ede6; }
+    .tier-card.premium .tier-price { color: #f0ede6; }
+    .tier-card.premium .tier-price-range { color: rgba(240,237,230,0.6); }
+
+    .popular-badge {
+      font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.1em;
+      text-transform: uppercase; background: rgba(255,255,255,0.2); color: #fff;
+      padding: 3px 8px; border-radius: 3px; display: inline-block; margin-bottom: 6px;
+    }
+
+    /* STRATEGY NOTE */
+    .strategy-note {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+      padding: 28px 32px; margin-bottom: 40px;
+    }
+
+    .strategy-note-label {
+      font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+    }
+
+    .strategy-note h3 {
+      font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 400;
+      color: var(--text); margin-bottom: 12px;
+    }
+
+    .strategy-note p { font-size: 14px; color: var(--muted); line-height: 1.75; font-weight: 300; }
+    .strategy-note p + p { margin-top: 10px; }
+
+    .reset-btn {
+      background: transparent; color: var(--text); border: 1.5px solid var(--text);
+      padding: 12px 28px; font-family: 'Space Mono', monospace; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer;
+      border-radius: 4px; transition: all 0.15s;
+    }
+    .reset-btn:hover { background: var(--text); color: var(--bg); }
+
+    /* CONTENT */
+    .content-section { max-width: 860px; margin: 0 auto; padding: 0 40px 80px; }
+    .content-divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+    .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+    .content-block h2 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 400; margin-bottom: 12px; color: var(--text); }
+    .content-block p { font-size: 14px; color: var(--muted); line-height: 1.75; font-weight: 300; }
+
+    .section-heading { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 400; margin-bottom: 24px; color: var(--text); }
+    .faq { display: flex; flex-direction: column; }
+    .faq-item { border-top: 1px solid var(--border); padding: 20px 0; }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+    .faq-q { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 8px; }
+    .faq-a { font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+    .cta-strip {
+      background: var(--text); border-radius: 6px;
+      padding: 32px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+    }
+    .cta-text h3 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 400; margin-bottom: 6px; color: #f0ede6; }
+    .cta-text p { font-size: 13px; color: rgba(240,237,230,0.65); font-weight: 300; }
+    .cta-btn {
+      background: var(--accent); color: #fff; text-decoration: none; padding: 13px 28px;
+      font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; border-radius: 4px;
+      transition: background 0.15s; white-space: nowrap;
+    }
+    .cta-btn:hover { background: #a8441a; }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 28px 40px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copy { font-size: 12px; color: var(--dim); }
+    .footer-link { font-size: 12px; color: var(--subtle); text-decoration: none; transition: color 0.15s; }
+    .footer-link:hover { color: var(--muted); }
+
+    @media (max-width: 760px) {
+      nav { padding: 16px 20px; }
+      .hero { padding: 48px 20px 36px; }
+      .calc-wrapper { padding: 32px 20px; }
+      .steps-grid { grid-template-columns: 1fr; gap: 28px; }
+      .tiers-grid { grid-template-columns: 1fr; }
+      .content-section { padding: 0 20px 60px; }
+      .content-grid { grid-template-columns: 1fr; gap: 28px; }
+      footer { padding: 24px 20px; }
+      .cta-strip { flex-direction: column; align-items: flex-start; }
+      .strategy-note { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-primary">Printkeg</span>
+      <span class="nav-logo-secondary">Tools</span>
+    </a>
+    <div class="breadcrumb">
+      <a href="/">Tools</a>
+      <span>›</span>
+      <span>Photographer Pricing</span>
+    </div>
+  </nav>
+
+  <main>
+    <div class="hero">
+      <p class="hero-eyebrow">Free Print Pricing Strategy Guide</p>
+      <h1 class="hero-heading">Photography Print Pricing<br /><em>Strategies That Actually Work.</em></h1>
+      <p class="hero-sub">Most photographer pricing calculators start with your expenses. The market doesn't care about your expenses. This tool gives you market-based package strategies, positioning language, and pricing psychology — by photography type and market level.</p>
+    </div>
+
+    <div class="calc-wrapper">
+      <div class="calc-label">Build Your Print Pricing Strategy</div>
+
+      <div class="steps-grid">
+
+        <!-- STEP 1 -->
+        <div class="step-block">
+          <div class="step-heading">
+            <span class="step-num">01</span>
+            <span class="step-title">Photography Type</span>
+          </div>
+          <div class="option-list" id="typeOptions">
+            <button class="option-btn" data-type="wedding">Wedding<span class="opt-sub">Engagement, bridal, elopement</span></button>
+            <button class="option-btn" data-type="newborn">Newborn & Family<span class="opt-sub">Maternity, newborn, milestone</span></button>
+            <button class="option-btn" data-type="senior">Senior Portraits<span class="opt-sub">High school, graduation</span></button>
+            <button class="option-btn" data-type="boudoir">Boudoir<span class="opt-sub">Intimate, empowerment, bridal</span></button>
+            <button class="option-btn" data-type="pet">Pet Photography<span class="opt-sub">Dogs, cats, equine</span></button>
+            <button class="option-btn" data-type="event">Event & Corporate<span class="opt-sub">Headshots, conferences, galas</span></button>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="step-block">
+          <div class="step-heading">
+            <span class="step-num">02</span>
+            <span class="step-title">Market Positioning</span>
+          </div>
+          <div class="option-list" id="marketOptions">
+            <button class="option-btn" data-market="budget">Budget / Volume<span class="opt-sub">Price-sensitive clients, high volume</span></button>
+            <button class="option-btn" data-market="mid">Mid-Market<span class="opt-sub">Quality-conscious, value-driven</span></button>
+            <button class="option-btn" data-market="luxury">Luxury / Premium<span class="opt-sub">Experience-first, price-secondary</span></button>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="step-block">
+          <div class="step-heading">
+            <span class="step-num">03</span>
+            <span class="step-title">Print Product</span>
+          </div>
+          <div class="option-list" id="productOptions">
+            <button class="option-btn" data-product="cards">Greeting Cards<span class="opt-sub">Birth announcements, thank yous, holiday</span></button>
+            <button class="option-btn" data-product="postcards">Postcards<span class="opt-sub">Promos, save-the-dates, announcements</span></button>
+            <button class="option-btn" data-product="prints">Art Prints<span class="opt-sub">Wall art, fine art, display prints</span></button>
+            <button class="option-btn" data-product="packages">Print Packages<span class="opt-sub">Multi-size sets: 8x10, 5x7, wallets</span></button>
+          </div>
+        </div>
+
+      </div>
+
+      <button class="generate-btn" id="generateBtn" disabled>Generate My Pricing Strategy →</button>
+
+      <!-- RESULTS -->
+      <div class="results-area" id="resultsArea">
+
+        <div class="results-intro" style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px; flex-wrap:wrap;">
+          <div>
+            <div class="results-intro-label">Your Pricing Strategy</div>
+            <div class="results-intro-headline" id="resultsHeadline"></div>
+          </div>
+          <button class="reset-btn" id="resetBtnTop" style="margin-top:4px; flex-shrink:0;">← Start Over</button>
+        </div>
+
+        <div class="tiers-grid" id="tiersGrid"></div>
+
+        <div class="strategy-note" id="strategyNote"></div>
+
+        <button class="reset-btn" id="resetBtn">← Start Over</button>
+
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content-section">
+      <hr class="content-divider" />
+
+      <div class="content-grid">
+        <div class="content-block">
+          <h2>Why cost-plus pricing fails photographers</h2>
+          <p>Most pricing formulas say: add up your costs, multiply by a markup, and that's your price. The problem is your clients have no idea what your costs are — and they don't care. They're comparing you to other photographers they've seen, not to your expense spreadsheet. Market-based pricing sets prices where clients already expect to spend, which makes selling easier and justification unnecessary.</p>
+        </div>
+        <div class="content-block">
+          <h2>The psychology of three tiers</h2>
+          <p>Offering three package options triggers what behavioral economists call the "compromise effect" — most people choose the middle option. Your starter tier makes the middle seem reasonable. Your premium tier makes the middle seem like a smart deal. Pricing your most profitable package in the middle isn't a trick — it's how professional service pricing works across every industry.</p>
+        </div>
+        <div class="content-block">
+          <h2>Why print products are underpriced</h2>
+          <p>Photographers routinely charge less for print products than clients expect to pay. A newborn family that just spent $800 on a session will happily spend $135–$225 on birth announcement cards — because that's what birth announcements cost at a stationery boutique. When you price below market expectations, clients don't feel like they got a deal. They wonder what's wrong with the quality.</p>
+        </div>
+        <div class="content-block">
+          <h2>How to present packages without discounting</h2>
+          <p>Lead with the experience, not the product. "The Keepsake Collection includes 50 custom birth announcement cards — ready to mail the week your baby arrives" sells better than "50 cards — $120." Name your packages. Describe what clients feel when they hold them. The price becomes secondary when the value is clear. Never apologize for your prices, and never volunteer a discount before it's asked for.</p>
+        </div>
+      </div>
+
+      <hr class="content-divider" />
+
+      <h2 class="section-heading">Frequently Asked Questions</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <div class="faq-q">Should I base my print prices on what they cost me?</div>
+          <div class="faq-a">Your costs set a floor — you should never price below what it costs you to deliver. But your costs shouldn't set your ceiling. What clients pay is determined by market expectations, perceived value, and what alternatives they're comparing you to. Price to the market, make sure your costs fit underneath, and adjust your supplier or offering if they don't.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How do I know what my market will pay?</div>
+          <div class="faq-a">Look at what boutique stationery shops, specialty print studios, and photography studios in your area charge for comparable products. Search Etsy for custom announcement cards — that's where your clients comparison shop. Your pricing just needs to feel fair relative to those alternatives, not justify your specific costs.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Should I include print products in my session price or sell them separately?</div>
+          <div class="faq-a">Both models work, but selling prints separately (IPS — In-Person Sales) is generally more profitable. Clients who have just had an emotional session are in the best possible mindset to invest in products. Bundling prints into your session fee often means you're giving away product value that clients would have paid for separately.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What's the best print product to offer as a photographer?</div>
+          <div class="faq-a">It depends on your niche. Newborn and family photographers sell the most greeting cards and birth announcements. Wedding photographers do well with fine art prints and album add-ons. Senior photographers sell well to parents — greeting-card-style senior announcement cards are consistently popular. Start with one product, get your pricing and process right, then add more.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How do I introduce print packages to existing clients?</div>
+          <div class="faq-a">Frame it as a new service you're excited to offer, not a price increase. "I've partnered with a professional print lab and I'm now offering custom announcement packages" lands better than "I'm now charging for prints." Show samples if you can — physical product always sells better than a line item on a price list.</div>
+        </div>
+      </div>
+
+      <hr class="content-divider" />
+
+      <div class="cta-strip">
+        <div class="cta-text">
+          <h3>Ready to print your packages?</h3>
+          <p>Printkeg prints professional greeting cards, postcards, and fine art prints — shipped fast to photographers and studios across the US.</p>
+        </div>
+        <a href="https://www.printkeg.com" class="cta-btn" target="_blank" rel="noopener">Shop Printkeg ↗</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span class="footer-copy">© 2025 Printkeg. All rights reserved.</span>
+    <a href="/" class="footer-link">← All Tools</a>
+  </footer>
+
+  <script>
+  (function() {
+
+    var state = { type: null, market: null, product: null };
+
+    // ─── STRATEGY DATA ───────────────────────────────────────────────────────
+
+    var STRATEGIES = {
+
+      // ── WEDDING ──
+      wedding: {
+        cards: {
+          budget:  {
+            headline: 'Wedding announcement cards — volume-friendly pricing',
+            tiers: [
+              { tier: 'starter', name: 'The Simple Send', price: '$30–$45', includes: ['25 thank you cards', 'Standard envelope included', 'Single design'], pitch: '"A clean, classic thank-you card to send to your closest guests."', why: 'Budget clients want a complete, no-fuss option at a known price. Keep it simple and deliver fast.' },
+              { tier: 'popular', name: 'The Guest Suite', price: '$70–$90', includes: ['50 cards', 'Two design options', 'Envelopes included', 'Digital file for extras'], pitch: '"Enough cards for every guest on your list — with a design that matches your day."', why: '50 is the magic quantity for most budget weddings. Feels complete without being excessive.' },
+              { tier: 'premium', name: 'The Full Send', price: '$110–$140', includes: ['100 cards', 'Three design variations', 'Envelope addressing guide', 'Extra cards for keepsakes'], pitch: '"Every guest gets one, plus extras to keep, frame, or give to family."', why: 'The jump to 100 feels indulgent. Price the jump accordingly and many will take it.' }
+            ],
+            strategy: { title: 'Keep it fast and tangible', body: ['Budget wedding clients make quick decisions. Lead with quantity and turnaround time, not design complexity. "50 cards, ready in 5 days" outperforms a lengthy menu of options. If you can show a physical sample at the booking meeting, do it — budget clients buy what they can see and touch.', 'Avoid upselling too hard. Budget clients disengage quickly when they feel pressured. Offer the tiers, let them choose, and make the process easy.'] }
+          },
+          mid: {
+            headline: 'Wedding card packages — mid-market positioning',
+            tiers: [
+              { tier: 'starter', name: 'The Thank-You Set', price: '$65–$80', includes: ['30 cards', 'Custom design from your photos', 'White envelope included'], pitch: '"A personal thank-you that feels as special as the day itself."', why: 'Mid-market clients expect customization. Generic cards feel like an afterthought — these feel intentional.' },
+              { tier: 'popular', name: 'The Announcement Collection', price: '$115–$155', includes: ['60 cards', 'Two card designs (thank you + announcement)', 'Premium envelopes', 'Design proof within 48 hrs'], pitch: '"A complete card package — one to announce, one to thank. Everything you need, done beautifully."', why: 'Two designs at this price feels like a full-service experience. Mid-market clients value completeness.' },
+              { tier: 'premium', name: 'The Heirloom Suite', price: '$200–$250', includes: ['100 cards', 'Three designs', 'Foil-accent upgrade option', 'Keepsake set of 10 for framing', 'Priority turnaround'], pitch: '"The complete stationery experience — designed to last as long as the marriage."', why: 'Premium framing pushes this from product to keepsake. The word "heirloom" does real psychological work.' }
+            ],
+            strategy: { title: 'Sell the feeling, not the quantity', body: ['Mid-market wedding clients have allocated a real budget and want to feel it was well spent. They\'re not comparing you to the cheapest option — they\'re comparing you to the boutique stationery shop downtown. Your positioning needs to win that comparison.', 'The "heirloom" angle is powerful here. Wedding clients are in an emotional, memory-making mindset. A package positioned as something they\'ll keep forever justifies a premium over a generic print order.'] }
+          },
+          luxury: {
+            headline: 'Luxury wedding stationery packages',
+            tiers: [
+              { tier: 'starter', name: 'The Curated Set', price: '$125–$160', includes: ['30 premium cards', 'Custom design session', 'Signature envelope liner option', 'Proof within 24 hrs'], pitch: '"A carefully designed keepsake card — yours alone, not a template."', why: 'Luxury clients pay for exclusivity. "Custom design session" signals white-glove service, not a print order.' },
+              { tier: 'popular', name: 'The Studio Collection', price: '$225–$325', includes: ['75 cards across 2 designs', 'Full custom design', 'Premium paper stock', 'Ribbon-tied presentation box', 'Digital files included'], pitch: '"A complete, gallery-worthy stationery set — packaged to give, keep, and treasure."', why: 'The presentation box is everything at this tier. Luxury clients buy the unboxing as much as the product.' },
+              { tier: 'premium', name: 'The Legacy Suite', price: '$475–$600', includes: ['150 cards across 3 designs', 'Bespoke design process', 'Foil, letterpress, or emboss option', 'Framed display set', 'White-glove delivery'], pitch: '"A complete wedding stationery legacy — designed with the same care as your images."', why: 'At this tier, price signals quality. Luxury clients distrust cheap options. Price high and deliver an experience, not a product.' }
+            ],
+            strategy: { title: 'Price is part of the luxury signal', body: ['Luxury clients are not shopping for deals — they\'re shopping for confidence. A premium price signals that you are serious and that the product will be serious. Underpricing at the luxury tier backfires: clients wonder why it\'s so affordable and whether the quality matches.', 'White-glove language throughout — "bespoke," "curated," "legacy" — does more selling than any feature list. Your packaging and presentation should match the language. A premium card in a plain envelope undermines the entire positioning.'] }
+          }
+        },
+        postcards: {
+          budget: {
+            headline: 'Wedding save-the-date postcards — budget tier',
+            tiers: [
+              { tier: 'starter', name: 'The Quick Save', price: '$25–$35', includes: ['25 postcards', 'Single design', 'Standard postcard size'], pitch: '"Simple, clean, and ready to mail — your save-the-date, done."', why: 'Budget clients want one decision, not a menu. Give them a complete option at a single price.' },
+              { tier: 'popular', name: 'The Guest List', price: '$45–$65', includes: ['60 postcards', 'Custom photo design', 'Two size options'], pitch: '"Enough for every guest plus extras — your date saved, your style set."', why: '60 covers most budget guest lists. The custom photo element makes it feel personal without inflating the price.' },
+              { tier: 'premium', name: 'The Full Mailing', price: '$80–$105', includes: ['100 postcards', 'Two design variations', 'Digital version for social media'], pitch: '"Every guest gets one. No one gets left off the list."', why: 'The "no one left off" angle addresses a real anxiety for budget clients managing large family lists.' }
+            ],
+            strategy: { title: 'Speed and simplicity close budget deals', body: ['Budget wedding clients book fast and want everything off their list quickly. Position postcards as the easiest save-the-date option — no envelope required, drop in the mailbox, done. Turnaround time is a stronger selling point than design complexity at this tier.'] }
+          },
+          mid: {
+            headline: 'Wedding save-the-date postcards — mid-market',
+            tiers: [
+              { tier: 'starter', name: 'The Date Card', price: '$50–$70', includes: ['35 postcards', 'Custom photo design', 'Mailing size'], pitch: '"A stylish save-the-date that sets the tone before the invitation arrives."', why: 'Mid-market clients care about visual cohesion. Frame the postcard as the start of their wedding stationery story.' },
+              { tier: 'popular', name: 'The Announcement Set', price: '$100–$125', includes: ['75 postcards', 'Two design options', 'Premium card stock', 'Digital files'], pitch: '"A complete save-the-date mailing — enough for your full list, beautifully done."', why: 'Complete and intentional. Mid-market couples want to feel like they\'ve handled it properly, not just cheaply.' },
+              { tier: 'premium', name: 'The Stationery Preview', price: '$160–$200', includes: ['100 postcards', 'Coordinated design with your future invitations', 'Premium paper', 'Envelope option add-on'], pitch: '"A save-the-date that previews your full wedding aesthetic — cohesion from day one."', why: 'The coordination angle creates a future sale. Clients who buy this are likely to return for invitations and thank-yous.' }
+            ],
+            strategy: { title: 'Plant the seed for a bigger sale', body: ['Mid-market wedding clients often start with save-the-dates and return for invitations, programs, and thank-yous. The save-the-date is your relationship starter. Build your top tier around stationery cohesion — "designed to match your invitation suite" creates an obvious follow-on conversation.'] }
+          },
+          luxury: {
+            headline: 'Luxury wedding save-the-date postcards',
+            tiers: [
+              { tier: 'starter', name: 'The Preview Card', price: '$105–$135', includes: ['30 premium postcards', 'Custom design', 'Premium stock'], pitch: '"A considered first impression — designed to set the standard for everything that follows."', why: 'Luxury clients think in terms of first impressions. The save-the-date is the opening line of their wedding story.' },
+              { tier: 'popular', name: 'The Signature Mailing', price: '$200–$275', includes: ['75 postcards', 'Bespoke design', 'Luxury card stock', 'Gold or foil accent option'], pitch: '"A luxury save-the-date that guests will keep — not just file away."', why: '"Guests will keep it" is powerful at this tier. Luxury clients want their stationery to be talked about.' },
+              { tier: 'premium', name: 'The Prelude Suite', price: '$350–$425', includes: ['120 postcards', 'Full bespoke design process', 'Premium matte or gloss', 'Matching digital assets', 'Design consultation included'], pitch: '"The beginning of your wedding stationery legacy — designed as carefully as your images."', why: 'A design consultation at this tier signals a relationship, not a transaction. That\'s exactly what luxury clients are buying.' }
+            ],
+            strategy: { title: 'Luxury starts before the wedding day', body: ['For luxury wedding clients, the save-the-date is the first physical artifact of their wedding. It sets expectations for every vendor they hire after. Position your postcard suite as the opening chapter — not a logistics item. Luxury clients don\'t mail save-the-dates. They send a statement.'] }
+          },
+          prints: {
+            budget: {
+              headline: '', tiers: [], strategy: { title: '', body: [] }
+            }
+          }
+        },
+        prints: {
+          budget: {
+            headline: 'Wedding art prints — budget-friendly packages',
+            tiers: [
+              { tier: 'starter', name: 'The Wall Start', price: '$30–$45', includes: ['One 8×10 print', 'Standard finish', 'Ready to frame'], pitch: '"One perfect image — the one you\'ll actually hang."', why: 'Budget clients feel overwhelmed by galleries. Give them permission to start with one print.' },
+              { tier: 'popular', name: 'The Couple\'s Set', price: '$70–$95', includes: ['Three prints (8×10 or 5×7)', 'Mix of portrait and detail shots', 'Consistent finish'], pitch: '"Three images that tell your story — for the walls that matter most."', why: 'Three is the magic number for wall groupings. Clients can already visualize where they\'ll go.' },
+              { tier: 'premium', name: 'The Gallery Wall', price: '$125–$160', includes: ['Six prints in mixed sizes', 'Curated selection from your gallery', 'Hanging layout guide'], pitch: '"A complete gallery wall, curated from your images — ready to hang."', why: 'The layout guide removes the decision anxiety that stops clients from buying large print sets.' }
+            ],
+            strategy: { title: 'Remove the decision paralysis', body: ['Budget wedding clients want prints but feel overwhelmed by choice. The most effective thing you can do is narrow the selection — "I\'ve chosen the 10 best images from your gallery" is more compelling than "here are 400 to choose from." Curated beats comprehensive every time at this tier.'] }
+          },
+          mid: {
+            headline: 'Wedding art prints — mid-market packages',
+            tiers: [
+              { tier: 'starter', name: 'The Signature Print', price: '$65–$80', includes: ['One 11×14 fine art print', 'Premium paper', 'Certificate of print'], pitch: '"One image, printed to last a lifetime."', why: 'Mid-market clients understand quality. Framing this as a "signature" print signals intentionality over convenience.' },
+              { tier: 'popular', name: 'The Home Collection', price: '$140–$180', includes: ['Five prints in curated sizes', 'Fine art paper', 'Layout consultation', 'Digital sizing guide'], pitch: '"Five images, sized and selected for your home — not just your hard drive."', why: '"For your home, not your hard drive" is one of the most effective lines in photography sales. It\'s emotionally precise.' },
+              { tier: 'premium', name: 'The Legacy Wall', price: '$275–$350', includes: ['Ten prints across three sizes', 'Fine art archival paper', 'Custom curation session', 'Professional framing guide', 'Gift-wrapped delivery'], pitch: '"A curated wall of your most important images — designed to be passed down."', why: 'Archival language and "passed down" connect to legacy, which is exactly how mid-market wedding clients think about this investment.' }
+            ],
+            strategy: { title: 'Sell the story, not the specs', body: ['Mid-market wedding clients will spend generously if they understand what they\'re buying. "Archival fine art paper with a 100-year fade guarantee" is a feature. "Your grandchildren will see this photo on a wall" is a sale. Translate every product spec into a human outcome.', 'The in-person sales session (IPS) model works especially well for prints. Show up with physical samples. Clients cannot feel the difference between paper stocks from a digital PDF — but they can absolutely feel it when they hold two samples side by side.'] }
+          },
+          luxury: {
+            headline: 'Luxury wedding art prints',
+            tiers: [
+              { tier: 'starter', name: 'The Statement Print', price: '$140–$200', includes: ['One 16×20 fine art print', 'Museum-quality archival paper', 'Signed and numbered'], pitch: '"One image, printed at scale — the way it was meant to be seen."', why: 'Luxury clients want scale. A 16×20 minimum starting print signals you don\'t do small.' },
+              { tier: 'popular', name: 'The Gallery Collection', price: '$350–$475', includes: ['Five large-format prints', 'Archival fine art paper', 'Custom curation session', 'Presentation box'], pitch: '"A private gallery of your wedding day — curated, sized, and ready to become part of your home."', why: 'The presentation box transforms a print order into an event. Luxury clients talk about unboxing experiences.' },
+              { tier: 'premium', name: 'The Estate Collection', price: '$850–$1,300', includes: ['Fifteen prints in four sizes', 'Full curation and design session', 'Museum archival paper', 'White-glove installation service', 'Certificate of authenticity'], pitch: '"A complete fine art installation of your wedding day — designed to live on walls for generations."', why: '"Installation service" and "certificate of authenticity" push this from photography product to fine art acquisition. Luxury clients buy art, not prints.' }
+            ],
+            strategy: { title: 'You are selling fine art, not photographs', body: ['Luxury wedding clients have already paid significantly for the photography experience. The print sale is the natural continuation — not an add-on. Position your prints as fine art acquisitions, not products. Signed and numbered editions, certificates of authenticity, curation sessions — these are the language of fine art galleries, and they justify fine art pricing.', 'Never present a price list. Present a curation experience. "I\'ve selected the fifteen images I believe deserve to be seen at scale" leads with your expertise and positions you as the authority on your own work.'] }
+          }
+        },
+        packages: {
+          budget: {
+            headline: 'Wedding print packages — budget',
+            tiers: [
+              { tier: 'starter', name: 'The Memory Set', price: '$30–$45',
+                includes: ['1 5×7 print', '2 4×6 prints', 'Standard finish'],
+                pitch: '"A few beautiful prints from your day — the ones you\'ll actually put out."',
+                why: 'Budget couples want a low-commitment starting point. Small packages convert better than large ones at this tier.' },
+              { tier: 'popular', name: 'The Classic Package', price: '$70–$85',
+                includes: ['1 8×10 print', '2 5×7 prints', '4 wallet prints', 'Consistent finish'],
+                pitch: '"The classic wedding print package — one for the wall, some to share, a few to carry."',
+                why: 'Wallets are consistently underrated. Parents and grandparents still love them. Include them and the package feels generous.' },
+              { tier: 'premium', name: 'The Family Package', price: '$115–$150',
+                includes: ['1 11×14 print', '2 8×10 prints', '4 5×7 prints', '8 wallet prints', 'Layout guide'],
+                pitch: '"Enough prints for every family member who wants one on their wall."',
+                why: '"Every family member" speaks to the real distribution need at budget weddings — multiple households want a print.' },
+            ],
+            strategy: { title: 'Match the distribution, not the décor', body: ['Budget wedding families have lots of people who want prints. Structure your packages around that reality — one for the couple, one for each set of parents, wallets for grandparents. When the quantity maps to real people in their lives, the math feels obvious rather than extravagant.'] }
+          },
+          mid: {
+            headline: 'Wedding print packages — mid-market',
+            tiers: [
+              { tier: 'starter', name: "The Couple's Set", price: '$65–$80',
+                includes: ['1 8×10 fine art print', '2 5×7 prints', '4 wallet prints', 'Premium paper'],
+                pitch: '"Your favorite images, printed beautifully — ready to frame and share."',
+                why: 'Mid-market couples want the prints to feel intentional. Fine art paper at this entry tier sets the quality bar from the start.' },
+              { tier: 'popular', name: 'The Home & Family Package', price: '$130–$165',
+                includes: ['1 11×14 fine art print', '2 8×10 prints', '4 5×7 prints', '8 wallet prints', 'Premium paper', 'Layout consultation'],
+                pitch: '"A complete print package — for your home and for everyone who deserves a piece of your day."',
+                why: '"Everyone who deserves a piece of your day" is emotionally resonant. Mid-market couples feel the weight of that.' },
+              { tier: 'premium', name: 'The Legacy Package', price: '$250–$300',
+                includes: ['1 16×20 fine art print', '2 8×10 prints', '4 5×7 prints', '8 wallet prints', 'Archival paper', 'Curation session', 'Framing guide'],
+                pitch: '"A complete fine art package — curated to document the most important day of your life, permanently."',
+                why: 'The curation session is the closer. When a photographer says "I selected these because they best tell your story," the sale is essentially made.' },
+            ],
+            strategy: { title: 'Let the large print anchor the package', body: ['The large statement print — 11×14 or 16×20 — is the emotional anchor of every mid-market package. Lead with it in your description. "Starting with a 16×20 of your first look, plus prints for every person in your family" tells the story better than a list of sizes.'] }
+          },
+          luxury: {
+            headline: 'Luxury wedding print packages',
+            tiers: [
+              { tier: 'starter', name: 'The Signature Package', price: '$145–$185',
+                includes: ['1 16×20 museum print', '2 8×10 fine art prints', '4 5×7 prints', 'Archival paper', 'Signed editions'],
+                pitch: '"A considered print collection — the images that tell your story at the scale they deserve."',
+                why: 'Museum archival paper and signed editions signal fine art from the first package. Luxury clients expect quality to be consistent across every tier.' },
+              { tier: 'popular', name: 'The Gallery Package', price: '$300–$375',
+                includes: ['1 20×24 museum print', '2 11×14 prints', '4 8×10 prints', '8 5×7 prints', 'Full archival paper', 'Curation session', 'Presentation box'],
+                pitch: '"A gallery-quality print collection — for the home that takes art seriously."',
+                why: '"Takes art seriously" speaks directly to the luxury client\'s self-image. They don\'t just buy prints — they curate their home.' },
+              { tier: 'premium', name: 'The Estate Package', price: '$575–$750',
+                includes: ['1 24×36 museum print', '2 16×20 prints', '4 8×10 prints', '8 5×7 prints', '16 wallet prints', 'Full archival paper', 'White-glove curation', 'Framing consultation', 'Certificate of edition'],
+                pitch: '"A complete fine art wedding collection — sized, curated, and delivered as the legacy it is."',
+                why: 'At this tier, the package covers every household and every scale. Luxury clients who want to fully complete their print investment will take this without hesitation.' },
+            ],
+            strategy: { title: 'Scale signals luxury', body: ["Luxury print packages should start where most photographers' premium packages end. A 16×20 as an entry print, 20×24 in the middle, and 24×36 at the top communicates that you don't do small. Luxury clients expect scale — it's part of what they're paying for."] }
+          },
+        },
+      },
+
+      // ── NEWBORN ──
+      newborn: {
+        cards: {
+          budget: {
+            headline: 'Birth announcement cards — budget-friendly packages',
+            tiers: [
+              { tier: 'starter', name: 'The Quick Announce', price: '$25–$40', includes: ['25 cards', 'Single photo design', 'Standard size'], pitch: '"Fast, beautiful, and ready to mail — your announcement, handled."', why: 'New parents are exhausted and overwhelmed. The easier the decision, the faster they say yes.' },
+              { tier: 'popular', name: 'The Birth Suite', price: '$65–$80', includes: ['50 cards', 'Custom design from session photos', 'Envelopes included', 'Digital version'], pitch: '"50 cards to share the news — everyone on your list, nothing left out."', why: '50 covers the average new parent\'s mailing list. "Nothing left out" removes the anxiety of not ordering enough.' },
+              { tier: 'premium', name: 'The Full Announcement', price: '$100–$120', includes: ['100 cards', 'Two designs (announcement + thank you)', 'Premium envelope'], pitch: '"Announce the arrival, thank the visitors — everything you need, all at once."', why: 'Combining announcement and thank-you cards in one order removes a future task. Exhausted parents love that.' }
+            ],
+            strategy: { title: 'Solve a problem, not just fill an order', body: ['New parents in the budget market are looking for the path of least resistance. Your packaging should remove decisions, not create them. "Everything you need in one order" and "ready in 5 days" are stronger selling points than design options or paper upgrades at this tier.'] }
+          },
+          mid: {
+            headline: 'Birth announcement cards — mid-market packages',
+            tiers: [
+              { tier: 'starter', name: 'The Welcome Card', price: '$55–$70', includes: ['30 cards', 'Custom design', 'Premium envelope', 'Proof within 24 hrs'], pitch: '"A beautiful, personal announcement — as memorable as the moment itself."', why: 'Mid-market new parents want something they\'ll be proud to send. Quality positioning matters here.' },
+              { tier: 'popular', name: 'The Keepsake Announcement', price: '$110–$140', includes: ['60 cards', 'Two design variations', 'Envelope addressing guide', 'Keepsake set of 5 for framing'], pitch: '"An announcement your family will frame — designed as carefully as your session was photographed."', why: '"Family will frame" is the killer line. It repositions a mailing card as a permanent keepsake.' },
+              { tier: 'premium', name: 'The Heirloom Suite', price: '$180–$225', includes: ['100 cards', 'Three designs (announce, milestone, thank you)', 'Premium paper', 'Ribbon presentation box'], pitch: '"A complete first-year card suite — every milestone, beautifully documented."', why: 'Milestone thinking resonates deeply with new parents. The idea of a first-year suite feels like a gift to their future self.' }
+            ],
+            strategy: { title: 'Lead with legacy, not logistics', body: ['Mid-market new parents are in a highly emotional buying mindset. They\'ve just had one of the most important experiences of their lives and they want to mark it properly. Every piece of language should honor that. You\'re not selling cards — you\'re helping them announce one of the most important events of their lives.', 'The "keepsake set for framing" add-on almost always converts. Once a client imagines the card on a grandparent\'s wall, the sale is made.'] }
+          },
+          luxury: {
+            headline: 'Luxury birth announcement packages',
+            tiers: [
+              { tier: 'starter', name: 'The Signature Announcement', price: '$115–$155', includes: ['30 premium cards', 'Bespoke design', 'Luxury envelope', 'Gold foil accent option'], pitch: '"An announcement worthy of the moment — designed with the same care as your session."', why: 'Luxury new parents have invested significantly in their session. The announcement should match that investment.' },
+              { tier: 'popular', name: 'The Legacy Announcement', price: '$225–$300', includes: ['75 cards', 'Full custom design session', 'Premium foil or letterpress option', 'Ribbon-tied box', 'Framing set included'], pitch: '"A keepsake announcement your child will one day hold — designed to last a lifetime."', why: 'Future-oriented language ("your child will one day hold") is uniquely powerful for luxury new parents.' },
+              { tier: 'premium', name: 'The Heirloom Collection', price: '$475–$600', includes: ['150 cards across 3 designs', 'Bespoke design process', 'Museum archival paper', 'Framed display piece', 'White-glove delivery', 'Matching digital suite'], pitch: '"A complete announcement experience — the first chapter of your child\'s story, beautifully told."', why: '"First chapter" framing is perfect for the luxury new parent mindset. They\'re buying a beginning, not a product.' }
+            ],
+            strategy: { title: 'You are marking a life event, not filling a print order', body: ['Luxury new parents have spent thousands on their session, their nursery, their hospital experience. The announcement card should match that investment level — and when positioned correctly, $650 for an heirloom announcement suite feels entirely reasonable in that context.', 'Never use the word "cards." Use "announcement suite," "legacy collection," or "keepsake set." Language signals positioning before price is ever mentioned.'] }
+          }
+        },
+        postcards: {
+          budget: {
+            headline: 'Birth announcement postcards — quick and affordable',
+            tiers: [
+              { tier: 'starter', name: 'The Fast Announce', price: '$20–$30', includes: ['25 postcards', 'Photo design', 'No envelope needed'], pitch: '"Drop in the mailbox — no envelope, no fuss, just the news."', why: 'No-envelope announcements are genuinely convenient for exhausted new parents. Lead with that.' },
+              { tier: 'popular', name: 'The Mailing Set', price: '$45–$60', includes: ['60 postcards', 'Custom photo design', 'Two size options'], pitch: '"Everyone on your list hears the news — fast, personal, done."', why: 'Speed and completeness are the top values for budget new parents. Both are addressed here.' },
+              { tier: 'premium', name: 'The Full Blast', price: '$70–$90', includes: ['100 postcards', 'Two designs', 'Digital version for social'], pitch: '"Send to everyone. Keep extras. Post online. Covered."', why: 'The digital version is a low-cost add-on with high perceived value. "Post online" speaks directly to how new parents actually share.' }
+            ],
+            strategy: { title: 'Fast and done is the brand promise', body: ['Budget new parents want this off their list. Your entire pitch should center on how fast and easy this is. Turnaround time, simplicity of ordering, no-envelope convenience — these close deals faster than any design feature.'] }
+          },
+          mid: {
+            headline: 'Birth announcement postcards — mid-market',
+            tiers: [
+              { tier: 'starter', name: 'The Arrival Card', price: '$45–$65', includes: ['35 postcards', 'Custom design', 'Premium card stock'], pitch: '"A personal announcement your family will actually keep."', why: '"Actually keep" implies that most postcards get tossed — yours won\'t. Small language choices matter.' },
+              { tier: 'popular', name: 'The Birth Postcard Suite', price: '$90–$115', includes: ['70 postcards', 'Two designs', 'Premium stock', 'Digital files'], pitch: '"A complete mailing suite — designed to feel as personal as a handwritten note."', why: '"As personal as a handwritten note" is an emotional anchor. Mid-market parents aspire to that level of warmth.' },
+              { tier: 'premium', name: 'The Keepsake Mailing', price: '$145–$180', includes: ['100 postcards', 'Three design options', 'Foil accent option', 'Keepsake set for framing'], pitch: '"An announcement suite they\'ll keep, frame, and show the kids one day."', why: '"Show the kids one day" is pure mid-market gold. Future-self thinking drives premium purchases.' }
+            ],
+            strategy: { title: 'Warmth and permanence sell at this tier', body: ['Mid-market new parents want to feel that they\'ve done something meaningful, not just checked a box. Your packaging language should honor the weight of the moment. A postcard announcement positioned as a keepsake sells at 2-3x the price of a postcard positioned as a mailing.'] }
+          },
+          luxury: {
+            headline: 'Luxury birth announcement postcards',
+            tiers: [
+              { tier: 'starter', name: 'The Signature Card', price: '$95–$120', includes: ['30 premium postcards', 'Bespoke design', 'Luxury card stock'], pitch: '"A considered announcement — the first beautiful object of your child\'s life."', why: '"First beautiful object of your child\'s life" is a luxury-tier anchor. It reframes the product as a milestone artifact.' },
+              { tier: 'popular', name: 'The Announcement Edition', price: '$180–$250', includes: ['75 postcards', 'Full custom design', 'Foil or letterpress option', 'Presentation envelope'], pitch: '"A limited edition announcement — as individual as the child it celebrates."', why: '"Limited edition" language commands luxury pricing even for functional items.' },
+              { tier: 'premium', name: 'The Heirloom Mailing', price: '$350–$450', includes: ['120 postcards', 'Bespoke design process', 'Archival premium stock', 'Framed display piece', 'Digital suite'], pitch: '"An announcement collection worthy of the moment — designed to be the first chapter of your child\'s story."', why: 'Luxury clients in the newborn space are emotionally primed to invest in legacy items. This tier should feel like commissioning a piece of art.' }
+            ],
+            strategy: { title: 'Legacy objects justify luxury prices', body: ['Luxury new parents have already demonstrated willingness to invest significantly in capturing this moment. The announcement is the first physical artifact of that investment. Position every element as a legacy object — something that will exist in physical form long after the digital files are forgotten on a hard drive.'] }
+          }
+        },
+        prints: {
+          budget: {
+            headline: 'Newborn art prints — budget packages',
+            tiers: [
+              { tier: 'starter', name: 'The First Photo', price: '$25–$45', includes: ['One 8×10 print', 'Standard finish', 'Ready to frame'], pitch: '"The first image you\'ll put on the wall — printed right."', why: 'New parents in the budget market often just want one perfect print. Give them permission to start there.' },
+              { tier: 'popular', name: 'The Baby Gallery', price: '$65–$85', includes: ['Three prints in mixed sizes', 'Consistent finish', 'Layout suggestion card'], pitch: '"Three images for three walls — a mini gallery of your baby\'s first days."', why: 'Three prints at a manageable price removes the guilt of not buying everything. "Three walls" makes it feel purposeful.' },
+              { tier: 'premium', name: 'The First Year Set', price: '$115–$155', includes: ['Six prints', 'Mixed sizes', 'Milestone framing guide', 'Protective sleeves'], pitch: '"Six prints to document the first year — before they grow too fast."', why: '"Before they grow too fast" is an emotionally charged phrase for new parents. It creates urgency without pressure.' }
+            ],
+            strategy: { title: 'Urgency is your friend', body: ['New parents in every market share one anxiety: their baby is changing too fast. Your print packages should acknowledge that. "These are the images you\'ll regret not printing" is a powerful frame at any price point. At the budget tier, make it easy and affordable to act on that feeling.'] }
+          },
+          mid: {
+            headline: 'Newborn art prints — mid-market packages',
+            tiers: [
+              { tier: 'starter', name: 'The Nursery Print', price: '$60–$80', includes: ['One 11×14 fine art print', 'Premium archival paper', 'Ready to hang'], pitch: '"The first piece of art your baby will ever see — printed to last their whole life."', why: 'This framing is emotionally resonant and completely true. Fine art archival prints do last generations.' },
+              { tier: 'popular', name: 'The Milestone Gallery', price: '$135–$170', includes: ['Five prints in curated sizes', 'Fine art paper', 'Growth milestones included', 'Layout consultation'], pitch: '"Five images from the first days — for the walls they\'ll grow up looking at."', why: '"Walls they\'ll grow up looking at" is one of the most effective lines in newborn photography sales.' },
+              { tier: 'premium', name: 'The Legacy Collection', price: '$275–$350', includes: ['Ten prints across four sizes', 'Archival fine art paper', 'Custom curation', 'Gift box and ribbon', 'Hanging guide'], pitch: '"A complete photographic record of the first chapter — curated, printed, and ready to become part of your home."', why: '"First chapter" and "part of your home" both work hard here. Mid-market clients respond to permanence language.' }
+            ],
+            strategy: { title: 'The walls they will grow up looking at', body: ['This single phrase — "the walls they\'ll grow up looking at" — is responsible for more newborn print sales than any product spec. It creates an immediate emotional visual for parents. Use it or a variation of it in your positioning for every package at this tier.', 'The custom curation element in the premium tier is worth the extra 20 minutes it takes. Clients who feel that you\'ve personally selected their images buy without hesitation.'] }
+          },
+          luxury: {
+            headline: 'Luxury newborn art print collections',
+            tiers: [
+              { tier: 'starter', name: 'The First Portrait', price: '$135–$180', includes: ['One 16×20 fine art print', 'Museum archival paper', 'Signed edition'], pitch: '"The first portrait of your child — printed at the scale it deserves."', why: 'Luxury clients expect scale. A 16×20 minimum signals you don\'t compromise on size.' },
+              { tier: 'popular', name: 'The Heirloom Gallery', price: '$350–$450', includes: ['Five large-format prints', 'Museum archival paper', 'Custom curation session', 'Presentation box', 'Certificate of edition'], pitch: '"A private gallery of your baby\'s first days — curated as carefully as the images were made."', why: '"Private gallery" transforms a print order into an art acquisition. Luxury clients buy art.' },
+              { tier: 'premium', name: 'The Legacy Suite', price: '$800–$1,075', includes: ['Twelve prints across four sizes', 'Full curation session', 'Museum paper', 'White-glove installation', 'Matching baby book'], pitch: '"A complete fine art documentation of the most important days of your family\'s life."', why: '"Most important days" is objectively true. Luxury parents have decided this is worth significant investment. Meet them there.' }
+            ],
+            strategy: { title: 'You are creating generational art', body: ['Luxury newborn photography clients understand they are making an investment. The print sale is not a separate conversation — it\'s the natural completion of the session investment. Frame it that way: "Your session fee covers the experience and the images. The print collection is how those images become part of your home and your family\'s legacy for generations."', 'White-glove installation is a strong differentiator at the luxury tier. A photographer who arrives to hang prints is not just selling photography — they\'re providing a complete fine art service.'] }
+          }
+        },
+        packages: {
+          budget: {
+            headline: 'Newborn print packages — budget',
+            tiers: [
+              { tier: 'starter', name: 'The First Prints', price: '$30–$40',
+                includes: ['1 5×7 print', '2 4×6 prints', 'Standard finish'],
+                pitch: '"The first photos your baby will grow up seeing — printed right."',
+                why: 'Budget new parents often just need permission to get started. A low-entry package removes the barrier.' },
+              { tier: 'popular', name: 'The Grandparent Package', price: '$65–$80',
+                includes: ['1 8×10 print', '2 5×7 prints', '8 wallet prints', 'Standard finish'],
+                pitch: '"Prints for your wall, prints for grandma — everyone covered in one order."',
+                why: '"Grandma covered" is the actual purchase motivation for many budget new parent packages. Name it directly.' },
+              { tier: 'premium', name: 'The Full Family Set', price: '$105–$135',
+                includes: ['1 11×14 print', '2 8×10 prints', '4 5×7 prints', '8 wallet prints', 'Standard finish', 'Layout card'],
+                pitch: '"Every size for every person who wants a photo of your baby on their wall."',
+                why: 'Budget new families have large, enthusiastic extended families. A package that covers every household sells itself.' },
+            ],
+            strategy: { title: 'Wallets are the secret weapon', body: ['Grandparents, great-grandparents, and aunts still carry wallet prints. Including them in every package adds perceived value at almost no cost increase. Budget new parent packages that include wallets consistently outsell packages without them.'] }
+          },
+          mid: {
+            headline: 'Newborn print packages — mid-market',
+            tiers: [
+              { tier: 'starter', name: 'The Nursery Package', price: '$60–$75',
+                includes: ['1 8×10 fine art print', '2 5×7 prints', '4 wallet prints', 'Premium paper'],
+                pitch: '"Beautiful prints for the nursery wall and the people who love your baby most."',
+                why: "Mid-market parents want something they're proud to frame. Premium paper at the entry tier sets that expectation from the start." },
+              { tier: 'popular', name: 'The Milestone Package', price: '$120–$155',
+                includes: ['1 11×14 fine art print', '2 8×10 prints', '4 5×7 prints', '8 wallet prints', 'Archival paper', 'Keepsake envelope'],
+                pitch: '"A complete print set — for the walls of your home and the wallets of everyone who loves your baby."',
+                why: '"Wallets of everyone who loves your baby" is warm and specific. Mid-market parents feel the fullness of that image.' },
+              { tier: 'premium', name: 'The Legacy Package', price: '$225–$275',
+                includes: ['1 16×20 fine art print', '2 8×10 prints', '4 5×7 prints', '8 wallet prints', 'Full archival paper', 'Curation session', 'Presentation box', 'Hanging guide'],
+                pitch: '"A complete fine art package — the permanent record of the first days of your child\'s life."',
+                why: '"First days of your child\'s life" creates urgency and permanence simultaneously. Mid-market parents respond strongly to both.' },
+            ],
+            strategy: { title: 'The 16×20 closes the premium package', body: ['For mid-market newborn clients, the 16×20 statement print is aspirational. Many have never owned a print that large. When you show them what their baby looks like at that scale — especially at an in-person sales session — the premium package almost sells itself. Always have a large format sample print to show.'] }
+          },
+          luxury: {
+            headline: 'Luxury newborn print packages',
+            tiers: [
+              { tier: 'starter', name: 'The Portrait Package', price: '$130–$165',
+                includes: ['1 16×20 museum print', '2 8×10 fine art prints', '4 5×7 prints', 'Museum archival paper', 'Signed'],
+                pitch: '"A museum-quality introduction to the world — for a child who deserves nothing less."',
+                why: '"Deserves nothing less" validates the investment luxury parents have already decided to make.' },
+              { tier: 'popular', name: 'The Heirloom Package', price: '$250–$325',
+                includes: ['1 20×24 museum print', '2 11×14 prints', '4 8×10 prints', '8 5×7 prints', 'Full museum paper', 'Curation session', 'Presentation box'],
+                pitch: '"A heirloom print collection — sized to be seen and made to last a lifetime."',
+                why: '"Sized to be seen" is a confident claim that large prints belong at the forefront. Luxury clients appreciate that confidence.' },
+              { tier: 'premium', name: 'The Legacy Package', price: '$525–$650',
+                includes: ['1 24×36 museum print', '2 16×20 prints', '4 8×10 prints', '8 5×7 prints', '16 wallet prints', 'Full archival paper', 'White-glove curation', 'Framing consultation', 'Certificate of edition'],
+                pitch: '"A complete fine art collection of your child\'s first days — every size, every household, permanently documented."',
+                why: '"Every household" at this tier means grandparents, great-grandparents, and everyone in between all receive something. Luxury families have the means and the motivation to complete that picture.' },
+            ],
+            strategy: { title: 'Luxury newborn packages complete the investment', body: ['Luxury newborn clients have often invested $1,800–$4,500 in their session experience. A complete print package that starts at $150 and peaks at $700 feels proportional to that investment. Frame the package as the natural completion of the session — "the images deserve to be printed at the quality they were made."'] }
+          },
+        },
+      },
+
+      // ── SENIOR ──
+      senior: {
+        cards: {
+          budget: { headline: 'Senior announcement cards — budget packages', tiers: [ { tier: 'starter', name: 'The Quick Announce', price: '$25–$40', includes: ['25 cards', 'Single design', 'Envelopes included'], pitch: '"A clean, classic senior announcement — done and ready to mail."', why: 'Budget senior parents want it fast and easy. Simplicity closes deals.' }, { tier: 'popular', name: 'The Senior Set', price: '$60–$75', includes: ['50 cards', 'Custom design', 'Envelopes', 'Digital version'], pitch: '"50 cards for the full family list — your senior\'s moment, properly announced."', why: '"Family list" resonates. Senior parents are mailing to grandparents, aunts, uncles. Volume matters to them.' }, { tier: 'premium', name: 'The Full Announcement', price: '$95–$115', includes: ['100 cards', 'Two designs', 'Premium envelopes', 'Keepsake set'], pitch: '"Announce to everyone — and keep a set to look back on."', why: '"Look back on" creates a future-keepsake frame that justifies the price jump.' } ], strategy: { title: 'Speed and volume close senior sales', body: ['Senior families have extensive mailing lists. Position your packages around covering that list completely — nobody gets left out. Budget senior parents make quick decisions when they see a complete, affordable package. Don\'t complicate it.'] } },
+          mid: { headline: 'Senior announcement cards — mid-market', tiers: [ { tier: 'starter', name: 'The Cap & Gown Card', price: '$50–$70', includes: ['30 cards', 'Custom photo design', 'Premium envelope'], pitch: '"A proud announcement for a proud moment."', why: 'Simple emotional language works. This is a proud family moment — acknowledge it.' }, { tier: 'popular', name: 'The Senior Collection', price: '$105–$135', includes: ['60 cards', 'Two designs', 'Premium paper', 'Keepsake box set'], pitch: '"A complete senior announcement — designed to match how big this moment actually is."', why: '"How big this moment actually is" validates the investment parents are making.' }, { tier: 'premium', name: 'The Legacy Announce', price: '$180–$225', includes: ['100 cards', 'Three designs', 'Heirloom paper', 'Framed display set', 'Digital suite'], pitch: '"An announcement suite as significant as the milestone it marks."', why: 'Senior graduation is a major family milestone. Heirloom language matches the emotional weight parents assign it.' } ], strategy: { title: 'Senior parents are emotionally primed to spend', body: ['Senior portrait season is charged with end-of-era emotion. Parents who are already feeling nostalgic will respond strongly to language that honors the significance of the moment. "As significant as the milestone it marks" gives them permission to invest.', 'The high school senior market is heavily influenced by what other parents are doing. If you can show samples from past clients, or reference what\'s popular this season, social proof closes deals quickly.'] } },
+          luxury: { headline: 'Luxury senior announcement packages', tiers: [ { tier: 'starter', name: 'The Portrait Card', price: '$110–$145', includes: ['30 premium cards', 'Bespoke design', 'Luxury envelope'], pitch: '"An announcement as refined as the young adult it celebrates."', why: 'Luxury senior parents are celebrating achievement. "Young adult" signals respect for the senior, not just the milestone.' }, { tier: 'popular', name: 'The Achievement Suite', price: '$200–$275', includes: ['75 cards', 'Custom design', 'Foil option', 'Ribbon presentation box'], pitch: '"A luxury announcement suite — because some milestones deserve more than a printed card."', why: 'Direct acknowledgment that this tier is for those who want something special.' }, { tier: 'premium', name: 'The Legacy Collection', price: '$400–$525', includes: ['150 cards', 'Bespoke process', 'Premium foil or letterpress', 'Framed display', 'Digital suite'], pitch: '"A complete senior announcement legacy — designed to document an achievement worth remembering."', why: '"Worth remembering" validates the investment without being heavy-handed.' } ], strategy: { title: 'Achievement deserves acknowledgment', body: ['Luxury senior parents have often invested significantly in their child\'s education and this senior year experience. The announcement package is a capstone on that investment. Frame it that way — this isn\'t a card order, it\'s a proper acknowledgment of a real achievement.'] } }
+        },
+        postcards: {
+          budget: { headline: 'Senior announcement postcards — budget', tiers: [ { tier: 'starter', name: 'The Quick Send', price: '$20–$30', includes: ['25 postcards', 'Photo design', 'No envelope needed'], pitch: '"Mail it tomorrow. Announcement handled."', why: 'Speed is the pitch for budget senior postcards. One less thing to deal with.' }, { tier: 'popular', name: 'The Senior Blast', price: '$45–$60', includes: ['60 postcards', 'Custom design', 'Two sizes'], pitch: '"The whole family hears the news — fast and personal."', why: 'Senior families have big mailing lists. "Whole family" coverage closes the deal.' }, { tier: 'premium', name: 'The Full Send', price: '$70–$90', includes: ['100 postcards', 'Two designs', 'Digital file'], pitch: '"Everyone on the list, plus extras — nothing left undone."', why: '"Nothing left undone" addresses the anxiety of not ordering enough.' } ], strategy: { title: 'Fast, complete, done', body: ['Budget senior families want an announcement solution, not a design experience. Position postcards as the simplest, fastest way to get the announcement out. No envelope, drop in the mailbox, done.'] } },
+          mid: { headline: 'Senior announcement postcards — mid-market', tiers: [ { tier: 'starter', name: 'The Milestone Card', price: '$45–$60', includes: ['35 postcards', 'Custom design', 'Premium stock'], pitch: '"A milestone worth marking — beautifully."', why: 'Simple, confident language. Mid-market clients want quality without justification.' }, { tier: 'popular', name: 'The Senior Postcard Suite', price: '$85–$110', includes: ['70 postcards', 'Two designs', 'Premium stock', 'Digital files'], pitch: '"A complete senior announcement — personal enough to feel special, efficient enough to mail this week."', why: 'Mid-market parents want quality AND convenience. Address both.' }, { tier: 'premium', name: 'The Achievement Mailing', price: '$135–$175', includes: ['100 postcards', 'Three designs', 'Foil accent option', 'Keepsake set'], pitch: '"A complete senior announcement suite — designed to match the pride you feel."', why: '"The pride you feel" is emotionally accurate and permission-granting.' } ], strategy: { title: 'Pride is the purchase motivator', body: ['Senior parents in the mid-market are motivated by pride — pride in their child, pride in how the announcement looks. Language that acknowledges that pride and gives them something worthy of it converts consistently.'] } },
+          luxury: { headline: 'Luxury senior announcement postcards', tiers: [ { tier: 'starter', name: 'The Portrait Announcement', price: '$90–$115', includes: ['30 luxury postcards', 'Bespoke design', 'Premium stock'], pitch: '"An announcement as carefully designed as the portrait it features."', why: 'Luxury clients expect design quality to match photographic quality.' }, { tier: 'popular', name: 'The Achievement Edition', price: '$175–$225', includes: ['75 postcards', 'Custom design', 'Foil option', 'Keepsake set'], pitch: '"A limited edition announcement — as individual as the achievement it marks."', why: '"Limited edition" commands luxury pricing.' }, { tier: 'premium', name: 'The Legacy Announcement', price: '$350–$425', includes: ['120 postcards', 'Bespoke design process', 'Premium archival stock', 'Display piece', 'Digital suite'], pitch: '"A complete luxury announcement — the first chapter of what comes next."', why: '"First chapter of what comes next" positions graduation as a beginning, not an ending. Powerful for luxury parents.' } ], strategy: { title: 'Document an achievement, don\'t just mail an announcement', body: ['Luxury senior families see this announcement as a significant social and family milestone. The quality of the announcement reflects on the family and the achievement. Price and quality should both signal that you understand that.'] } }
+        },
+        prints: {
+          budget: { headline: 'Senior art prints — budget packages', tiers: [ { tier: 'starter', name: 'The Senior Print', price: '$25–$45', includes: ['One 8×10 print', 'Standard finish'], pitch: '"One great shot, printed right — the one that goes on the wall."', why: 'Budget families often just want the one print. Give them that cleanly.' }, { tier: 'popular', name: 'The Family Set', price: '$65–$80', includes: ['Three prints in mixed sizes', 'Family favorite + detail shots'], pitch: '"Prints for the family wall, grandma\'s house, and the senior\'s first apartment."', why: 'Three destinations = three prints. Makes the math feel logical, not extravagant.' }, { tier: 'premium', name: 'The Senior Gallery', price: '$110–$145', includes: ['Six prints', 'Mixed sizes', 'Framing guide'], pitch: '"A complete gallery of the senior year — for every room that wants one."', why: '"Every room that wants one" is a real thing in proud senior families. Many truly do want prints in multiple locations.' } ], strategy: { title: 'Three destinations, three prints', body: ['Senior families often want prints for multiple locations — the family home, grandparents, and the senior themselves. Structure your packages around this natural demand: three print sets for three households is an easy, logical sell.'] } },
+          mid: { headline: 'Senior art prints — mid-market', tiers: [ { tier: 'starter', name: 'The Portrait Print', price: '$60–$80', includes: ['One 11×14 fine art print', 'Premium paper'], pitch: '"The senior portrait, printed the way it was meant to be seen."', why: '"The way it was meant to be seen" implies that screens don\'t do it justice. Accurate and compelling.' }, { tier: 'popular', name: 'The Senior Collection', price: '$125–$165', includes: ['Five prints', 'Fine art paper', 'Three sizes', 'Layout guide'], pitch: '"Five prints — for the family home, the grandparents, and the senior\'s future wall."', why: 'Future wall reference is aspirational and accurate. Seniors do take these prints with them.' }, { tier: 'premium', name: 'The Legacy Portrait', price: '$225–$300', includes: ['Eight prints', 'Archival fine art paper', 'Curation session', 'Presentation box'], pitch: '"A curated portrait collection — designed to document this exact moment in time, permanently."', why: '"This exact moment in time, permanently" creates urgency while promising permanence. Both are true.' } ], strategy: { title: 'The senior year never comes back', body: ['Mid-market senior parents are acutely aware that this window closes. Language that acknowledges the passing of time converts well. "Twelve months from now this version of your senior is gone" is a powerful frame when delivered warmly, not as pressure.'] } },
+          luxury: { headline: 'Luxury senior art prints', tiers: [ { tier: 'starter', name: 'The Statement Portrait', price: '$135–$180', includes: ['One 16×20 print', 'Museum archival paper', 'Signed edition'], pitch: '"A fine art portrait of the person they\'ve become."', why: '"The person they\'ve become" is emotionally precise for luxury senior parents.' }, { tier: 'popular', name: 'The Portrait Gallery', price: '$325–$425', includes: ['Five large-format prints', 'Museum paper', 'Curation session', 'Presentation box'], pitch: '"A gallery-quality collection of the senior year — for the walls of a home they\'re proud of."', why: '"Walls of a home they\'re proud of" connects to the luxury client\'s self-image and home aesthetic.' }, { tier: 'premium', name: 'The Achievement Collection', price: '$675–$950', includes: ['Ten prints', 'Museum archival paper', 'Full curation', 'White-glove installation', 'Certificate'], pitch: '"A complete fine art documentation of an achievement worth celebrating at scale."', why: '"At scale" is literal — these are large prints — and figurative — the investment matches the achievement.' } ], strategy: { title: 'Fine art worthy of the milestone', body: ['Luxury senior families have invested in a premium photography experience because they understand quality. The print collection is the physical manifestation of that investment. White-glove installation and museum archival framing complete the full fine art experience.'] } }
+        },
+        packages: {
+          budget: {
+            headline: 'Senior print packages — budget',
+            tiers: [
+              { tier: 'starter', name: 'The Senior Sampler', price: '$30–$45',
+                includes: ['1 5×7 print', '2 4×6 prints', '4 wallet prints', 'Standard finish'],
+                pitch: '"The essential prints — one for the wall, a few for the family."',
+                why: 'Budget senior families want prints for multiple people without breaking the bank. Small packages at accessible prices get them started.' },
+              { tier: 'popular', name: 'The Family Package', price: '$65–$85',
+                includes: ['1 8×10 print', '2 5×7 prints', '8 wallet prints', 'Standard finish'],
+                pitch: '"The complete senior package — for your wall, grandma\'s wall, and your locker."',
+                why: '"Your locker" is a small touch that makes the senior feel seen. Budget clients respond to being acknowledged.' },
+              { tier: 'premium', name: 'The Senior Collection', price: '$110–$135',
+                includes: ['1 11×14 print', '2 8×10 prints', '4 5×7 prints', '16 wallet prints', 'Standard finish', 'Layout guide'],
+                pitch: '"Every size for every person in your life who wants a senior photo — all in one order."',
+                why: 'Budget senior families routinely underestimate how many prints they need until the ordering conversation. A complete package prevents the regret of not ordering enough.' },
+            ],
+            strategy: { title: 'Wallets drive senior package sales', body: ["High school seniors still give wallet prints to friends, grandparents, and teachers. It's one of the few photography products that seniors themselves request. Include generous wallet counts in every package and you'll convert more entries to the popular and premium tiers without any additional selling."] }
+          },
+          mid: {
+            headline: 'Senior print packages — mid-market',
+            tiers: [
+              { tier: 'starter', name: 'The Portrait Package', price: '$60–$75',
+                includes: ['1 8×10 fine art print', '2 5×7 prints', '8 wallet prints', 'Premium paper'],
+                pitch: '"A senior package worth framing — quality prints for the people who are most proud of them."',
+                why: '"Most proud of them" speaks directly to the parents paying the bill. Mid-market senior parents are motivated by pride.' },
+              { tier: 'popular', name: 'The Senior Suite', price: '$120–$155',
+                includes: ['1 11×14 fine art print', '2 8×10 prints', '4 5×7 prints', '16 wallet prints', 'Premium paper', 'Keepsake box'],
+                pitch: '"The complete senior package — for the family home, the grandparents, and the senior\'s next chapter."',
+                why: '"Next chapter" reminds parents that their senior is about to leave. That emotional moment drives mid-market print investments.' },
+              { tier: 'premium', name: 'The Legacy Package', price: '$225–$275',
+                includes: ['1 16×20 fine art print', '2 8×10 prints', '4 5×7 prints', '16 wallet prints', 'Archival paper', 'Curation session', 'Presentation box'],
+                pitch: '"A complete fine art senior collection — the permanent record of who they were at this exact moment in time."',
+                why: '"Exact moment in time" is the most powerful mid-market senior line. Parents feel acutely that this version of their child is fleeting.' },
+            ],
+            strategy: { title: "The senior year closes. The photos don't.", body: ['Mid-market senior parents are in a transitional emotional state — proud, nostalgic, and aware that high school is ending. Language that acknowledges the passing of time converts consistently at this tier. "Twelve months from now this version of your senior is gone" is a powerful frame delivered warmly, not as pressure.'] }
+          },
+          luxury: {
+            headline: 'Luxury senior print packages',
+            tiers: [
+              { tier: 'starter', name: 'The Signature Package', price: '$140–$180',
+                includes: ['1 16×20 museum print', '2 8×10 fine art prints', '8 wallet prints', 'Museum archival paper', 'Signed'],
+                pitch: '"A fine art senior portrait package — for the senior who has already demonstrated they do things properly."',
+                why: '"Already demonstrated they do things properly" is a subtle compliment that resonates with luxury senior families.' },
+              { tier: 'popular', name: 'The Achievement Package', price: '$275–$350',
+                includes: ['1 20×24 museum print', '2 11×14 prints', '4 8×10 prints', '16 wallet prints', 'Full museum paper', 'Curation session', 'Presentation box'],
+                pitch: '"A gallery-quality senior collection — the achievement documented at the scale it deserves."',
+                why: '"The scale it deserves" implies that smaller prints would be selling the moment short. Luxury parents agree.' },
+              { tier: 'premium', name: 'The Legacy Package', price: '$525–$650',
+                includes: ['1 24×36 museum print', '2 16×20 prints', '4 8×10 prints', '16 wallet prints', 'Full archival paper', 'White-glove curation', 'Framing consultation', 'Certificate of edition'],
+                pitch: '"A complete fine art senior collection — sized and made to be part of your home for decades."',
+                why: '"Decades" is the right timescale for luxury senior parents. They\'re thinking about where these prints will live for the long term.' },
+            ],
+            strategy: { title: 'Luxury senior families buy legacy, not convenience', body: ["Luxury senior parents have invested significantly in their child's education and experiences. The senior portrait session is the capstone of that investment. A complete luxury print package positioned as a permanent record of that achievement feels proportional — not extravagant."] }
+          },
+        },
+      },
+
+      // ── BOUDOIR ──
+      boudoir: {
+        cards: {
+          budget: { headline: 'Boudoir gift cards — budget packages', tiers: [ { tier: 'starter', name: 'The Reveal Card', price: '$25–$40', includes: ['20 cards', 'Single image design', 'Sealed envelope'], pitch: '"A private card for a private gift — simple, beautiful, done."', why: 'Privacy and simplicity matter at this tier. Sealed-envelope language addresses both.' }, { tier: 'popular', name: 'The Gift Set', price: '$55–$70', includes: ['40 cards', 'Two designs', 'Privacy envelope', 'Digital version'], pitch: '"Everything you need to share your session — thoughtfully and privately."', why: '"Thoughtfully and privately" speaks directly to boudoir client psychology.' }, { tier: 'premium', name: 'The Full Reveal', price: '$85–$110', includes: ['75 cards', 'Multiple designs', 'Premium privacy packaging', 'Keepsake set'], pitch: '"A complete gift set — as intentional as the session itself."', why: '"As intentional as the session" honors the emotional investment the client made.' } ], strategy: { title: 'Privacy and intention are the brand values', body: ['Boudoir clients at every price point care deeply about privacy and intentionality. Your packaging language should honor both. Never use language that feels casual or mass-produced. Every word should signal that you understand what this session meant.'] } },
+          mid: { headline: 'Boudoir card packages — mid-market', tiers: [ { tier: 'starter', name: 'The Confidence Card', price: '$50–$70', includes: ['25 cards', 'Custom design', 'Luxury sealed envelope'], pitch: '"A card that captures exactly how you felt in that moment."', why: 'Boudoir photography is about how the client feels. Mirror that in the product language.' }, { tier: 'popular', name: 'The Empowerment Set', price: '$100–$135', includes: ['50 cards', 'Two custom designs', 'Premium packaging', 'Keepsake set of 5'], pitch: '"A beautiful, private record of how you looked and felt at your most confident."', why: '"How you looked and felt" is the dual payoff boudoir clients come for.' }, { tier: 'premium', name: 'The Intimate Collection', price: '$175–$225', includes: ['80 cards', 'Three designs', 'Ribbon-tied box', 'Framing set', 'Digital suite'], pitch: '"A complete collection — intimate, intentional, and yours alone."', why: '"Yours alone" signals exclusive possession. Mid-market boudoir clients respond strongly to that.' } ], strategy: { title: 'Confidence is the product, cards are the medium', body: ['Boudoir clients aren\'t buying cards — they\'re buying a physical record of how they felt and looked at their most confident. Every piece of language should honor that. The moment you describe the product in terms of paper stock or quantity, you\'ve lost the emotional thread that makes boudoir print sales consistently strong.'] } },
+          luxury: { headline: 'Luxury boudoir card collections', tiers: [ { tier: 'starter', name: 'The Private Edition', price: '$110–$145', includes: ['25 luxury cards', 'Bespoke design', 'Wax-sealed envelope'], pitch: '"A private edition — as intimate and intentional as the session."', why: 'Wax-sealed envelopes signal luxury and privacy simultaneously. An easy differentiator.' }, { tier: 'popular', name: 'The Empowerment Suite', price: '$225–$300', includes: ['60 cards', 'Bespoke design', 'Foil option', 'Ribbon presentation box', 'Signed edition'], pitch: '"A luxury record of your most confident self — designed to last, and to be treasured."', why: '"Treasured" implies these will be kept, not discarded. Luxury boudoir clients buy keepsakes.' }, { tier: 'premium', name: 'The Signature Collection', price: '$425–$550', includes: ['100 cards', 'Full bespoke process', 'Premium foil or letterpress', 'Leather-bound presentation box', 'Digital suite'], pitch: '"A complete luxury portrait collection — created with care, delivered with discretion."', why: '"Delivered with discretion" directly addresses a luxury boudoir client concern at high spend levels.' } ], strategy: { title: 'Discretion and luxury are inseparable at this tier', body: ['Luxury boudoir clients are making a significant investment in a private, personal experience. Every touchpoint — packaging, delivery, language — should signal that you understand the sensitivity of what you\'re creating and will handle it with complete discretion. That trust is worth more than any design feature.'] } }
+        },
+        postcards: {
+          budget: { headline: 'Boudoir gift postcards — budget', tiers: [ { tier: 'starter', name: 'The Gift Card', price: '$20–$30', includes: ['20 postcards', 'Single image', 'Private sizing'], pitch: '"A personal, beautiful gift card — printed with discretion."', why: 'For boudoir postcards, privacy is always the first value.' }, { tier: 'popular', name: 'The Personal Set', price: '$45–$60', includes: ['50 postcards', 'Two designs', 'Private packaging'], pitch: '"A complete gift postcard set — personal, private, beautifully done."', why: 'All three values in one sentence: personal, private, quality.' }, { tier: 'premium', name: 'The Reveal Collection', price: '$70–$95', includes: ['80 postcards', 'Three designs', 'Private delivery packaging'], pitch: '"A complete intimate postcard collection — every image, properly honored."', why: '"Properly honored" validates the emotional significance without being heavy.' } ], strategy: { title: 'Private, personal, intentional', body: ['Three words that close boudoir print sales at every tier. Your pitch should contain all three, explicitly or implicitly, in every package description.'] } },
+          mid: { headline: 'Boudoir gift postcards — mid-market', tiers: [ { tier: 'starter', name: 'The Intimate Card', price: '$45–$65', includes: ['30 postcards', 'Custom design', 'Private packaging'], pitch: '"A carefully designed record of your most intimate session."', why: '"Most intimate session" acknowledges the emotional weight without being clinical.' }, { tier: 'popular', name: 'The Confidence Suite', price: '$90–$115', includes: ['65 postcards', 'Two designs', 'Premium stock', 'Private box'], pitch: '"A complete personal collection — as confident and intentional as you were in the studio."', why: '"As confident and intentional as you were" mirrors the client\'s self-image from the session.' }, { tier: 'premium', name: 'The Personal Legacy', price: '$155–$200', includes: ['100 postcards', 'Three designs', 'Premium stock', 'Keepsake set', 'Ribbon box'], pitch: '"A luxury postcard collection for a luxury experience — yours, privately."', why: '"Yours, privately" is a powerful closer for mid-market boudoir clients.' } ], strategy: { title: 'Mirror the session experience in the product', body: ['The most effective boudoir print language mirrors how the client felt during the session. Ask yourself: what were they feeling in the studio? Confident, beautiful, empowered, seen. Every product description should activate that same feeling.'] } },
+          luxury: { headline: 'Luxury boudoir postcards', tiers: [ { tier: 'starter', name: 'The Private Edition', price: '$95–$120', includes: ['25 luxury postcards', 'Bespoke design', 'Private packaging'], pitch: '"A bespoke private edition — as individual as the woman it portrays."', why: '"The woman it portrays" centers the client as the subject of fine art, not a photography client.' }, { tier: 'popular', name: 'The Empowerment Edition', price: '$180–$225', includes: ['65 postcards', 'Bespoke design', 'Foil option', 'Leather-effect box'], pitch: '"A luxury collection created with complete discretion — for the woman who deserves nothing less."', why: '"Who deserves nothing less" is aspirational and affirming.' }, { tier: 'premium', name: 'The Signature Suite', price: '$350–$450', includes: ['100 postcards', 'Full bespoke process', 'Premium stock', 'Presentation experience', 'Digital suite'], pitch: '"A complete bespoke portrait collection — created, packaged, and delivered with the discretion and care your session deserves."', why: 'Complete language: created, packaged, delivered. Luxury clients want the full service described.' } ], strategy: { title: 'Full-service discretion is the luxury differentiator', body: ['Luxury boudoir clients are paying for an experience, not a product. The delivery of a premium print collection should feel as considered as the session itself. White-glove packaging, discrete delivery, and personal communication throughout the process are worth more than any paper upgrade.'] } }
+        },
+        prints: {
+          budget: { headline: 'Boudoir art prints — budget packages', tiers: [ { tier: 'starter', name: 'The Favorite Print', price: '$30–$45', includes: ['One 8×10 print', 'Standard finish', 'Private packaging'], pitch: '"One perfect image — printed beautifully and packaged privately."', why: 'Budget boudoir clients often just want the one print that means the most.' }, { tier: 'popular', name: 'The Reveal Set', price: '$65–$85', includes: ['Three prints', 'Mixed sizes', 'Private packaging'], pitch: '"Three of your best — printed, private, and yours."', why: 'Short, rhythmic language ("printed, private, yours") works well for boudoir.' }, { tier: 'premium', name: 'The Intimate Gallery', price: '$115–$155', includes: ['Six prints', 'Mixed sizes', 'Private display box'], pitch: '"A private gallery of your most beautiful self — printed to last."', why: '"Most beautiful self" is the core boudoir promise. Put it in the product.' } ], strategy: { title: 'One great print beats a gallery of average ones', body: ['Budget boudoir clients often resist large packages because the idea of multiple large prints of themselves feels overwhelming. Start with one exceptional print at a price that feels accessible. The upsell conversation is much easier once they see the quality of that first print.'] } },
+          mid: { headline: 'Boudoir art prints — mid-market', tiers: [ { tier: 'starter', name: 'The Portrait Print', price: '$65–$80', includes: ['One 11×14 fine art print', 'Premium paper', 'Private packaging'], pitch: '"Fine art printed from your most personal session."', why: '"Most personal session" is emotionally accurate and validates the investment.' }, { tier: 'popular', name: 'The Confidence Collection', price: '$135–$175', includes: ['Five prints', 'Fine art paper', 'Private display box', 'Layout guide'], pitch: '"Five images that capture who you are at your most confident — printed to honor that."', why: '"Honor" is doing real work here. Mid-market boudoir clients want their investment validated.' }, { tier: 'premium', name: 'The Intimate Gallery', price: '$275–$350', includes: ['Eight prints', 'Archival paper', 'Curation session', 'Presentation box', 'Hanging guide'], pitch: '"A curated fine art collection from your most intimate session — yours, and yours alone."', why: '"Yours, and yours alone" is the strongest possible private ownership signal.' } ], strategy: { title: 'A curation session closes the premium tier', body: ['The custom curation session included in the premium tier is worth significant money to boudoir clients. The photographer reviewing the session with them and saying "these are the five images that show you at your best" provides validation that cannot be purchased any other way. Build it into your premium tier and it will convert consistently.'] } },
+          luxury: { headline: 'Luxury boudoir fine art prints', tiers: [ { tier: 'starter', name: 'The Fine Art Portrait', price: '$140–$180', includes: ['One 16×20 museum print', 'Archival paper', 'Signed', 'Private packaging'], pitch: '"A fine art portrait of your most confident self — created to last a lifetime."', why: '"Most confident self" and "lifetime" are both accurate promises for museum archival prints.' }, { tier: 'popular', name: 'The Private Gallery', price: '$350–$450', includes: ['Five large-format prints', 'Museum paper', 'Curation session', 'Leather presentation box', 'Signed editions'], pitch: '"A private fine art gallery — curated from your session, created for your home."', why: '"Created for your home" personalizes the destination. Luxury clients want things made for them.' }, { tier: 'premium', name: 'The Signature Collection', price: '$800–$1,075', includes: ['Ten prints across four sizes', 'Full curation experience', 'Museum archival paper', 'White-glove delivery', 'Certificate of authenticity'], pitch: '"A complete fine art boudoir collection — created with complete discretion and delivered as the luxury experience it is."', why: '"The luxury experience it is" claims the positioning explicitly. At $1,200+, you want to own that positioning clearly.' } ], strategy: { title: 'Fine art boudoir photography is a legitimate luxury category', body: ['There is a growing market of women who commission boudoir photography as a fine art experience — not as a gift, not as a surprise, but for themselves. This client is not price-sensitive. She is quality-sensitive, discretion-sensitive, and values the investment in herself. Price your luxury tier for her, not for the client comparing you to a cheaper alternative.'] } }
+        },
+        packages: {
+          budget: {
+            headline: 'Boudoir print packages — budget',
+            tiers: [
+              { tier: 'starter', name: 'The Reveal Set', price: '$35–$45',
+                includes: ['1 5×7 print', '2 4×6 prints', 'Private packaging', 'Standard finish'],
+                pitch: '"A few beautiful images — privately printed, privately yours."',
+                why: 'Budget boudoir clients want quality at an accessible price with complete privacy. Address both in the first sentence.' },
+              { tier: 'popular', name: 'The Confidence Package', price: '$70–$90',
+                includes: ['1 8×10 print', '2 5×7 prints', '4 4×6 prints', 'Private packaging', 'Standard finish'],
+                pitch: '"A complete personal print set — printed with discretion and packaged with care."',
+                why: '"Printed with discretion" is a budget boudoir purchasing motivator. Privacy signals matter at every price point.' },
+              { tier: 'premium', name: 'The Personal Collection', price: '$115–$150',
+                includes: ['1 11×14 print', '2 8×10 prints', '4 5×7 prints', 'Premium private packaging', 'Standard finish'],
+                pitch: '"A complete private print collection — because these images deserve to be seen properly, not just on a screen."',
+                why: '"Not just on a screen" creates the contrast that motivates boudoir print purchases at every tier.' },
+            ],
+            strategy: { title: 'Privacy packaging adds value at no extra cost', body: ["For budget boudoir clients, private packaging — a plain exterior box, sealed envelope, discrete labeling — adds significant perceived value at minimal cost. Include it in every tier and mention it explicitly. It's often the deciding factor between ordering and not ordering."] }
+          },
+          mid: {
+            headline: 'Boudoir print packages — mid-market',
+            tiers: [
+              { tier: 'starter', name: 'The Portrait Package', price: '$60–$80',
+                includes: ['1 8×10 fine art print', '2 5×7 prints', 'Private packaging', 'Premium paper'],
+                pitch: '"Fine art prints of your most confident self — privately packaged, beautifully made."',
+                why: 'Mid-market boudoir clients want to feel that their investment was honored. Fine art language validates that.' },
+              { tier: 'popular', name: 'The Confidence Collection', price: '$120–$155',
+                includes: ['1 11×14 fine art print', '2 8×10 prints', '4 5×7 prints', 'Ribbon-tied private box', 'Premium paper', 'Keepsake sleeve'],
+                pitch: '"A complete print collection of your most empowering session — yours, privately, beautifully."',
+                why: 'Three single-word descriptors at the end — "yours, privately, beautifully" — do a lot of work. Each addresses a core boudoir client motivation.' },
+              { tier: 'premium', name: 'The Intimate Legacy Package', price: '$225–$275',
+                includes: ['1 16×20 fine art print', '2 8×10 prints', '4 5×7 prints', 'Full private leather-effect box', 'Archival paper', 'Curation session'],
+                pitch: '"A curated fine art package from your most personal session — selected by your photographer, packaged with complete discretion."',
+                why: '"Selected by your photographer" adds a validation element that mid-market boudoir clients pay premium prices for. Someone who understands photography confirmed these are your best images.' },
+            ],
+            strategy: { title: 'The curation session is your best mid-market closer', body: ["Mid-market boudoir clients often struggle to select their own favorite images — both because it's emotionally loaded and because they don't trust their own judgment. A photographer-led curation session removes both barriers. Build it into your premium tier and it will convert consistently."] }
+          },
+          luxury: {
+            headline: 'Luxury boudoir print packages',
+            tiers: [
+              { tier: 'starter', name: 'The Private Portrait Package', price: '$140–$180',
+                includes: ['1 16×20 museum print', '2 8×10 fine art prints', 'Museum archival paper', 'Signed edition', 'Wax-sealed packaging'],
+                pitch: '"A museum-quality portrait package of your most confident self — created and delivered with complete discretion."',
+                why: 'Museum quality plus complete discretion is the luxury boudoir promise. Both must be present in the first package.' },
+              { tier: 'popular', name: 'The Empowerment Collection', price: '$275–$350',
+                includes: ['1 20×24 museum print', '2 11×14 prints', '4 8×10 prints', 'Full museum archival paper', 'Leather-effect private box', 'Signed editions', 'Curation session'],
+                pitch: '"A gallery-quality collection of your most powerful self — curated by your photographer, delivered privately."',
+                why: '"Most powerful self" is bold and accurate. Luxury boudoir clients have invested significantly in accessing exactly that.' },
+              { tier: 'premium', name: 'The Signature Legacy Package', price: '$525–$650',
+                includes: ['1 24×36 museum print', '2 16×20 prints', '4 8×10 prints', 'Full archival paper', 'White-glove private delivery', 'Full curation experience', 'Certificate of edition', 'Digital suite'],
+                pitch: '"A complete fine art boudoir collection — the permanent record of who you are at your most confident, delivered as the luxury experience it is."',
+                why: '"Delivered as the luxury experience it is" claims the positioning explicitly. At this price point, that confidence is expected.' },
+            ],
+            strategy: { title: 'White-glove delivery closes luxury boudoir packages', body: ['The delivery experience matters as much as the product for luxury boudoir clients. A white-glove private delivery — scheduled at their convenience, beautifully packaged, handled with discretion — completes the luxury experience. Build it into your premium tier and mention it in every conversation.'] }
+          },
+        },
+      },
+
+      // ── PET ──
+      pet: {
+        cards: { budget: { headline: 'Pet photo cards — budget packages', tiers: [ { tier: 'starter', name: 'The Pet Card', price: '$25–$35', includes: ['25 cards', 'Single photo design', 'Envelopes'], pitch: '"A beautiful card featuring your favorite family member."', why: 'Pet owners unironically treat their pets as family members. Meet them there.' }, { tier: 'popular', name: 'The Holiday Set', price: '$50–$70', includes: ['50 cards', 'Two designs', 'Holiday and everyday versions'], pitch: '"50 cards for every occasion — holiday greetings, new pet announcements, just because."', why: 'Pet owners send cards for more occasions than you think. Multiple-use framing justifies the quantity.' }, { tier: 'premium', name: 'The Pet Portrait Collection', price: '$80–$110', includes: ['100 cards', 'Three designs', 'Premium envelopes', 'Keepsake set'], pitch: '"A complete card collection — for every person in your life who needs to meet your pet."', why: '"Every person who needs to meet your pet" is funny and true. Pet owners love that framing.' } ], strategy: { title: 'Pet owners are enthusiastic buyers', body: ['Pet photography clients are among the most enthusiastic print buyers in photography. They send holiday cards, new-pet announcements, and birthday cards for their animals without irony. Volume packages sell well because they have real uses for all of them.'] } },
+          mid: { headline: 'Pet portrait cards — mid-market', tiers: [ { tier: 'starter', name: 'The Portrait Card', price: '$45–$65', includes: ['30 cards', 'Custom design', 'Premium envelopes'], pitch: '"A portrait card worthy of your most photogenic family member."', why: '"Most photogenic family member" is warm and funny. Mid-market pet owners love their pets being called family.' }, { tier: 'popular', name: 'The Pet Collection', price: '$95–$120', includes: ['60 cards', 'Two designs', 'Premium paper', 'Keepsake set'], pitch: '"60 cards for the full circle of people who love your pet as much as you do."', why: '"Who love your pet as much as you do" speaks to the real social network around a beloved pet.' }, { tier: 'premium', name: 'The Signature Pet Suite', price: '$160–$200', includes: ['100 cards', 'Three custom designs', 'Premium paper', 'Framing set', 'Digital files'], pitch: '"A complete portrait suite for a pet who deserves the full fine art treatment."', why: '"Deserves the full fine art treatment" is playful and true at the same time.' } ], strategy: { title: 'Humor and warmth both sell pet print packages', body: ['Pet portrait clients respond to warm, slightly playful language that honors their relationship with their animals without being condescending. "Your most photogenic family member" and "the full fine art treatment" both work because they\'re said with affection, not irony.'] } },
+          luxury: { headline: 'Luxury pet portrait cards', tiers: [ { tier: 'starter', name: 'The Fine Pet Portrait', price: '$100–$135', includes: ['30 cards', 'Bespoke design', 'Luxury envelopes'], pitch: '"A luxury portrait card — for the pet who deserves nothing less."', why: 'Luxury pet owners genuinely believe their pets deserve luxury. This language works because it\'s sincere.' }, { tier: 'popular', name: 'The Estate Portrait Set', price: '$200–$250', includes: ['70 cards', 'Bespoke design', 'Premium paper', 'Ribbon box'], pitch: '"A bespoke portrait card collection — because your pet is worth the full treatment."', why: '"Full treatment" signals complete luxury service.' }, { tier: 'premium', name: 'The Legacy Pet Collection', price: '$350–$475', includes: ['120 cards', 'Full bespoke design', 'Museum paper', 'Framing set', 'Digital suite'], pitch: '"A complete fine art portrait collection — for the animal who is irreplaceable to you."', why: '"Irreplaceable to you" is emotionally precise and true. Luxury pet clients deeply feel the impermanence of their animals\' lives.' } ], strategy: { title: 'Irreplaceability is the luxury pet purchase driver', body: ['Luxury pet clients are acutely aware that their animals won\'t be with them forever. This isn\'t a morbid sales angle — it\'s an honest acknowledgment that drives real purchasing motivation. "The images that will outlast the years you have together" is one of the strongest luxury pet sales frames in photography.'] } }
+        },
+        postcards: { budget: { headline: 'Pet photo postcards — budget', tiers: [ { tier: 'starter', name: 'The Pet Postcard', price: '$20–$25', includes: ['25 postcards', 'Photo design', 'Quick turnaround'], pitch: '"Drop in the mailbox — your pet\'s fan club gets the update."', why: '"Fan club" is funny and accurate. Pet owners know their animals have fan clubs.' }, { tier: 'popular', name: 'The Holiday Blast', price: '$40–$55', includes: ['60 postcards', 'Two designs', 'Holiday + everyday'], pitch: '"60 cards for every person in your life who needs a pet update."', why: '"Pet update" is casual and relatable. Budget pet clients will chuckle and buy.' }, { tier: 'premium', name: 'The Full Season', price: '$65–$85', includes: ['100 postcards', 'Three designs', 'Digital files'], pitch: '"A full season of pet postcards — always have one ready to send."', why: '"Always have one ready" speaks to the spontaneous card-sending behavior of devoted pet owners.' } ], strategy: { title: 'Fun language closes pet postcard sales', body: ['Budget pet postcard clients are fun-loving, enthusiastic about their animals, and don\'t need much convincing. Light, warm, slightly playful language converts faster than formal product descriptions at this tier.'] } },
+          mid: { headline: 'Pet portrait postcards — mid-market', tiers: [ { tier: 'starter', name: 'The Portrait Postcard', price: '$45–$60', includes: ['35 postcards', 'Custom design', 'Premium stock'], pitch: '"A beautiful portrait postcard — for the people in your life who love your pet."', why: 'Simple and warm. No overthinking needed at this price point.' }, { tier: 'popular', name: 'The Year-Round Set', price: '$80–$110', includes: ['70 postcards', 'Three designs', 'Premium paper', 'Digital version'], pitch: '"Portrait postcards for every season — holiday, birthday, just because."', why: 'Multiple use occasions justify the quantity. Pet owners genuinely use all three occasions.' }, { tier: 'premium', name: 'The Pet Portrait Suite', price: '$135–$170', includes: ['100 postcards', 'Four designs', 'Premium stock', 'Keepsake set'], pitch: '"A complete postcard suite — because your pet deserves a full photographic story."', why: '"Full photographic story" elevates a print product to a narrative.' } ], strategy: { title: 'Occasions drive quantity', body: ['Mid-market pet clients will buy more when they can see all the occasions they\'ll use for them. Holiday, birthday, just because, new pet — list the occasions and the quantity feels justified. Don\'t make them do the math.'] } },
+          luxury: { headline: 'Luxury pet portrait postcards', tiers: [ { tier: 'starter', name: 'The Signature Pet Card', price: '$85–$115', includes: ['30 luxury postcards', 'Bespoke design', 'Premium stock'], pitch: '"A bespoke portrait postcard — designed for the pet who is worth every penny."', why: '"Worth every penny" is a knowing wink at the luxury pet client who already knows they spend lavishly on their animal.' }, { tier: 'popular', name: 'The Fine Art Pet Set', price: '$170–$225', includes: ['70 postcards', 'Bespoke design', 'Foil option', 'Presentation box'], pitch: '"A luxury postcard collection for a pet who lives at the intersection of beloved and beautiful."', why: '"Beloved and beautiful" is accurate for the luxury pet portrait client\'s worldview.' }, { tier: 'premium', name: 'The Legacy Pet Suite', price: '$325–$400', includes: ['110 postcards', 'Full bespoke', 'Archival stock', 'Display piece', 'Digital suite'], pitch: '"A complete luxury portrait collection — for the animal who will be remembered long after they\'re gone."', why: 'Direct acknowledgment of the impermanence that luxury pet clients are unconsciously trying to address.' } ], strategy: { title: 'Luxury pet clients are buying against impermanence', body: ['The most honest and effective luxury pet sales frame is the simplest one: these animals won\'t be here forever, and a luxury print collection is the best possible record of the time you had together. Luxury pet clients don\'t need convincing — they need permission to spend what they already want to spend.'] } }
+        },
+        prints: { budget: { headline: 'Pet art prints — budget packages', tiers: [ { tier: 'starter', name: 'The Pet Print', price: '$25–$40', includes: ['One 8×10 print', 'Standard finish'], pitch: '"One perfect shot of your favorite face."', why: '"Favorite face" works for pets the same as for children. Pet owners use the same emotional language.' }, { tier: 'popular', name: 'The Pet Gallery', price: '$60–$80', includes: ['Three prints', 'Mixed sizes', 'Layout card'], pitch: '"Three of your best — for three spots that need a pet on the wall."', why: '"Three spots that need a pet" is warm and specific. Budget pet owners know exactly which spots those are.' }, { tier: 'premium', name: 'The Full Pet Wall', price: '$105–$135', includes: ['Six prints', 'Mixed sizes', 'Framing guide'], pitch: '"A complete pet gallery wall — for the home that is clearly run by an animal."', why: 'Self-aware, warm humor. Budget pet clients love being seen.' } ], strategy: { title: 'Lean into the humor and warmth', body: ['Budget pet clients respond to language that acknowledges the absurdity and joy of being completely devoted to an animal. A light touch of humor ("the home that is clearly run by an animal") signals that you get it — and that converts.'] } },
+          mid: { headline: 'Pet art prints — mid-market', tiers: [ { tier: 'starter', name: 'The Portrait Print', price: '$55–$75', includes: ['One 11×14 fine art print', 'Premium paper'], pitch: '"A fine art portrait of your most beloved companion."', why: '"Most beloved companion" honors the relationship without being maudlin.' }, { tier: 'popular', name: 'The Companion Collection', price: '$115–$160', includes: ['Five prints', 'Fine art paper', 'Mixed sizes', 'Layout guide'], pitch: '"Five images of your irreplaceable companion — printed to outlast the years."', why: '"Irreplaceable" and "outlast the years" both work with mid-market pet clients who are starting to think about their pet\'s age.' }, { tier: 'premium', name: 'The Legacy Collection', price: '$225–$300', includes: ['Eight prints', 'Archival paper', 'Curation session', 'Presentation box'], pitch: '"An archival fine art collection — a permanent record of the animal who changed your life."', why: '"Changed your life" is bold but accurate for the devoted pet owner. Mid-market clients will feel seen.' } ], strategy: { title: 'Impermanence is the honest sell', body: ['Mid-market pet clients are often motivated to book sessions because their pet is aging. The print sale is the natural follow-through on that motivation. "You booked this session because you knew time was short. These prints are why" is one of the most honest and most effective sales frames in pet photography.'] } },
+          luxury: { headline: 'Luxury pet art prints', tiers: [ { tier: 'starter', name: 'The Fine Pet Portrait', price: '$135–$180', includes: ['One 16×20 museum print', 'Archival paper', 'Signed'], pitch: '"A museum-quality portrait of your most beloved companion."', why: 'Museum language signals seriousness. Luxury pet clients want their devotion taken seriously.' }, { tier: 'popular', name: 'The Companion Gallery', price: '$350–$450', includes: ['Five large-format prints', 'Museum paper', 'Curation session', 'Presentation box', 'Signed editions'], pitch: '"A gallery-quality collection of your most irreplaceable companion — printed to last generations."', why: '"Last generations" is the deepest luxury pet motivation. The print outlives the pet.' }, { tier: 'premium', name: 'The Legacy Suite', price: '$775–$1,000', includes: ['Ten prints', 'Museum archival paper', 'Full curation', 'White-glove installation', 'Certificate'], pitch: '"A complete fine art legacy — the permanent record of an animal who was irreplaceable to you."', why: '"Was irreplaceable" is past tense and honest. Luxury clients who have lost or are about to lose a pet will invest generously in this.' } ], strategy: { title: 'The print that outlives the pet', body: ['The most powerful luxury pet print positioning is also the most honest: these archival prints will exist long after the animal is gone. Luxury clients who understand this are the most motivated print buyers in all of photography. Meet their real motivation with direct, warm, honest language.'] } }
+        },
+        packages: {
+          budget: {
+            headline: 'Pet print packages — budget',
+            tiers: [
+              { tier: 'starter', name: 'The Pet Sampler', price: '$25–$40',
+                includes: ['1 5×7 print', '2 4×6 prints', 'Standard finish'],
+                pitch: '"A few perfect shots of your favorite face."',
+                why: 'Budget pet clients want a low-risk way to get started. Small packages convert faster than asking for a big commitment upfront.' },
+              { tier: 'popular', name: 'The Fan Club Package', price: '$60–$75',
+                includes: ['1 8×10 print', '2 5×7 prints', '8 wallet prints', 'Standard finish'],
+                pitch: '"Prints for everyone in your pet\'s fan club — because we both know they have one."',
+                why: 'Warm, self-aware humor closes pet print sales at the budget tier. Pet owners love being seen.' },
+              { tier: 'premium', name: 'The Full House Package', price: '$95–$125',
+                includes: ['1 11×14 print', '2 8×10 prints', '4 5×7 prints', '8 wallet prints', 'Standard finish', 'Layout card'],
+                pitch: '"A complete pet print set — for every person in your life who needs a photo of your animal."',
+                why: '"Every person who needs a photo" is specific and true. Budget pet owners know exactly who those people are.' },
+            ],
+            strategy: { title: 'Humor converts budget pet clients', body: ['Budget pet clients are enthusiastic, fun-loving, and highly motivated buyers. Light, warm, self-aware language — "their fan club," "the animal who runs the house" — signals that you get it. That connection converts faster than any product description.'] }
+          },
+          mid: {
+            headline: 'Pet print packages — mid-market',
+            tiers: [
+              { tier: 'starter', name: 'The Portrait Package', price: '$55–$70',
+                includes: ['1 8×10 fine art print', '2 5×7 prints', '4 wallet prints', 'Premium paper'],
+                pitch: '"Fine art prints of your most beloved companion — made to last as long as the love does."',
+                why: '"As long as the love does" acknowledges the deep attachment mid-market pet clients have to their animals.' },
+              { tier: 'popular', name: 'The Companion Package', price: '$115–$145',
+                includes: ['1 11×14 fine art print', '2 8×10 prints', '4 5×7 prints', '8 wallet prints', 'Premium paper', 'Keepsake sleeve'],
+                pitch: '"A complete print collection for the animal who is irreplaceable to you — printed on paper that lasts."',
+                why: '"Irreplaceable" hits a deep emotional note for mid-market pet clients who have started thinking about their pet\'s age.' },
+              { tier: 'premium', name: 'The Legacy Package', price: '$225–$275',
+                includes: ['1 16×20 fine art print', '2 8×10 prints', '4 5×7 prints', '8 wallet prints', 'Archival paper', 'Curation session', 'Presentation box'],
+                pitch: '"An archival fine art collection of your irreplaceable companion — the permanent record of the years you have together."',
+                why: '"The years you have together" is emotionally precise. Mid-market pet clients who are booking because their pet is aging feel this immediately.' },
+            ],
+            strategy: { title: 'Impermanence drives mid-market pet sales', body: ['The most honest and effective mid-market pet sales frame centers on the finite nature of a pet\'s life. This isn\'t manipulative — it\'s genuinely why most pet clients book a session. Acknowledging that motivation directly ("you booked this because you know time is short") converts the print package alongside the session.'] }
+          },
+          luxury: {
+            headline: 'Luxury pet print packages',
+            tiers: [
+              { tier: 'starter', name: 'The Fine Pet Portrait Package', price: '$140–$180',
+                includes: ['1 16×20 museum print', '2 8×10 fine art prints', '4 wallet prints', 'Museum archival paper', 'Signed edition'],
+                pitch: '"A museum-quality portrait package of your irreplaceable companion — printed to outlast the years."',
+                why: '"Outlast the years" is the luxury pet promise. The print will exist after the pet is gone. Luxury clients are buying against that.' },
+              { tier: 'popular', name: 'The Companion Collection', price: '$275–$350',
+                includes: ['1 20×24 museum print', '2 11×14 prints', '4 8×10 prints', '8 wallet prints', 'Full museum paper', 'Curation session', 'Presentation box'],
+                pitch: '"A gallery-quality collection of the animal who changed your life — printed at the scale that honors that."',
+                why: '"Changed your life" is bold and accurate for the luxury pet client. "The scale that honors that" connects size to emotional weight.' },
+              { tier: 'premium', name: 'The Legacy Package', price: '$525–$650',
+                includes: ['1 24×36 museum print', '2 16×20 prints', '4 8×10 prints', '8 wallet prints', 'Full archival paper', 'White-glove curation', 'Framing consultation', 'Certificate of edition'],
+                pitch: '"A complete fine art legacy collection — the permanent record of an animal who was irreplaceable to you."',
+                why: '"Was irreplaceable" — past tense, honest — is the most powerful luxury pet line in photography. Clients who connect with it invest generously.' },
+            ],
+            strategy: { title: 'The print that outlasts the pet', body: ["The luxury pet print proposition is ultimately this: archival prints last 100+ years. The pet won't. Luxury clients who understand this are the most motivated buyers in all of photography. They're not buying convenience or sentimentality — they're making a considered investment in a permanent record of something they love deeply."] }
+          },
+        },
+      },
+
+      // ── EVENT ──
+      event: {
+        cards: { budget: { headline: 'Event thank-you cards — budget packages', tiers: [ { tier: 'starter', name: 'The Thank-You Set', price: '$25–$35', includes: ['25 cards', 'Event photo design', 'Envelopes'], pitch: '"A professional thank-you — done fast and done right."', why: 'Corporate and event clients want professional, fast, easy. All three in one sentence.' }, { tier: 'popular', name: 'The Event Suite', price: '$50–$70', includes: ['50 cards', 'Two designs', 'Corporate-clean layout'], pitch: '"50 cards for clients, colleagues, and everyone who made the event possible."', why: '"Everyone who made the event possible" covers the full corporate distribution list.' }, { tier: 'premium', name: 'The Full Distribution', price: '$80–$110', includes: ['100 cards', 'Three designs', 'Corporate branding option', 'Digital files'], pitch: '"A complete event follow-up card package — professional, branded, done."', why: '"Professional, branded, done" is the corporate decision-maker\'s ideal outcome.' } ], strategy: { title: 'Professional, fast, complete', body: ['Corporate and event clients are not shopping for emotional experiences — they\'re solving a professional obligation. Your packaging language should be crisp, businesslike, and outcome-focused. "Professional, branded, done in 5 business days" will close more event print deals than any emotional appeal.'] } },
+          mid: { headline: 'Event and corporate cards — mid-market', tiers: [ { tier: 'starter', name: 'The Client Card', price: '$45–$65', includes: ['30 cards', 'Custom branded design', 'Professional envelopes'], pitch: '"A polished client thank-you — the one that actually gets kept."', why: '"Actually gets kept" implies competitors\' cards don\'t. Small competitive positioning.' }, { tier: 'popular', name: 'The Corporate Set', price: '$100–$125', includes: ['60 cards', 'Branded design', 'Two card types', 'Digital files'], pitch: '"A complete corporate card package — thank-you and follow-up, both handled professionally."', why: 'Two card types = two professional obligations handled. Efficiency is a mid-market corporate value.' }, { tier: 'premium', name: 'The Brand Suite', price: '$170–$225', includes: ['100 cards', 'Full brand integration', 'Three designs', 'Premium presentation'], pitch: '"A branded card suite that reinforces your company\'s professionalism at every touchpoint."', why: '"Every touchpoint" is a business language cue. It signals you understand corporate brand strategy.' } ], strategy: { title: 'ROI language closes corporate deals', body: ['Mid-market corporate clients respond to ROI framing. "A card that keeps your brand in front of clients for weeks after the event" is more compelling than any design description. Connect your print product to a business outcome and the sale becomes a business decision, not an expense.'] } },
+          luxury: { headline: 'Luxury event and corporate card packages', tiers: [ { tier: 'starter', name: 'The Executive Card', price: '$110–$145', includes: ['30 premium cards', 'Bespoke design', 'Luxury envelopes'], pitch: '"An executive-quality thank-you — for the impression that lasts beyond the event."', why: '"Executive-quality" signals the tier explicitly. Luxury corporate clients want that language.' }, { tier: 'popular', name: 'The Brand Suite', price: '$200–$275', includes: ['75 cards', 'Bespoke brand integration', 'Premium paper', 'Foil option'], pitch: '"A luxury branded card suite — the physical extension of your company\'s standards."', why: '"Company\'s standards" connects to corporate identity, not just a card order.' }, { tier: 'premium', name: 'The Corporate Legacy Package', price: '$375–$500', includes: ['150 cards', 'Full bespoke design', 'Foil or letterpress', 'White-glove delivery', 'Digital suite'], pitch: '"A complete luxury print package — branded, premium, and delivered with the same professionalism your company stands for."', why: '"Your company stands for" mirrors the client\'s self-image as a professional standard-setter.' } ], strategy: { title: 'Luxury corporate clients buy brand extension', body: ['High-end corporate clients don\'t buy print products — they buy brand expressions. Every piece of language should frame your print packages as an extension of their brand standards, not a photography product. "Designed to the same standard as your event" is worth more than any list of features.'] } }
+        },
+        postcards: { budget: { headline: 'Event follow-up postcards — budget', tiers: [ { tier: 'starter', name: 'The Follow-Up Card', price: '$20–$30', includes: ['25 postcards', 'Event photo', 'Professional layout'], pitch: '"A fast, professional event follow-up — in the mail before they forget your name."', why: '"Before they forget your name" creates urgency that corporate clients understand.' }, { tier: 'popular', name: 'The Distribution Set', price: '$45–$60', includes: ['60 postcards', 'Two designs', 'Clean corporate layout'], pitch: '"60 cards for your full attendee list — professional, fast, done."', why: 'Corporate language: professional, fast, done. The trifecta.' }, { tier: 'premium', name: 'The Full Mailing', price: '$70–$90', includes: ['100 postcards', 'Branded design', 'Three layouts', 'Digital files'], pitch: '"A complete event follow-up package — every attendee contacted, professionally."', why: '"Every attendee contacted" addresses the professional obligation completely.' } ], strategy: { title: 'Professional obligation, efficiently met', body: ['Event photography clients treating this as a professional obligation want it handled quickly and completely. Your entire sales frame should be about efficiency, professionalism, and completeness. Add a fast turnaround guarantee and you close most budget corporate deals on the first conversation.'] } },
+          mid: { headline: 'Event follow-up postcards — mid-market', tiers: [ { tier: 'starter', name: 'The Event Card', price: '$45–$60', includes: ['35 postcards', 'Custom branded design', 'Premium stock'], pitch: '"A polished event follow-up that reinforces your brand after the room clears."', why: '"After the room clears" is vivid and business-relevant. Shows marketing awareness.' }, { tier: 'popular', name: 'The Brand Touchpoint', price: '$80–$110', includes: ['70 postcards', 'Branded design', 'Premium paper', 'Digital version'], pitch: '"A branded event postcard — the follow-up that keeps working after the event ends."', why: '"Keeps working" frames the card as a marketing tool, not a memento.' }, { tier: 'premium', name: 'The Corporate Suite', price: '$135–$170', includes: ['100 postcards', 'Full brand integration', 'Four design options', 'Premium stock'], pitch: '"A complete corporate follow-up suite — professional, branded, and designed to be kept."', why: '"Designed to be kept" implies quality that outlasts typical business cards.' } ], strategy: { title: 'Frame every card as a marketing touchpoint', body: ['Mid-market corporate clients think in marketing terms. Every print product should be framed as a touchpoint, not a thank-you. "60 branded impressions in your clients\' homes for 30+ days" is more compelling than "60 postcards." Translate the product into marketing language and the budget conversation shifts entirely.'] } },
+          luxury: { headline: 'Luxury corporate event postcards', tiers: [ { tier: 'starter', name: 'The Executive Follow-Up', price: '$100–$135', includes: ['30 premium postcards', 'Bespoke brand design', 'Premium stock'], pitch: '"An executive-quality follow-up — the physical proof of a premium event."', why: '"Physical proof of a premium event" frames the postcard as evidence of quality.' }, { tier: 'popular', name: 'The Brand Statement', price: '$200–$250', includes: ['75 postcards', 'Full brand integration', 'Foil option', 'Luxury stock'], pitch: '"A luxury brand statement — the follow-up that confirms your company\'s standards to every recipient."', why: '"Confirms your standards" is a strong luxury corporate frame.' }, { tier: 'premium', name: 'The Corporate Legacy Set', price: '$350–$475', includes: ['120 postcards', 'Bespoke design process', 'Premium foil or letterpress', 'White-glove delivery', 'Digital suite'], pitch: '"A complete luxury follow-up package — the physical extension of a world-class event."', why: '"World-class event" mirrors how luxury corporate clients see their own events.' } ], strategy: { title: 'Luxury corporate clients are protecting a brand reputation', body: ['High-end corporate clients are not just ordering print products — they are managing brand perception. Every piece of follow-up communication is a brand touchpoint that either reinforces or undermines the premium positioning of their event. Frame your luxury packages in those terms and price resistance drops significantly.'] } }
+        },
+        prints: { budget: { headline: 'Event art prints — budget packages', tiers: [ { tier: 'starter', name: 'The Event Print', price: '$25–$40', includes: ['One 8×10 print', 'Standard finish', 'Corporate-clean crop'], pitch: '"One standout image from your event — framed for the office wall."', why: '"Office wall" gives the print a clear destination, which removes decision anxiety.' }, { tier: 'popular', name: 'The Office Set', price: '$65–$80', includes: ['Three prints', 'Mixed sizes', 'Layout guide'], pitch: '"Three event images for three locations — lobby, boardroom, your desk."', why: 'Three specific corporate locations makes the quantity feel purposeful and justified.' }, { tier: 'premium', name: 'The Event Gallery', price: '$110–$145', includes: ['Six prints', 'Mixed sizes', 'Corporate framing guide'], pitch: '"A complete event gallery — for the walls that need to tell your company\'s story."', why: '"Tell your company\'s story" elevates a print order to brand narrative.' } ], strategy: { title: 'Give the print a destination', body: ['Corporate print buyers make faster decisions when the destination is clear. "For the lobby," "for the boardroom," "for the annual report" all reduce decision friction. Don\'t make them figure out where these go — tell them.'] } },
+          mid: { headline: 'Corporate event prints — mid-market', tiers: [ { tier: 'starter', name: 'The Corporate Portrait', price: '$60–$80', includes: ['One 11×14 fine art print', 'Premium paper', 'Clean corporate finish'], pitch: '"A premium event print — the kind that actually makes it onto the boardroom wall."', why: '"Actually makes it onto the boardroom wall" implies quality sorting. Strong subtle positioning.' }, { tier: 'popular', name: 'The Brand Wall Set', price: '$125–$165', includes: ['Five prints', 'Fine art paper', 'Layout consultation', 'Sizing guide'], pitch: '"Five images for a complete brand wall — curated to tell the story of your event."', why: '"Brand wall" is a real corporate concept. Using that language signals business sophistication.' }, { tier: 'premium', name: 'The Corporate Collection', price: '$225–$300', includes: ['Eight prints', 'Archival paper', 'Curation session', 'Corporate framing guide', 'Digital files'], pitch: '"A curated corporate print collection — the permanent record of an event worth remembering."', why: '"Worth remembering" is a simple but effective qualifier. It implies not all events are.' } ], strategy: { title: 'Curation adds real value for corporate clients', body: ['Mid-market corporate clients don\'t want to choose from 500 images. A curation session where you select the 8–10 strongest images from their event is a genuine service that commands a premium. "I\'ve selected the images that best represent your brand and your event" is more valuable to a marketing director than a gallery link.'] } },
+          luxury: { headline: 'Luxury corporate event prints', tiers: [ { tier: 'starter', name: 'The Executive Print', price: '$135–$180', includes: ['One 16×20 museum print', 'Archival paper', 'Signed edition'], pitch: '"A museum-quality event print — for the executive office that demands the best."', why: '"Demands the best" is appropriately direct for luxury corporate positioning.' }, { tier: 'popular', name: 'The Brand Gallery', price: '$350–$450', includes: ['Five large-format prints', 'Museum paper', 'Full curation', 'Presentation box'], pitch: '"A curated fine art gallery of your event — the permanent brand statement your company deserves."', why: '"Brand statement" and "deserves" both do strong work here.' }, { tier: 'premium', name: 'The Corporate Legacy Collection', price: '$800–$1,075', includes: ['Ten prints', 'Museum archival paper', 'Full curation session', 'White-glove installation', 'Certificate of edition'], pitch: '"A complete fine art corporate installation — the permanent physical record of a world-class event."', why: '"Installation" transforms a print order into a project. Luxury corporate clients buy projects, not products.' } ], strategy: { title: 'Luxury corporate prints are brand investments', body: ['High-end corporate event photography is already a significant investment. The print collection is the natural completion of that investment — the physical artifacts that will live in offices, lobbies, and boardrooms for years. Frame the collection as a brand investment with a measurable presence, not a photography product.'] } }
+        },
+        packages: {
+          budget: {
+            headline: 'Event print packages — budget',
+            tiers: [
+              { tier: 'starter', name: 'The Event Sampler', price: '$30–$40',
+                includes: ['1 5×7 print', '2 4×6 prints', 'Clean corporate finish'],
+                pitch: '"A few standout images from your event — ready to frame for the office."',
+                why: 'Budget corporate clients want quick, professional, done. Three words, no fuss.' },
+              { tier: 'popular', name: 'The Office Package', price: '$60–$75',
+                includes: ['1 8×10 print', '2 5×7 prints', '8 wallet prints', 'Standard finish'],
+                pitch: '"Prints for the lobby, the boardroom, and the executive who asked for one."',
+                why: '"The executive who asked for one" is real and specific. Budget event clients know exactly who that person is.' },
+              { tier: 'premium', name: 'The Distribution Package', price: '$100–$130',
+                includes: ['1 11×14 print', '2 8×10 prints', '4 5×7 prints', '8 wallet prints', 'Standard finish', 'Layout guide'],
+                pitch: '"A complete event print package — for every location that needs a photo from your event."',
+                why: 'Complete coverage language closes budget corporate deals. They want to handle it once.' },
+            ],
+            strategy: { title: 'Corporate clients buy to complete an obligation', body: ['Budget corporate print clients are solving a professional problem, not expressing creativity. Your entire pitch should be about completeness and professionalism. "Every location covered in one order" closes faster than any emotional appeal at this tier.'] }
+          },
+          mid: {
+            headline: 'Corporate event print packages — mid-market',
+            tiers: [
+              { tier: 'starter', name: 'The Brand Print Package', price: '$60–$75',
+                includes: ['1 8×10 fine art print', '2 5×7 prints', '4 wallet prints', 'Premium finish'],
+                pitch: '"Professional event prints — the kind that actually make it onto the boardroom wall."',
+                why: '"Actually make it onto the boardroom wall" implies a quality filter. Mid-market corporate clients appreciate that positioning.' },
+              { tier: 'popular', name: 'The Corporate Package', price: '$120–$155',
+                includes: ['1 11×14 fine art print', '2 8×10 prints', '4 5×7 prints', '8 wallet prints', 'Premium paper', 'Layout guide'],
+                pitch: '"A complete corporate print package — for every space in your company that tells your story."',
+                why: '"Tells your story" elevates a print order to a brand narrative. Mid-market corporate clients think in those terms.' },
+              { tier: 'premium', name: 'The Brand Collection', price: '$225–$275',
+                includes: ['1 16×20 fine art print', '2 8×10 prints', '4 5×7 prints', '8 wallet prints', 'Archival paper', 'Curation session', 'Layout consultation'],
+                pitch: '"A curated corporate print collection — selected to represent your brand at its best and installed where it matters most."',
+                why: '"Installed where it matters most" implies strategic placement, not just a print order. Mid-market marketing clients respond to strategic language.' },
+            ],
+            strategy: { title: 'Connect every print to a business outcome', body: ['Mid-market corporate clients think in ROI. Every package description should connect the print to a business result: "a 16×20 in your lobby tells clients who you are before you say a word." Translate the photography product into brand value and the budget conversation shifts from expense to investment.'] }
+          },
+          luxury: {
+            headline: 'Luxury corporate event print packages',
+            tiers: [
+              { tier: 'starter', name: 'The Executive Package', price: '$140–$180',
+                includes: ['1 16×20 museum print', '2 8×10 fine art prints', '4 wallet prints', 'Museum archival paper', 'Signed edition'],
+                pitch: '"Museum-quality event prints — for the executive office that communicates through its walls."',
+                why: '"Communicates through its walls" is a sophisticated brand observation. Luxury corporate clients think this way.' },
+              { tier: 'popular', name: 'The Brand Gallery Package', price: '$275–$350',
+                includes: ['1 20×24 museum print', '2 11×14 prints', '4 8×10 prints', '8 wallet prints', 'Full museum paper', 'Curation session', 'Corporate layout consultation'],
+                pitch: '"A curated corporate gallery package — the permanent brand statement from your most important event."',
+                why: '"Permanent brand statement" frames the package as a long-term asset, not a purchase.' },
+              { tier: 'premium', name: 'The Corporate Legacy Collection', price: '$525–$650',
+                includes: ['1 24×36 museum print', '2 16×20 prints', '4 8×10 prints', '8 wallet prints', 'Full archival paper', 'White-glove curation', 'Professional installation', 'Certificate of edition'],
+                pitch: '"A complete fine art corporate installation — the permanent physical record of a world-class event, delivered and installed at the standard your company holds."',
+                why: '"The standard your company holds" mirrors the client\'s own quality positioning back at them. Luxury corporate clients buy things that match their self-image.' },
+            ],
+            strategy: { title: 'Luxury corporate packages are brand investments', body: ["High-end corporate clients don't buy photography products — they invest in brand assets. A 24×36 museum print installed in a headquarters lobby is a brand statement that will be seen by thousands of clients, employees, and partners over years. Frame the investment in those terms and price resistance disappears."] }
+          },
+        },
+      }
+    };
+
+    // ─── UI LOGIC ─────────────────────────────────────────────────────────────
+
+    function selectOption(groupId, key, value) {
+      document.querySelectorAll('#' + groupId + ' .option-btn').forEach(function(btn) {
+        btn.classList.remove('selected');
+      });
+      var btn = document.querySelector('#' + groupId + ' [data-' + key + '="' + value + '"]');
+      if (btn) btn.classList.add('selected');
+    }
+
+    document.querySelectorAll('#typeOptions .option-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        state.type = btn.dataset.type;
+        selectOption('typeOptions', 'type', state.type);
+        checkReady();
+      });
+    });
+
+    document.querySelectorAll('#marketOptions .option-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        state.market = btn.dataset.market;
+        selectOption('marketOptions', 'market', state.market);
+        checkReady();
+      });
+    });
+
+    document.querySelectorAll('#productOptions .option-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        state.product = btn.dataset.product;
+        selectOption('productOptions', 'product', state.product);
+        checkReady();
+      });
+    });
+
+    function checkReady() {
+      document.getElementById('generateBtn').disabled = !(state.type && state.market && state.product);
+    }
+
+    document.getElementById('generateBtn').addEventListener('click', generate);
+    function doReset() {
+      document.getElementById('resultsArea').classList.remove('visible');
+      document.getElementById('resultsArea').style.display = 'none';
+      document.getElementById('generateBtn').style.display = 'block';
+      document.querySelectorAll('.option-btn').forEach(function(b) { b.classList.remove('selected'); });
+      state = { type: null, market: null, product: null };
+      checkReady();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.getElementById('resetBtnTop').addEventListener('click', doReset);
+    document.getElementById('resetBtn').addEventListener('click', function() {
+      doReset();
+    });
+
+    function generate() {
+      var data;
+      try {
+        data = STRATEGIES[state.type][state.product][state.market];
+      } catch(e) { return; }
+      if (!data || !data.tiers || !data.tiers.length) return;
+
+      // Headline
+      var typeLabels = { wedding: 'Wedding', newborn: 'Newborn & Family', senior: 'Senior Portrait', boudoir: 'Boudoir', pet: 'Pet', event: 'Event & Corporate' };
+      var marketLabels = { budget: 'Budget', mid: 'Mid-Market', luxury: 'Luxury' };
+      var productLabels = { cards: 'Cards', postcards: 'Postcards', prints: 'Prints', packages: 'Print Packages' };
+
+      document.getElementById('resultsHeadline').innerHTML = marketLabels[state.market] + ' <em>' + typeLabels[state.type] + '</em> ' + productLabels[state.product] + ' — Your Three-Tier Strategy';
+
+      // Tiers
+      var grid = document.getElementById('tiersGrid');
+      grid.innerHTML = '';
+
+      data.tiers.forEach(function(t) {
+        var card = document.createElement('div');
+        card.className = 'tier-card ' + t.tier;
+
+        var header = document.createElement('div');
+        header.className = 'tier-header';
+
+        if (t.tier === 'popular') {
+          var badge = document.createElement('div');
+          badge.className = 'popular-badge';
+          badge.textContent = '★ Most Popular';
+          header.appendChild(badge);
+        }
+
+        var label = document.createElement('div');
+        label.className = 'tier-label';
+        label.textContent = t.tier === 'starter' ? 'Entry Tier' : t.tier === 'popular' ? 'Middle Tier' : 'Premium Tier';
+
+        var name = document.createElement('div');
+        name.className = 'tier-name';
+        name.textContent = t.name;
+
+        var price = document.createElement('div');
+        price.className = 'tier-price';
+        price.textContent = t.price;
+
+        var priceRange = document.createElement('div');
+        priceRange.className = 'tier-price-range';
+        priceRange.textContent = 'suggested retail range';
+
+        header.appendChild(label);
+        header.appendChild(name);
+        header.appendChild(price);
+        header.appendChild(priceRange);
+
+        var body = document.createElement('div');
+        body.className = 'tier-body';
+
+        // Includes
+        var inclLabel = document.createElement('div');
+        inclLabel.className = 'tier-section-label';
+        inclLabel.textContent = 'What\'s Included';
+        var inclList = document.createElement('div');
+        inclList.className = 'tier-includes';
+        t.includes.forEach(function(item) {
+          var li = document.createElement('div');
+          li.className = 'tier-include-item';
+          li.textContent = item;
+          inclList.appendChild(li);
+        });
+
+        // Pitch
+        var pitchLabel = document.createElement('div');
+        pitchLabel.className = 'tier-section-label';
+        pitchLabel.textContent = 'How to Pitch It';
+        var pitch = document.createElement('div');
+        pitch.className = 'tier-pitch';
+        pitch.textContent = t.pitch;
+
+        // Why
+        var whyLabel = document.createElement('div');
+        whyLabel.className = 'tier-section-label';
+        whyLabel.textContent = 'Why It Works';
+        var why = document.createElement('div');
+        why.className = 'tier-why';
+        why.textContent = t.why;
+
+        body.appendChild(inclLabel);
+        body.appendChild(inclList);
+        body.appendChild(pitchLabel);
+        body.appendChild(pitch);
+        body.appendChild(whyLabel);
+        body.appendChild(why);
+
+        card.appendChild(header);
+        card.appendChild(body);
+        grid.appendChild(card);
+      });
+
+      // Strategy note
+      var note = document.getElementById('strategyNote');
+      note.innerHTML = '';
+      var noteLabel = document.createElement('div');
+      noteLabel.className = 'strategy-note-label';
+      noteLabel.textContent = 'Strategy Note';
+      var noteTitle = document.createElement('h3');
+      noteTitle.textContent = data.strategy.title;
+      note.appendChild(noteLabel);
+      note.appendChild(noteTitle);
+      data.strategy.body.forEach(function(para) {
+        var p = document.createElement('p');
+        p.textContent = para;
+        note.appendChild(p);
+      });
+
+      // Show results
+      var area = document.getElementById('resultsArea');
+      area.style.display = 'flex';
+      area.classList.add('visible');
+      document.getElementById('generateBtn').style.display = 'none';
+      area.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+  })();
+  </script>
+
+</body>
+</html>
