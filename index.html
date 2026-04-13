@@ -134,7 +134,7 @@
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
       text-align: center;
-      padding: 120px 40px 80px;
+      padding: 100px 40px 40px;
     }
 
     .hero-eyebrow {
@@ -145,7 +145,7 @@
     }
 
     .hero-heading {
-      font-size: clamp(40px, 7vw, 88px);
+      font-size: clamp(48px, 8vw, 108px);
       font-weight: 700;
       line-height: 1.05;
       letter-spacing: -0.02em;
@@ -160,29 +160,13 @@
     }
 
     .hero-sub {
-      font-size: 17px; color: var(--muted); line-height: 1.7;
+      font-size: 19px; color: var(--muted); line-height: 1.7;
       max-width: 540px; font-weight: 300;
-      margin-bottom: 48px;
+      margin-bottom: 0;
       animation: fade-up 0.8s 0.2s ease both;
     }
 
-    .hero-scroll {
-      font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.15em;
-      text-transform: uppercase; color: var(--subtle);
-      display: flex; flex-direction: column; align-items: center; gap: 10px;
-      animation: fade-up 0.8s 0.4s ease both;
-      cursor: pointer; transition: color 0.2s;
-    }
-    .hero-scroll:hover { color: var(--muted); }
-    .scroll-line {
-      width: 1px; height: 40px;
-      background: linear-gradient(to bottom, var(--accent), transparent);
-      animation: scroll-pulse 2s ease-in-out infinite;
-    }
-    @keyframes scroll-pulse {
-      0%, 100% { opacity: 0.4; transform: scaleY(1); }
-      50% { opacity: 1; transform: scaleY(1.1); }
-    }
+
 
     @keyframes fade-up {
       from { opacity: 0; transform: translateY(24px); }
@@ -192,7 +176,7 @@
     /* ── TOOLS SECTION ── */
     .tools-section {
       position: relative; z-index: 1;
-      padding: 80px 48px;
+      padding: 48px 48px 80px;
     }
 
     .section-header {
@@ -276,12 +260,12 @@
     }
 
     .tool-name {
-      font-size: 16px; font-weight: 700; color: var(--text);
+      font-size: 17px; font-weight: 700; color: var(--text);
       line-height: 1.3; letter-spacing: -0.01em;
     }
 
     .tool-desc {
-      font-size: 13px; color: var(--muted); line-height: 1.65; font-weight: 300;
+      font-size: 14px; color: var(--muted); line-height: 1.65; font-weight: 300;
       flex: 1;
     }
 
@@ -360,8 +344,8 @@
       color: var(--accent); letter-spacing: 0.1em;
     }
 
-    .pillar h3 { font-size: 16px; font-weight: 700; color: var(--text); }
-    .pillar p { font-size: 13px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+    .pillar h3 { font-size: 17px; font-weight: 700; color: var(--text); }
+    .pillar p { font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 300; }
     .pillar a {
       font-family: 'Space Mono', monospace; font-size: 10px;
       color: var(--accent); text-decoration: none; letter-spacing: 0.06em;
@@ -370,7 +354,7 @@
     .pillar a:hover { opacity: 0.7; }
 
     .section-heading {
-      font-size: 22px; font-weight: 700; color: var(--text);
+      font-size: 26px; font-weight: 700; color: var(--text);
       letter-spacing: -0.01em; margin-bottom: 28px;
     }
 
@@ -393,8 +377,8 @@
     .faq { display: flex; flex-direction: column; }
     .faq-item { border-top: 1px solid var(--border); padding: 22px 0; }
     .faq-item:last-child { border-bottom: 1px solid var(--border); }
-    .faq-q { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
-    .faq-a { font-size: 14px; color: var(--muted); line-height: 1.75; font-weight: 300; }
+    .faq-q { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+    .faq-a { font-size: 15px; color: var(--muted); line-height: 1.75; font-weight: 300; }
     .faq-a a { color: var(--accent); text-decoration: none; }
     .faq-a a:hover { text-decoration: underline; }
 
@@ -492,10 +476,7 @@
         Print with <span class="accent-word">confidence.</span>
       </h1>
       <p class="hero-sub">A growing collection of free tools for artists, designers, and photographers — built to help you get print-ready and price your work with confidence.</p>
-      <div class="hero-scroll" onclick="document.querySelector('.tools-section').scrollIntoView({behavior:'smooth'})">
-        <div class="scroll-line"></div>
-        <span>Explore Tools</span>
-      </div>
+
     </section>
 
     <!-- TOOLS -->
