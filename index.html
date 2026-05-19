@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Free Print Tools for Artists & Designers | Printkeg Tools</title>
-  <meta name="description" content="Free online tools for artists, designers, and photographers. Check print resolution, generate bleed guides, verify color mode, calculate session rates, price print packages, and more — from Printkeg." />
-  <meta name="keywords" content="free print tools, print file preparation, DPI checker, bleed guide, RGB CMYK checker, print size calculator, photographer pricing calculator, photography session rate calculator" />
+  <meta name="description" content="Free online tools for artists, designers, and photographers. Check print resolution, generate bleed guides, verify color mode, calculate print margins and session rates, price print packages, and more — from Printkeg." />
+  <meta name="keywords" content="free print tools, print file preparation, DPI checker, bleed guide, RGB CMYK checker, print size calculator, art print margin calculator, photographer pricing calculator, photography session rate calculator" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://tools.printkeg.com/" />
   <meta property="og:title" content="Free Print Tools for Artists & Designers | Printkeg Tools" />
@@ -55,6 +55,8 @@
       min-height: 100vh;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
+      font-size: 17px;
+      line-height: 1.6;
     }
 
     /* ── SPACE BACKGROUND ── */
@@ -113,15 +115,15 @@
 
     .nav-logo { text-decoration: none; display: flex; align-items: baseline; gap: 10px; }
     .nav-logo-primary {
-      font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700;
+      font-family: 'Space Mono', monospace; font-size: 15px; font-weight: 700;
       letter-spacing: 0.12em; text-transform: uppercase; color: var(--text);
     }
     .nav-logo-secondary {
-      font-family: 'Space Mono', monospace; font-size: 10px; color: var(--accent);
+      font-family: 'Space Mono', monospace; font-size: 12px; color: var(--accent);
       letter-spacing: 0.08em; text-transform: uppercase;
     }
     .nav-link {
-      font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.08em;
+      font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.08em;
       text-transform: uppercase; color: var(--subtle); text-decoration: none;
       transition: color 0.2s;
     }
@@ -138,19 +140,19 @@
     }
 
     .hero-eyebrow {
-      font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.25em;
+      font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.25em;
       text-transform: uppercase; color: var(--accent);
-      margin-bottom: 28px;
+      margin-bottom: 32px;
       animation: fade-up 0.8s ease both;
     }
 
     .hero-heading {
-      font-size: clamp(48px, 8vw, 108px);
+      font-size: clamp(56px, 8.5vw, 120px);
       font-weight: 700;
       line-height: 1.05;
       letter-spacing: -0.02em;
       color: var(--text);
-      margin-bottom: 28px;
+      margin-bottom: 32px;
       animation: fade-up 0.8s 0.1s ease both;
     }
 
@@ -160,13 +162,11 @@
     }
 
     .hero-sub {
-      font-size: 19px; color: var(--muted); line-height: 1.7;
-      max-width: 540px; font-weight: 300;
+      font-size: 22px; color: var(--muted); line-height: 1.7;
+      max-width: 600px; font-weight: 300;
       margin-bottom: 0;
       animation: fade-up 0.8s 0.2s ease both;
     }
-
-
 
     @keyframes fade-up {
       from { opacity: 0; transform: translateY(24px); }
@@ -185,7 +185,7 @@
     }
 
     .section-tag {
-      font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.2em;
+      font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.2em;
       text-transform: uppercase; color: var(--accent);
     }
 
@@ -235,6 +235,21 @@
     .tool-card:hover .tool-arrow { transform: translate(4px, -4px); color: var(--accent); }
     .tool-card:hover .tool-icon { border-color: rgba(255,92,43,0.4); }
 
+    /* Featured/new tool card */
+    .tool-card.featured {
+      background: linear-gradient(135deg, rgba(255,92,43,0.08), var(--surface));
+      border-color: rgba(255,92,43,0.3);
+    }
+    .tool-card.featured::before {
+      opacity: 0.4;
+      background: radial-gradient(ellipse at 20% 20%, rgba(255,92,43,0.18), transparent 60%);
+    }
+    .tool-card.featured:hover::before { opacity: 1; }
+    .tool-card.featured .tool-icon {
+      background: rgba(255,92,43,0.18);
+      border-color: rgba(255,92,43,0.4);
+    }
+
     .tool-card.coming-soon {
       cursor: default; pointer-events: none; opacity: 0.55;
     }
@@ -245,32 +260,46 @@
     }
 
     .tool-icon {
-      width: 40px; height: 40px; border-radius: 8px;
+      width: 44px; height: 44px; border-radius: 8px;
       background: var(--accent-dim);
       border: 1px solid rgba(255,92,43,0.2);
       display: flex; align-items: center; justify-content: center;
-      font-size: 18px; font-family: 'Space Mono', monospace; color: var(--accent);
+      font-size: 20px; font-family: 'Space Mono', monospace; color: var(--accent);
       transition: border-color 0.2s;
       flex-shrink: 0;
     }
 
     .tool-arrow {
-      font-size: 18px; color: var(--dim);
+      font-size: 20px; color: var(--dim);
       transition: transform 0.2s, color 0.2s;
     }
 
     .tool-name {
-      font-size: 17px; font-weight: 700; color: var(--text);
+      font-size: 20px; font-weight: 700; color: var(--text);
       line-height: 1.3; letter-spacing: -0.01em;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+
+    .new-badge {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #fff;
+      background: var(--accent);
+      padding: 3px 7px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      box-shadow: 0 0 12px var(--accent-glow);
     }
 
     .tool-desc {
-      font-size: 14px; color: var(--muted); line-height: 1.65; font-weight: 300;
+      font-size: 16px; color: var(--muted); line-height: 1.65; font-weight: 300;
       flex: 1;
     }
 
     .tool-tag {
-      font-family: 'Space Mono', monospace; font-size: 9px;
+      font-family: 'Space Mono', monospace; font-size: 11px;
       letter-spacing: 0.1em; text-transform: uppercase;
     }
     .tool-tag.live { color: var(--accent); }
@@ -309,15 +338,15 @@
 
     .stat { display: flex; flex-direction: column; gap: 4px; }
     .stat-num {
-      font-family: 'Space Mono', monospace; font-size: 28px; font-weight: 700;
+      font-family: 'Space Mono', monospace; font-size: 32px; font-weight: 700;
       color: var(--text); letter-spacing: -0.02em;
     }
     .stat-num span { color: var(--accent); }
-    .stat-label { font-size: 12px; color: var(--subtle); font-weight: 300; }
+    .stat-label { font-size: 14px; color: var(--subtle); font-weight: 300; }
 
-    .divider-sep { width: 1px; height: 40px; background: var(--border); flex-shrink: 0; }
+    .divider-sep { width: 1px; height: 44px; background: var(--border); flex-shrink: 0; }
 
-    .divider-text { font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 300; max-width: 500px; margin-left: auto; }
+    .divider-text { font-size: 16px; color: var(--muted); line-height: 1.7; font-weight: 300; max-width: 520px; margin-left: auto; }
 
     /* ── CONTENT SECTION ── */
     .content-section {
@@ -340,21 +369,21 @@
     }
 
     .pillar-num {
-      font-family: 'Space Mono', monospace; font-size: 10px;
+      font-family: 'Space Mono', monospace; font-size: 12px;
       color: var(--accent); letter-spacing: 0.1em;
     }
 
-    .pillar h3 { font-size: 17px; font-weight: 700; color: var(--text); }
-    .pillar p { font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+    .pillar h3 { font-size: 20px; font-weight: 700; color: var(--text); }
+    .pillar p { font-size: 16px; color: var(--muted); line-height: 1.7; font-weight: 300; }
     .pillar a {
-      font-family: 'Space Mono', monospace; font-size: 10px;
+      font-family: 'Space Mono', monospace; font-size: 12px;
       color: var(--accent); text-decoration: none; letter-spacing: 0.06em;
       margin-top: auto; transition: opacity 0.15s;
     }
     .pillar a:hover { opacity: 0.7; }
 
     .section-heading {
-      font-size: 26px; font-weight: 700; color: var(--text);
+      font-size: 32px; font-weight: 700; color: var(--text);
       letter-spacing: -0.01em; margin-bottom: 28px;
     }
 
@@ -366,19 +395,19 @@
     }
     .step:last-child { border-bottom: 1px solid var(--border); }
     .step-num {
-      font-family: 'Space Mono', monospace; font-size: 20px;
+      font-family: 'Space Mono', monospace; font-size: 22px;
       font-weight: 700; color: var(--accent); padding-top: 2px;
     }
-    .step-content h4 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
-    .step-content p { font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+    .step-content h4 { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .step-content p { font-size: 16px; color: var(--muted); line-height: 1.7; font-weight: 300; }
     .step-content a { color: var(--accent); text-decoration: none; }
     .step-content a:hover { text-decoration: underline; }
 
     .faq { display: flex; flex-direction: column; }
     .faq-item { border-top: 1px solid var(--border); padding: 22px 0; }
     .faq-item:last-child { border-bottom: 1px solid var(--border); }
-    .faq-q { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
-    .faq-a { font-size: 15px; color: var(--muted); line-height: 1.75; font-weight: 300; }
+    .faq-q { font-size: 19px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
+    .faq-a { font-size: 17px; color: var(--muted); line-height: 1.75; font-weight: 300; }
     .faq-a a { color: var(--accent); text-decoration: none; }
     .faq-a a:hover { text-decoration: underline; }
 
@@ -401,13 +430,13 @@
     }
 
     .cta-text { position: relative; }
-    .cta-text h3 { font-size: 22px; font-weight: 700; margin-bottom: 8px; color: var(--text); letter-spacing: -0.01em; }
-    .cta-text p { font-size: 14px; color: var(--muted); font-weight: 300; }
+    .cta-text h3 { font-size: 26px; font-weight: 700; margin-bottom: 10px; color: var(--text); letter-spacing: -0.01em; }
+    .cta-text p { font-size: 16px; color: var(--muted); font-weight: 300; }
     .cta-btn {
       position: relative;
       background: var(--accent); color: #fff; text-decoration: none;
-      padding: 14px 32px;
-      font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700;
+      padding: 16px 36px;
+      font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700;
       letter-spacing: 0.1em; text-transform: uppercase;
       border-radius: 6px; transition: background 0.15s, transform 0.1s;
       white-space: nowrap; flex-shrink: 0;
@@ -425,8 +454,8 @@
       background: rgba(4,5,15,0.8);
     }
 
-    .footer-copy { font-size: 12px; color: var(--dim); font-family: 'Space Mono', monospace; }
-    .footer-link { font-size: 12px; color: var(--subtle); text-decoration: none; font-family: 'Space Mono', monospace; transition: color 0.15s; }
+    .footer-copy { font-size: 13px; color: var(--dim); font-family: 'Space Mono', monospace; }
+    .footer-link { font-size: 13px; color: var(--subtle); text-decoration: none; font-family: 'Space Mono', monospace; transition: color 0.15s; }
     .footer-link:hover { color: var(--muted); }
 
     @media (max-width: 900px) {
@@ -445,7 +474,8 @@
     @media (max-width: 600px) {
       .tools-grid { grid-template-columns: 1fr; }
       .tool-card.wide { grid-column: span 1; flex-direction: column; }
-      .hero-heading { font-size: 36px; }
+      .hero-heading { font-size: 44px; }
+      .section-heading { font-size: 26px; }
     }
   </style>
 </head>
@@ -487,6 +517,20 @@
       </div>
 
       <div class="tools-grid" role="list">
+
+        <!-- FEATURED: NEW PRINT PRICING CALCULATOR -->
+        <a href="/print-pricing-calculator/" class="tool-card featured" role="listitem">
+          <div class="tool-card-top">
+            <div class="tool-icon">%</div>
+            <span class="tool-arrow">↗</span>
+          </div>
+          <div class="tool-name">
+            Art Print Pricing Calculator
+            <span class="new-badge">NEW</span>
+          </div>
+          <div class="tool-desc">Calculate your real profit per print after production cost, shipping, and platform fees — works for Etsy, Shopify, conventions, and galleries. See your margin and break-even instantly.</div>
+          <div class="tool-tag live">● Live</div>
+        </a>
 
         <!-- ROW 1 — FILE PREP -->
         <a href="/photo-print-size-checker/" class="tool-card" role="listitem">
@@ -584,7 +628,7 @@
     <!-- STATS BAND -->
     <div class="divider-band">
       <div class="stat">
-        <div class="stat-num">9<span>+</span></div>
+        <div class="stat-num">10<span>+</span></div>
         <div class="stat-label">Tools available or in progress</div>
       </div>
       <div class="divider-sep"></div>
@@ -676,6 +720,10 @@
           <div class="faq-a">300 DPI is the professional standard. 200–299 DPI is acceptable for larger prints viewed at normal distance. Below 200 DPI will usually look noticeably soft. Use our <a href="/photo-print-size-checker/">Photo Print Size Checker</a> to see what sizes your image supports.</div>
         </div>
         <div class="faq-item">
+          <div class="faq-q">How do I calculate my profit per print after fees?</div>
+          <div class="faq-a">Use our <a href="/print-pricing-calculator/">Art Print Pricing Calculator</a> to find your real margin after production cost, shipping, and platform fees on Etsy, Shopify, conventions, or galleries. It shows your profit per print and how many you need to sell to break even on a print run.</div>
+        </div>
+        <div class="faq-item">
           <div class="faq-q">What is bleed and why do I need it?</div>
           <div class="faq-a">Bleed is extra artwork that extends beyond the final trim edge — typically 0.125" on each side. It ensures no white unprinted edges appear if the cutting machine is slightly off. Any background that goes to the edge of your design must extend into the bleed area.</div>
         </div>
@@ -707,7 +755,7 @@
   </main>
 
   <footer>
-    <span class="footer-copy">© 2025 Printkeg. All rights reserved.</span>
+    <span class="footer-copy">© 2026 Printkeg. All rights reserved.</span>
     <a href="https://www.printkeg.com" class="footer-link" target="_blank" rel="noopener">printkeg.com</a>
   </footer>
 
