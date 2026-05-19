@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="https://www.printkeg.com/cdn/shop/files/pk-logo-fav.png">
+
+<!-- Primary Meta -->
+<title>Art Print Pricing Calculator — Free Margin, Profit & Break-Even Tool | Printkeg</title>
+<meta name="description" content="Free art print pricing calculator. Enter your run size, paper, and selling price to see your real profit per print, margin, platform fees, and break-even point. For artists on Etsy, at conventions, or selling on their own website.">
+<link rel="canonical" href="https://tools.printkeg.com/print-pricing-calculator/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Printkeg Tools">
+<meta property="og:url" content="https://tools.printkeg.com/print-pricing-calculator/">
+<meta property="og:title" content="Art Print Pricing Calculator — Free Margin & Profit Tool for Artists">
+<meta property="og:description" content="Find out what you actually earn per print. Free calculator for Etsy sellers, convention artists, and small print businesses.">
+<meta property="og:image" content="https://tools.printkeg.com/print-pricing-calculator/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@printkeg">
+<meta name="twitter:title" content="Art Print Pricing Calculator — Free Margin & Profit Tool">
+<meta name="twitter:description" content="Find out what you actually earn per print. Free calculator for artists.">
+<meta name="twitter:image" content="https://tools.printkeg.com/print-pricing-calculator/og-image.png">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- JSON-LD: SoftwareApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Art Print Pricing Calculator",
+  "applicationCategory": "BusinessApplication",
+  "applicationSubCategory": "Calculator",
+  "operatingSystem": "Any (Web Browser)",
+  "url": "https://tools.printkeg.com/print-pricing-calculator/",
+  "description": "Free calculator that helps artists figure out their real profit per art print. Factors in production cost, platform fees (Etsy, Shopify, conventions, galleries), shipping, and run quantity to show net margin and break-even point.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "creator": { "@type": "Organization", "name": "Printkeg", "url": "https://www.printkeg.com" },
+  "featureList": [
+    "Calculate profit margin per print",
+    "Compare Etsy, Shopify, convention, and gallery fees",
+    "See break-even quantity for any run size",
+    "Visualize how margin scales with quantity",
+    "Embeddable on any website"
+  ]
+}
+</script>
+
+<!-- JSON-LD: HowTo -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to calculate your profit per art print",
+  "description": "Use this free calculator to find your real margin after production cost, platform fees, and shipping.",
+  "step": [
+    { "@type": "HowToStep", "name": "Pick your product", "text": "Select the size, paper, and quantity you plan to print." },
+    { "@type": "HowToStep", "name": "Set your selling price", "text": "Enter what you charge customers per print." },
+    { "@type": "HowToStep", "name": "Choose your sales channel", "text": "Etsy, your own website, conventions, and galleries all have different fee structures." },
+    { "@type": "HowToStep", "name": "Read your margin", "text": "The calculator shows your profit per print, total margin percentage, and how many prints you need to sell to break even on the run." }
+  ]
+}
+</script>
+
+<style>
+/* ============================================================
+   DESIGN SYSTEM
+   ============================================================ */
+:root {
+  --brand-50: #f0f9f4;
+  --brand-100: #dcf2e3;
+  --brand-200: #bbe4ca;
+  --brand-500: #0f832b;
+  --brand-600: #0c6e24;
+  --brand-700: #0a571d;
+
+  --ink-50: #fafaf9;
+  --ink-100: #f5f4f2;
+  --ink-200: #e8e6e1;
+  --ink-300: #d1cec5;
+  --ink-400: #a8a39a;
+  --ink-500: #7a766d;
+  --ink-600: #56524a;
+  --ink-700: #3d3a34;
+  --ink-800: #252320;
+  --ink-900: #121212;
+
+  --positive: #0f832b;
+  --warning: #c87f04;
+  --negative: #c0392b;
+
+  --serif: "Fraunces", Georgia, serif;
+  --sans: "Inter Tight", -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  color: var(--ink-800);
+  background: var(--ink-50);
+  line-height: 1.5;
+  font-feature-settings: "ss01", "cv01";
+}
+
+body.embed-mode { background: transparent; }
+
+/* When embedded, hide non-essential chrome */
+body.embed-mode .site-header,
+body.embed-mode .hero,
+body.embed-mode .methodology,
+body.embed-mode .faq,
+body.embed-mode .site-footer { display: none; }
+body.embed-mode .embed-only { display: block !important; }
+
+a { color: inherit; }
+
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.site-header {
+  background: white;
+  border-bottom: 1px solid var(--ink-200);
+}
+.site-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+.logo {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink-900);
+  text-decoration: none;
+}
+.logo small {
+  font-family: var(--sans);
+  font-weight: 400;
+  color: var(--ink-400);
+  font-size: 0.875rem;
+  margin-left: 0.25rem;
+}
+.header-link {
+  color: var(--ink-600);
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.header-link:hover { color: var(--ink-900); }
+
+.hero {
+  background: white;
+  border-bottom: 1px solid var(--ink-200);
+}
+.hero-inner { padding: 2.5rem 0 3rem; }
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink-900);
+  margin: 1rem 0;
+  font-variation-settings: "opsz" 144;
+}
+.hero h1 .accent { color: var(--brand-600); }
+.hero p {
+  font-size: 1.125rem;
+  color: var(--ink-700);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-right: 0.5rem;
+}
+.pill-brand { background: var(--brand-100); color: var(--brand-700); }
+.pill-ink { background: var(--ink-100); color: var(--ink-600); }
+.pill-positive { background: rgba(15, 131, 43, 0.1); color: var(--positive); }
+.pill-warning { background: rgba(200, 127, 4, 0.1); color: var(--warning); }
+.pill-negative { background: rgba(192, 57, 43, 0.1); color: var(--negative); }
+.pill-neutral { background: var(--ink-200); color: var(--ink-700); }
+
+.main-content { padding: 2rem 0 3rem; }
+
+/* ============================================================
+   CALCULATOR GRID
+   ============================================================ */
+.calculator-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+@media (min-width: 900px) {
+  .calculator-grid { grid-template-columns: 1fr 1.1fr; gap: 2rem; }
+}
+
+.controls-column { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.card {
+  background: white;
+  border: 1px solid var(--ink-200);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+.card-emphasis {
+  background: white;
+  border: 2px solid var(--ink-900);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+.card-header h2 {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-500);
+  font-weight: 400;
+}
+
+.form-group { margin-bottom: 1.25rem; }
+.form-group:last-child { margin-bottom: 0; }
+
+.field-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-500);
+  margin-bottom: 0.5rem;
+}
+
+select, input[type="number"] {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  background: white;
+  border: 1px solid var(--ink-300);
+  border-radius: 0.375rem;
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--ink-900);
+  font-variant-numeric: tabular-nums;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+select:focus, input:focus {
+  outline: none;
+  border-color: var(--brand-500);
+  box-shadow: 0 0 0 1px var(--brand-500);
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23252320' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.input-with-prefix { position: relative; }
+.input-with-prefix .prefix {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ink-500);
+  font-weight: 500;
+  pointer-events: none;
+}
+.input-with-prefix input { padding-left: 1.75rem; }
+
+.checkbox-group {
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid var(--ink-200);
+}
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+.checkbox-label input[type="checkbox"] {
+  margin-top: 0.125rem;
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--brand-600);
+  cursor: pointer;
+}
+.checkbox-label-text { font-size: 0.875rem; font-weight: 500; color: var(--ink-900); }
+.checkbox-label-sub { font-size: 0.75rem; color: var(--ink-500); margin-top: 0.125rem; }
+
+/* Platform buttons */
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+.platform-btn {
+  padding: 0.625rem 0.75rem;
+  background: white;
+  color: var(--ink-700);
+  border: 1px solid var(--ink-300);
+  border-radius: 0.375rem;
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.platform-btn:hover { border-color: var(--ink-500); background: var(--ink-50); }
+.platform-btn.active {
+  background: var(--ink-900);
+  color: white;
+  border-color: var(--ink-900);
+}
+
+.platform-notes {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--ink-500);
+  line-height: 1.5;
+}
+
+/* Quick price chips */
+.price-chips {
+  display: flex;
+  gap: 0.375rem;
+  margin-top: 0.5rem;
+}
+.price-chip {
+  flex: 1;
+  padding: 0.25rem 0.5rem;
+  background: var(--ink-100);
+  color: var(--ink-600);
+  border: none;
+  border-radius: 0.25rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.price-chip:hover { background: var(--ink-200); }
+.price-chip.active { background: var(--brand-500); color: white; }
+
+/* ============================================================
+   RESULTS DISPLAY
+   ============================================================ */
+.results-hero {
+  background: var(--ink-900);
+  color: white;
+  padding: 2rem;
+}
+.results-hero-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.results-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-400);
+}
+.results-main-number {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+.profit-number {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  font-variation-settings: "opsz" 144;
+  font-variant-numeric: tabular-nums;
+}
+.profit-number.positive { color: var(--positive); }
+.profit-number.warning { color: var(--warning); }
+.profit-number.negative { color: var(--negative); }
+.margin-label {
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  color: var(--ink-400);
+  font-variant-numeric: tabular-nums;
+}
+.results-explainer {
+  font-size: 0.875rem;
+  color: var(--ink-300);
+  margin-top: 0.75rem;
+}
+
+.run-totals {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--ink-700);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.run-totals-item-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-500);
+  margin-bottom: 0.25rem;
+}
+.run-totals-item-value {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  font-variant-numeric: tabular-nums;
+  font-variation-settings: "opsz" 144;
+}
+.run-totals-item-value small {
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  color: var(--ink-400);
+  margin-left: 0.375rem;
+  font-weight: 400;
+}
+
+/* Breakdown */
+.breakdown-section {
+  padding: 2rem;
+  background: white;
+}
+.breakdown-section h3 {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-500);
+  margin: 0 0 1rem;
+  font-weight: 400;
+}
+.breakdown-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.25rem 0;
+}
+.breakdown-label {
+  font-size: 0.875rem;
+  color: var(--ink-700);
+}
+.breakdown-label.subtract { color: var(--ink-500); }
+.breakdown-value {
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+.breakdown-value.subtract { color: var(--ink-500); }
+.breakdown-divider {
+  border-top: 1px solid var(--ink-200);
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+}
+.breakdown-row.emphasis .breakdown-label,
+.breakdown-row.emphasis .breakdown-value {
+  font-size: 1.125rem;
+  color: var(--ink-900);
+  font-weight: 600;
+}
+
+/* Action buttons */
+.actions {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  border-radius: 0.375rem;
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s;
+  border: 1px solid transparent;
+}
+.btn-primary {
+  background: var(--ink-900);
+  color: white;
+}
+.btn-primary:hover { background: var(--ink-700); }
+.btn-secondary {
+  background: white;
+  color: var(--ink-900);
+  border-color: var(--ink-300);
+}
+.btn-secondary:hover { background: var(--ink-100); border-color: var(--ink-400); }
+.btn-spacer { margin-left: auto; }
+
+/* ============================================================
+   CHART
+   ============================================================ */
+.chart-section {
+  margin-top: 1.5rem;
+  padding: 2rem;
+}
+.chart-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.chart-title {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 600;
+  color: var(--ink-900);
+  margin: 0 0 0.25rem;
+  letter-spacing: -0.015em;
+  font-variation-settings: "opsz" 144;
+}
+.chart-subtitle {
+  font-size: 0.875rem;
+  color: var(--ink-600);
+  margin: 0;
+}
+.chart-tagline {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-500);
+}
+
+.chart-svg-container {
+  margin-top: 1.5rem;
+  width: 100%;
+  height: 260px;
+  position: relative;
+}
+.chart-svg-container svg { width: 100%; height: 100%; display: block; }
+.chart-tooltip {
+  position: absolute;
+  background: var(--ink-900);
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+  white-space: nowrap;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.chart-tooltip.visible { opacity: 1; }
+.chart-tooltip-label {
+  color: var(--ink-400);
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.25rem;
+}
+
+/* ============================================================
+   METHODOLOGY + FAQ
+   ============================================================ */
+.methodology {
+  background: white;
+  border-top: 1px solid var(--ink-200);
+  padding: 3rem 0;
+}
+.methodology-inner { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 600;
+  color: var(--ink-900);
+  margin: 0 0 1.5rem;
+  letter-spacing: -0.015em;
+  font-variation-settings: "opsz" 144;
+}
+.subsection-title {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ink-900);
+  margin: 2rem 0 0.75rem;
+}
+.prose p, .prose ul { color: var(--ink-700); line-height: 1.65; margin: 0 0 1rem; }
+.prose ul { padding-left: 1.25rem; }
+.prose li { margin-bottom: 0.5rem; font-size: 0.9375rem; }
+.prose strong { color: var(--ink-900); font-weight: 600; }
+.prose code, .prose .mono { font-family: var(--mono); font-size: 0.875rem; }
+
+.faq {
+  background: var(--ink-50);
+  border-top: 1px solid var(--ink-200);
+  padding: 3rem 0;
+}
+.faq-inner { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
+.faq-item { margin-bottom: 1.5rem; }
+.faq-q {
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--ink-900);
+  margin: 0 0 0.5rem;
+}
+.faq-a {
+  color: var(--ink-700);
+  line-height: 1.65;
+  margin: 0;
+}
+.faq-a a { color: var(--brand-600); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  background: var(--ink-900);
+  color: var(--ink-300);
+}
+.site-footer-inner {
+  padding: 2.5rem 1.5rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.footer-brand {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  color: white;
+  font-weight: 600;
+}
+.footer-tagline {
+  font-size: 0.875rem;
+  max-width: 380px;
+  margin-top: 0.5rem;
+}
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: right;
+  font-size: 0.875rem;
+}
+.footer-links a { text-decoration: none; transition: color 0.15s; }
+.footer-links a:hover { color: white; }
+.footer-copyright {
+  border-top: 1px solid var(--ink-700);
+  padding: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-size: 0.75rem;
+  color: var(--ink-500);
+}
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 18, 18, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.modal-overlay[hidden] { display: none; }
+.modal {
+  background: white;
+  border-radius: 0.5rem;
+  max-width: 640px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--ink-200);
+}
+.modal-title {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--ink-900);
+}
+.modal-sub { font-size: 0.875rem; color: var(--ink-600); margin: 0.25rem 0 0; }
+.modal-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ink-400);
+  padding: 0.25rem;
+  transition: color 0.15s;
+}
+.modal-close:hover { color: var(--ink-700); }
+.modal-body { padding: 1.5rem; }
+.modal-body > * + * { margin-top: 1.25rem; }
+
+.snippet-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+.snippet-toggle .platform-btn { font-size: 0.875rem; }
+
+.snippet-pre {
+  background: var(--ink-900);
+  color: var(--ink-100);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  overflow-x: auto;
+  max-height: 260px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.attribution-note {
+  background: var(--brand-50);
+  border: 1px solid var(--brand-200);
+  border-radius: 0.375rem;
+  padding: 1rem;
+  font-size: 0.875rem;
+  color: var(--ink-700);
+}
+.attribution-note strong { color: var(--ink-900); }
+
+/* Embed-only attribution */
+.embed-only { display: none; }
+.embed-attribution {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ink-200);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+}
+.embed-attribution a { color: var(--brand-600); text-decoration: none; font-weight: 500; }
+.embed-attribution a:hover { text-decoration: underline; }
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+
+/* Focus rings */
+button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible {
+  outline: 2px solid var(--brand-500);
+  outline-offset: 2px;
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container site-header-inner">
+    <a href="https://tools.printkeg.com/" class="logo">Printkeg<small>tools</small></a>
+    <a href="https://www.printkeg.com" class="header-link">printkeg.com →</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div>
+      <span class="pill pill-brand">Free tool</span>
+      <span class="pill pill-ink">No signup</span>
+    </div>
+    <h1>Art Print Pricing<br><span class="accent">Calculator.</span></h1>
+    <p>Stop guessing what you make on each print. Plug in your run size, paper, and selling price. See your real profit per print, margin, and break-even point — after platform fees and shipping.</p>
+  </div>
+</section>
+
+<main class="main-content">
+  <div class="container">
+    <div class="calculator-grid">
+
+      <!-- LEFT: CONTROLS -->
+      <div class="controls-column">
+
+        <!-- Product specs -->
+        <section class="card fade-up">
+          <div class="card-header">
+            <h2>01 — Print specs</h2>
+            <span class="pill pill-ink">Step 1</span>
+          </div>
+          <div class="form-group">
+            <label class="field-label" for="product-select">What are you printing?</label>
+            <select id="product-select"></select>
+          </div>
+          <div id="option-controls"></div>
+
+          <div class="checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="custom-cost-toggle">
+              <div>
+                <div class="checkbox-label-text">Using a different printer?</div>
+                <div class="checkbox-label-sub">Enter your own cost per print</div>
+              </div>
+            </label>
+            <div id="custom-cost-group" class="form-group" style="display:none; margin-top: 0.75rem;">
+              <label class="field-label" for="custom-cost-input">Your cost per print (USD)</label>
+              <div class="input-with-prefix">
+                <span class="prefix">$</span>
+                <input type="number" id="custom-cost-input" step="0.01" min="0" value="5.00">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Channel -->
+        <section class="card fade-up">
+          <div class="card-header">
+            <h2>02 — Where & how you sell</h2>
+            <span class="pill pill-ink">Step 2</span>
+          </div>
+          <div class="form-group">
+            <label class="field-label">Sales channel</label>
+            <div class="platform-grid" id="platform-grid"></div>
+            <p class="platform-notes" id="platform-notes"></p>
+          </div>
+          <div class="form-group">
+            <label class="field-label" for="selling-price-input">Your selling price (per print)</label>
+            <div class="input-with-prefix">
+              <span class="prefix">$</span>
+              <input type="number" id="selling-price-input" step="0.50" min="0" value="25" style="font-size: 1.125rem;">
+            </div>
+            <div class="price-chips" id="price-chips"></div>
+          </div>
+        </section>
+      </div>
+
+      <!-- RIGHT: RESULTS -->
+      <div class="fade-up" style="animation-delay:0.1s">
+        <section class="card-emphasis" id="results-container">
+          <div class="results-hero">
+            <div class="results-hero-top">
+              <span class="results-label">Your profit per print</span>
+              <span class="pill" id="margin-verdict"></span>
+            </div>
+            <div class="results-main-number">
+              <span class="profit-number tabular" id="profit-number">$0.00</span>
+              <span class="margin-label tabular" id="margin-percent">0.0% margin</span>
+            </div>
+            <p class="results-explainer" id="results-explainer">After production, shipping, and fees.</p>
+
+            <div class="run-totals">
+              <div>
+                <div class="run-totals-item-label">If full run sells</div>
+                <div class="run-totals-item-value tabular" id="total-profit">$0.00</div>
+              </div>
+              <div>
+                <div class="run-totals-item-label">Break-even</div>
+                <div class="run-totals-item-value tabular" id="break-even">—</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="breakdown-section">
+            <h3>The math, per print</h3>
+            <div id="breakdown-rows"></div>
+            <div class="actions">
+              <button type="button" class="btn btn-secondary" id="copy-btn">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="8" height="8" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M10 4V3a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <span id="copy-btn-label">Copy summary</span>
+              </button>
+              <button type="button" class="btn btn-secondary not-embed" id="embed-btn">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 4L2 7L5 10M9 4L12 7L9 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Embed this
+              </button>
+              <a href="#" target="_blank" rel="noopener" class="btn btn-primary btn-spacer not-embed" id="product-link">See product →</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Chart -->
+    <section class="card chart-section fade-up" id="chart-section" style="display:none; animation-delay:0.2s">
+      <div class="chart-header">
+        <div>
+          <h3 class="chart-title">Your margin as you scale</h3>
+          <p class="chart-subtitle" id="chart-subtitle">How profit per print changes with run size.</p>
+        </div>
+        <span class="chart-tagline">Bigger run, higher margin</span>
+      </div>
+      <div class="chart-svg-container" id="chart-container">
+        <div class="chart-tooltip" id="chart-tooltip"></div>
+        <svg id="chart-svg" viewBox="0 0 700 260" preserveAspectRatio="none"></svg>
+      </div>
+    </section>
+
+    <!-- Embed-mode attribution (hidden by default) -->
+    <div class="embed-only embed-attribution">
+      <p>Free calculator by <a href="https://www.printkeg.com" target="_blank" rel="noopener"><strong>Printkeg</strong></a> — printing for artists since 2008</p>
+      <a href="https://tools.printkeg.com/print-pricing-calculator/" target="_blank" rel="noopener">Open in new tab →</a>
+    </div>
+  </div>
+</main>
+
+<!-- Methodology -->
+<section class="methodology">
+  <div class="methodology-inner">
+    <h2 class="section-title">How this calculator works</h2>
+    <div class="prose">
+      <p>Most artists run the same rough math in their head: "I sold a print for $25, it cost me about $5, so I made $20." That math is almost always wrong, because it ignores three things that quietly eat your margin — <strong>platform fees</strong>, <strong>shipping to you</strong>, and the <strong>per-print cost difference between small and large runs</strong>.</p>
+      <p>This calculator factors all three in. Production cost comes from real Printkeg pricing across <span class="mono">9 product categories</span> and <span class="mono">396 size/paper/quantity combinations</span>. Shipping is tiered based on your run subtotal. Platform fees use current Etsy, Shopify Payments, Square, and standard gallery consignment rates.</p>
+
+      <h3 class="subsection-title">Platform fee assumptions</h3>
+      <ul>
+        <li><strong>Etsy:</strong> 6.5% transaction fee + 3% + $0.25 payment processing + $0.20 listing fee.</li>
+        <li><strong>Your own website (Shopify):</strong> 2.9% + $0.30 per transaction (Shopify Payments, Basic plan).</li>
+        <li><strong>Convention / In-person:</strong> 2.6% + $0.10 per swipe (Square). Cash sales have no fee.</li>
+        <li><strong>Gallery:</strong> 50% consignment, the standard rate for most local galleries.</li>
+      </ul>
+
+      <h3 class="subsection-title">Shipping (run to artist)</h3>
+      <p>Flat-rate tiers based on Printkeg's actual published shipping rates: $10 under $100, $14 from $100–$199, $19 from $200–$299, $29 at $300+. If you're using a different printer, toggle "Using a different printer?" — shipping still applies at these tiers, but you can ignore them if your printer ships free.</p>
+
+      <h3 class="subsection-title">What "break-even" means here</h3>
+      <p>Break-even is the number of prints you need to sell to cover the cost of the full run (production + shipping). After that quantity, every additional sale is pure profit (minus the per-sale platform fee). So if your break-even is 12 out of 50, the remaining 38 prints are where you actually make money.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-inner">
+    <h2 class="section-title">Common questions</h2>
+    <div class="faq-item">
+      <h3 class="faq-q">Is this calculator really free?</h3>
+      <p class="faq-a">Yes, completely free. No signup, no email gate, no ads. You can embed it on your own site too (use the "Embed this" button above) as long as you keep the credit link.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Do I have to print with Printkeg to use this?</h3>
+      <p class="faq-a">No. Toggle "Using a different printer?" and enter your own per-print cost. The calculator works with any printer — we just pre-populate Printkeg's pricing because it's what we know.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Why is my margin lower than I expected?</h3>
+      <p class="faq-a">Three usual suspects: (1) platform fees on small-dollar sales eat a surprisingly large percentage — a $0.55 Etsy fee on a $5 sticker is 11% gone instantly, (2) shipping the run to yourself divided across a small quantity adds real cost per print, (3) you're printing in small runs where per-unit production is highest.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">How can I improve my margin?</h3>
+      <p class="faq-a">Three levers: print in larger runs (per-unit cost drops fast), raise your price (the calculator shows exactly how much each dollar adds), or move sales off Etsy onto your own site to skip the 6.5% transaction fee.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Where does the production pricing come from?</h3>
+      <p class="faq-a">Direct from Printkeg's product catalog — 396 real variants across 9 product categories. Prices are updated periodically. If you see a discrepancy with <a href="https://www.printkeg.com">printkeg.com</a>, the product page is the source of truth.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div>
+      <div class="footer-brand">Printkeg</div>
+      <p class="footer-tagline">Printing for independent artists since 2008. Short runs, fast turnaround, free blind shipping.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.printkeg.com">printkeg.com</a>
+      <a href="https://tools.printkeg.com/">More tools</a>
+      <a href="https://www.printkeg.com/pages/contact-us">Contact</a>
+    </div>
+  </div>
+  <div class="footer-copyright">© 2026 Printkeg. Calculator is free to use and embed with attribution.</div>
+</footer>
+
+<!-- Embed Modal -->
+<div class="modal-overlay" id="embed-modal" hidden>
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <h3 class="modal-title">Embed this calculator</h3>
+        <p class="modal-sub">Free to use on any site. Just copy and paste.</p>
+      </div>
+      <button type="button" class="modal-close" id="modal-close-btn" aria-label="Close">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 5L15 15M15 5L5 15" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div>
+        <label class="field-label">Embed style</label>
+        <div class="snippet-toggle">
+          <button type="button" class="platform-btn active" data-snippet="iframe">Fixed height (900px)</button>
+          <button type="button" class="platform-btn" data-snippet="responsive">Responsive (4:3)</button>
+        </div>
+      </div>
+      <div>
+        <label class="field-label">Copy this HTML</label>
+        <pre class="snippet-pre" id="snippet-pre"></pre>
+      </div>
+      <div class="attribution-note">
+        <strong>Attribution required.</strong> Please keep the credit link to Printkeg below the embed. It's how we keep the calculator free.
+      </div>
+      <div style="display:flex; gap:0.5rem;">
+        <button type="button" class="btn btn-primary" id="copy-snippet-btn" style="flex:1;">Copy snippet</button>
+        <button type="button" class="btn btn-secondary" id="modal-done-btn">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// DATA
+// ============================================================
+const PRICING = {"products":[{"id":"11x14-art-prints","title":"11\u00d714 Art Prints","originalTitle":"11x14 Art Prints","shopifyHandle":"11x14-art-prints","options":[{"name":"Sides","values":["1 Side","2 Sides"]},{"name":"Material","values":["Gloss Card (110#)","Matte Card (100#)","Textured Card (100#)"]},{"name":"Quantity","values":["5","10","25","50","100","150","200","250","500"]}],"variants":[{"price":19.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"5"},{"price":29.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"10"},{"price":39.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"25"},{"price":69.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"50"},{"price":99.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"100"},{"price":149.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"150"},{"price":199.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"200"},{"price":249.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"250"},{"price":399.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"500"},{"price":19.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"5"},{"price":29.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"10"},{"price":49.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"25"},{"price":79.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"50"},{"price":119.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"100"},{"price":169.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"150"},{"price":209.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"200"},{"price":259.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"250"},{"price":399.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"500"},{"price":29.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"5"},{"price":39.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"10"},{"price":69.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"25"},{"price":139.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"50"},{"price":179.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"100"},{"price":239.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"150"},{"price":299.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"200"},{"price":399.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"250"},{"price":749.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"500"},{"price":29.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"5"},{"price":35.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"10"},{"price":59.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"25"},{"price":99.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"50"},{"price":159.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"100"},{"price":199.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"150"},{"price":229.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"200"},{"price":299.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"250"},{"price":499.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"500"},{"price":29.99,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"5"},{"price":35.99,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"10"},{"price":59.99,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"25"},{"price":113.98,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"50"},{"price":179.98,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"100"},{"price":215.99,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"150"},{"price":239.99,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"200"},{"price":299.99,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"250"},{"price":499.99,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"500"},{"price":34.95,"Sides":"2 Sides","Material":"Textured Card (100#)","Quantity":"5"},{"price":47.98,"Sides":"2 Sides","Material":"Textured Card (100#)","Quantity":"10"},{"price":89.98,"Sides":"2 Sides","Material":"Textured Card (100#)","Quantity":"25"},{"price":179.99,"Sides":"2 Sides","Material":"Textured Card (100#)","Quantity":"50"},{"price":239.99,"Sides":"2 Sides","Material":"Textured Card (100#)","Quantity":"100"},{"price":299.99,"Sides":"2 Sides","Material":"Textured Card (100#)","Quantity":"150"},{"price":399.99,"Sides":"2 Sides","Material":"Textured Card (100#)","Quantity":"200"},{"price":499.98,"Sides":"2 Sides","Material":"Textured Card (100#)","Quantity":"250"},{"price":899.99,"Sides":"2 Sides","Material":"Textured Card (100#)","Quantity":"500"}]},{"id":"11x17-small-posters","title":"11\u00d717 Art Prints","originalTitle":"11\u00d717 Art Poster Prints","shopifyHandle":"11x17-small-posters","options":[{"name":"Sides","values":["1 Side","2 Sides"]},{"name":"Material","values":["Gloss Card (110#)","Matte Card (100#)","Textured Card (100#)"]},{"name":"Quantity","values":["5","10","25","50","100","150","200","250","300","400","500"]}],"variants":[{"price":19.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"5"},{"price":29.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"10"},{"price":39.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"25"},{"price":69.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"50"},{"price":99.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"100"},{"price":149.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"150"},{"price":199.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"200"},{"price":249.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"250"},{"price":299.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"300"},{"price":349.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"400"},{"price":399.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"500"},{"price":19.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"5"},{"price":29.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"10"},{"price":49.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"25"},{"price":79.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"50"},{"price":119.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"100"},{"price":169.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"150"},{"price":209.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"200"},{"price":259.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"250"},{"price":299.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"300"},{"price":349.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"400"},{"price":399.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"500"},{"price":29.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"5"},{"price":39.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"10"},{"price":69.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"25"},{"price":139.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"50"},{"price":179.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"100"},{"price":239.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"150"},{"price":299.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"200"},{"price":399.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"250"},{"price":499.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"300"},{"price":599.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"400"},{"price":699.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"500"},{"price":25.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"5"},{"price":35.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"10"},{"price":59.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"25"},{"price":99.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"50"},{"price":159.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"100"},{"price":199.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"150"},{"price":229.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"200"},{"price":299.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"250"},{"price":359.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"300"},{"price":419.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"400"},{"price":479.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"500"},{"price":25.99,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"5"},{"price":35.99,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"10"},{"price":59.99,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"25"},{"price":109.99,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"50"},{"price":169.99,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"100"},{"price":109.99,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"150"},{"price":239.99,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"200"},{"price":299.99,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"250"},{"price":359.99,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"300"},{"price":419.99,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"400"},{"price":479.99,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"500"},{"price":29.99,"Sides":"2 Sides","Material":"Textured Card (100#)","Quantity":"5"},{"price":47.98,"Sides":"2 Sides","Material":"Textured Card (100#)","Quantity":"10"},{"price":89.98,"Sides":"2 Sides","Material":"Textured Card (100#)","Quantity":"25"},{"price":179.99,"Sides":"2 Sides","Material":"Textured Card (100#)","Quantity":"50"},{"price":229.99,"Sides":"2 Sides","Material":"Textured Card (100#)","Quantity":"100"},{"price":279.99,"Sides":"2 Sides","Material":"Textured Card (100#)","Quantity":"150"},{"price":339.99,"Sides":"2 Sides","Material":"Textured Card (100#)","Quantity":"200"},{"price":399.99,"Sides":"2 Sides","Material":"Textured Card (100#)","Quantity":"250"},{"price":499.99,"Sides":"2 Sides","Material":"Textured Card (100#)","Quantity":"300"},{"price":699.99,"Sides":"2 Sides","Material":"Textured Card (100#)","Quantity":"400"},{"price":799.99,"Sides":"2 Sides","Material":"Textured Card (100#)","Quantity":"500"}]},{"id":"12x18-small-posters","title":"12\u00d718 Posters","originalTitle":"12x18 Poster Printing","shopifyHandle":"12x18-small-posters","options":[{"name":"Sides","values":["1 Side"]},{"name":"Material","values":["Gloss Card (110#)","Gloss Paper (80#)","Matte Card (100#)","Textured Card (100#)"]},{"name":"Quantity","values":["5","10","15","25","50","100","200","250","300","400","500"]}],"variants":[{"price":19.99,"Sides":"1 Side","Material":"Gloss Paper (80#)","Quantity":"5"},{"price":29.99,"Sides":"1 Side","Material":"Gloss Paper (80#)","Quantity":"10"},{"price":34.99,"Sides":"1 Side","Material":"Gloss Paper (80#)","Quantity":"15"},{"price":39.99,"Sides":"1 Side","Material":"Gloss Paper (80#)","Quantity":"25"},{"price":79.99,"Sides":"1 Side","Material":"Gloss Paper (80#)","Quantity":"50"},{"price":139.99,"Sides":"1 Side","Material":"Gloss Paper (80#)","Quantity":"100"},{"price":199.99,"Sides":"1 Side","Material":"Gloss Paper (80#)","Quantity":"200"},{"price":249.99,"Sides":"1 Side","Material":"Gloss Paper (80#)","Quantity":"250"},{"price":289.99,"Sides":"1 Side","Material":"Gloss Paper (80#)","Quantity":"300"},{"price":329.99,"Sides":"1 Side","Material":"Gloss Paper (80#)","Quantity":"400"},{"price":348.95,"Sides":"1 Side","Material":"Gloss Paper (80#)","Quantity":"500"},{"price":24.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"5"},{"price":29.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"10"},{"price":39.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"15"},{"price":49.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"25"},{"price":89.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"50"},{"price":149.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"100"},{"price":249.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"200"},{"price":299.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"250"},{"price":349.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"300"},{"price":399.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"400"},{"price":409.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"500"},{"price":24.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"5"},{"price":29.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"10"},{"price":39.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"15"},{"price":49.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"25"},{"price":99.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"50"},{"price":159.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"100"},{"price":249.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"200"},{"price":299.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"250"},{"price":339.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"300"},{"price":389.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"400"},{"price":439.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"500"},{"price":28.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"5"},{"price":39.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"10"},{"price":49.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"15"},{"price":69.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"25"},{"price":139.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"50"},{"price":189.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"100"},{"price":299.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"200"},{"price":399.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"250"},{"price":499.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"300"},{"price":599.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"400"},{"price":749.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"500"}]},{"id":"13x19-small-posters","title":"13\u00d719 Posters","originalTitle":"13x19 Small Posters","shopifyHandle":"13x19-small-posters","options":[{"name":"Material","values":["Gloss Card (110#)","Matte Card (100#)","Textured Card (100#)"]},{"name":"Quantity","values":["5","10","25","50","100","200","250","300","400","500"]},{"name":"Turnaround","values":["1 Business Day","2 Business Days"]}],"variants":[{"price":24.99,"Material":"Gloss Card (110#)","Quantity":"5","Turnaround":"2 Business Days"},{"price":29.99,"Material":"Gloss Card (110#)","Quantity":"5","Turnaround":"1 Business Day"},{"price":32.99,"Material":"Gloss Card (110#)","Quantity":"10","Turnaround":"2 Business Days"},{"price":42.99,"Material":"Gloss Card (110#)","Quantity":"10","Turnaround":"1 Business Day"},{"price":59.99,"Material":"Gloss Card (110#)","Quantity":"25","Turnaround":"2 Business Days"},{"price":69.99,"Material":"Gloss Card (110#)","Quantity":"25","Turnaround":"1 Business Day"},{"price":99.99,"Material":"Gloss Card (110#)","Quantity":"50","Turnaround":"2 Business Days"},{"price":109.99,"Material":"Gloss Card (110#)","Quantity":"50","Turnaround":"1 Business Day"},{"price":179.99,"Material":"Gloss Card (110#)","Quantity":"100","Turnaround":"2 Business Days"},{"price":199.99,"Material":"Gloss Card (110#)","Quantity":"100","Turnaround":"1 Business Day"},{"price":249.99,"Material":"Gloss Card (110#)","Quantity":"200","Turnaround":"2 Business Days"},{"price":274.99,"Material":"Gloss Card (110#)","Quantity":"200","Turnaround":"1 Business Day"},{"price":299.99,"Material":"Gloss Card (110#)","Quantity":"250","Turnaround":"2 Business Days"},{"price":329.99,"Material":"Gloss Card (110#)","Quantity":"250","Turnaround":"1 Business Day"},{"price":349.99,"Material":"Gloss Card (110#)","Quantity":"300","Turnaround":"2 Business Days"},{"price":389.99,"Material":"Gloss Card (110#)","Quantity":"300","Turnaround":"1 Business Day"},{"price":399.99,"Material":"Gloss Card (110#)","Quantity":"400","Turnaround":"2 Business Days"},{"price":439.99,"Material":"Gloss Card (110#)","Quantity":"400","Turnaround":"1 Business Day"},{"price":499.99,"Material":"Gloss Card (110#)","Quantity":"500","Turnaround":"2 Business Days"},{"price":549.99,"Material":"Gloss Card (110#)","Quantity":"500","Turnaround":"1 Business Day"},{"price":24.99,"Material":"Matte Card (100#)","Quantity":"5","Turnaround":"2 Business Days"},{"price":29.99,"Material":"Matte Card (100#)","Quantity":"5","Turnaround":"1 Business Day"},{"price":32.99,"Material":"Matte Card (100#)","Quantity":"10","Turnaround":"2 Business Days"},{"price":42.99,"Material":"Matte Card (100#)","Quantity":"10","Turnaround":"1 Business Day"},{"price":69.99,"Material":"Matte Card (100#)","Quantity":"25","Turnaround":"2 Business Days"},{"price":79.99,"Material":"Matte Card (100#)","Quantity":"25","Turnaround":"1 Business Day"},{"price":109.99,"Material":"Matte Card (100#)","Quantity":"50","Turnaround":"2 Business Days"},{"price":129.99,"Material":"Matte Card (100#)","Quantity":"50","Turnaround":"1 Business Day"},{"price":179.99,"Material":"Matte Card (100#)","Quantity":"100","Turnaround":"2 Business Days"},{"price":199.99,"Material":"Matte Card (100#)","Quantity":"100","Turnaround":"1 Business Day"},{"price":249.99,"Material":"Matte Card (100#)","Quantity":"200","Turnaround":"2 Business Days"},{"price":274.99,"Material":"Matte Card (100#)","Quantity":"200","Turnaround":"1 Business Day"},{"price":299.99,"Material":"Matte Card (100#)","Quantity":"250","Turnaround":"2 Business Days"},{"price":329.99,"Material":"Matte Card (100#)","Quantity":"250","Turnaround":"1 Business Day"},{"price":349.99,"Material":"Matte Card (100#)","Quantity":"300","Turnaround":"2 Business Days"},{"price":389.99,"Material":"Matte Card (100#)","Quantity":"300","Turnaround":"1 Business Day"},{"price":499.99,"Material":"Matte Card (100#)","Quantity":"400","Turnaround":"2 Business Days"},{"price":549.99,"Material":"Matte Card (100#)","Quantity":"400","Turnaround":"1 Business Day"},{"price":599.99,"Material":"Matte Card (100#)","Quantity":"500","Turnaround":"2 Business Days"},{"price":649.99,"Material":"Matte Card (100#)","Quantity":"500","Turnaround":"1 Business Day"},{"price":28.99,"Material":"Textured Card (100#)","Quantity":"5","Turnaround":"2 Business Days"},{"price":34.99,"Material":"Textured Card (100#)","Quantity":"5","Turnaround":"1 Business Day"},{"price":39.99,"Material":"Textured Card (100#)","Quantity":"10","Turnaround":"2 Business Days"},{"price":44.99,"Material":"Textured Card (100#)","Quantity":"10","Turnaround":"1 Business Day"},{"price":74.99,"Material":"Textured Card (100#)","Quantity":"25","Turnaround":"2 Business Days"},{"price":84.99,"Material":"Textured Card (100#)","Quantity":"25","Turnaround":"1 Business Day"},{"price":149.99,"Material":"Textured Card (100#)","Quantity":"50","Turnaround":"2 Business Days"},{"price":164.99,"Material":"Textured Card (100#)","Quantity":"50","Turnaround":"1 Business Day"},{"price":199.99,"Material":"Textured Card (100#)","Quantity":"100","Turnaround":"2 Business Days"},{"price":219.99,"Material":"Textured Card (100#)","Quantity":"100","Turnaround":"1 Business Day"},{"price":399.99,"Material":"Textured Card (100#)","Quantity":"200","Turnaround":"2 Business Days"},{"price":439.99,"Material":"Textured Card (100#)","Quantity":"200","Turnaround":"1 Business Day"},{"price":499.99,"Material":"Textured Card (100#)","Quantity":"250","Turnaround":"2 Business Days"},{"price":549.99,"Material":"Textured Card (100#)","Quantity":"250","Turnaround":"1 Business Day"},{"price":599.99,"Material":"Textured Card (100#)","Quantity":"300","Turnaround":"2 Business Days"},{"price":659.99,"Material":"Textured Card (100#)","Quantity":"300","Turnaround":"1 Business Day"},{"price":799.99,"Material":"Textured Card (100#)","Quantity":"400","Turnaround":"2 Business Days"},{"price":879.99,"Material":"Textured Card (100#)","Quantity":"400","Turnaround":"1 Business Day"},{"price":999.99,"Material":"Textured Card (100#)","Quantity":"500","Turnaround":"2 Business Days"},{"price":1099.99,"Material":"Textured Card (100#)","Quantity":"500","Turnaround":"1 Business Day"}]},{"id":"2-5x7-art-bookmarks","title":"2.5\u00d77 Bookmarks","originalTitle":"2.5x7 Art Bookmarks","shopifyHandle":"2-5x7-art-bookmarks","options":[{"name":"Sides","values":["1 Side","2 Sides"]},{"name":"Material","values":["Gloss Card (110#)","Matte Card (100#)"]},{"name":"Quantity","values":["100","250","500"]}],"variants":[{"price":37.75,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"100"},{"price":58.95,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"250"},{"price":68.95,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"500"},{"price":37.75,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"100"},{"price":58.95,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"250"},{"price":68.95,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"500"},{"price":39.95,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"100"},{"price":68.95,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"250"},{"price":78.95,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"500"},{"price":39.95,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"100"},{"price":68.95,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"250"},{"price":78.95,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"500"}]},{"id":"4x6-postcards","title":"4\u00d76 Postcards","originalTitle":"4x6 Postcards","shopifyHandle":"4x6-postcards","options":[{"name":"Sides","values":["1 Side","2 Sides"]},{"name":"Material","values":["Gloss Card (110#)","Matte Card (100#)"]},{"name":"Quantity","values":["10","25","50","100","250","500","1000"]}],"variants":[{"price":19.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"10"},{"price":24.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"25"},{"price":28.95,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"50"},{"price":37.75,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"100"},{"price":58.95,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"250"},{"price":68.95,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"500"},{"price":88.95,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"1000"},{"price":19.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"10"},{"price":24.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"25"},{"price":28.95,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"50"},{"price":37.75,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"100"},{"price":58.95,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"250"},{"price":68.95,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"500"},{"price":88.95,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"1000"},{"price":24.95,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"10"},{"price":28.95,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"25"},{"price":29.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"50"},{"price":39.95,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"100"},{"price":68.95,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"250"},{"price":78.95,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"500"},{"price":98.95,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"1000"},{"price":24.95,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"10"},{"price":28.95,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"25"},{"price":29.99,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"50"},{"price":39.95,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"100"},{"price":68.95,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"250"},{"price":78.95,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"500"},{"price":98.95,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"1000"}]},{"id":"5x7-postcards","title":"5\u00d77 Postcards & Prints","originalTitle":"5x7 Cards & Prints","shopifyHandle":"5x7-postcards","options":[{"name":"Sides","values":["1 Side","2 Sides"]},{"name":"Material","values":["Gloss Card (110#)","Matte Card (100#)"]},{"name":"Quantity","values":["10","25","50","100","150","250","500","1000"]}],"variants":[{"price":19.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"10"},{"price":28.95,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"25"},{"price":34.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"50"},{"price":44.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"100"},{"price":67.49,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"150"},{"price":89.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"250"},{"price":109.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"500"},{"price":149.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"1000"},{"price":19.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"10"},{"price":28.95,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"25"},{"price":34.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"50"},{"price":44.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"100"},{"price":67.49,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"150"},{"price":89.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"250"},{"price":109.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"500"},{"price":149.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"1000"},{"price":23.95,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"10"},{"price":28.95,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"25"},{"price":38.9,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"50"},{"price":59.95,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"100"},{"price":89.9,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"150"},{"price":119.95,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"250"},{"price":146.95,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"500"},{"price":169.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"1000"},{"price":23.95,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"10"},{"price":28.95,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"25"},{"price":38.9,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"50"},{"price":59.95,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"100"},{"price":89.9,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"150"},{"price":119.95,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"250"},{"price":146.95,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"500"},{"price":169.99,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"1000"}]},{"id":"8x10-art-prints","title":"8\u00d710 Art Prints","originalTitle":"8x10 Art Prints","shopifyHandle":"8x10-art-prints","options":[{"name":"Sides","values":["1 Side","2 Sides"]},{"name":"Material","values":["Gloss Card (110#)","Matte Card (100#)","Textured Card (100#)"]},{"name":"Quantity","values":["10","25","50","100","250","500"]}],"variants":[{"price":19.95,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"10"},{"price":28.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"25"},{"price":39.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"50"},{"price":79.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"100"},{"price":119.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"250"},{"price":159.99,"Sides":"1 Side","Material":"Gloss Card (110#)","Quantity":"500"},{"price":24.95,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"10"},{"price":29.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"25"},{"price":49.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"50"},{"price":89.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"100"},{"price":149.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"250"},{"price":199.99,"Sides":"1 Side","Material":"Matte Card (100#)","Quantity":"500"},{"price":28.95,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"10"},{"price":38.95,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"25"},{"price":54.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"50"},{"price":99.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"100"},{"price":159.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"250"},{"price":299.99,"Sides":"1 Side","Material":"Textured Card (100#)","Quantity":"500"},{"price":28.65,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"10"},{"price":34.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"25"},{"price":49.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"50"},{"price":99.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"100"},{"price":139.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"250"},{"price":179.99,"Sides":"2 Sides","Material":"Gloss Card (110#)","Quantity":"500"},{"price":29.65,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"10"},{"price":36.5,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"25"},{"price":59.99,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"50"},{"price":109.99,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"100"},{"price":169.99,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"250"},{"price":239.99,"Sides":"2 Sides","Material":"Matte Card (100#)","Quantity":"500"},{"price":32.99,"Sides":"2 Sides","Material":"Textured Card (100#)","Quantity":"10"},{"price":42.95,"Sides":"2 Sides","Material":"Textured Card (100#)","Quantity":"25"},{"price":74.99,"Sides":"2 Sides","Material":"Textured Card (100#)","Quantity":"50"},{"price":119.99,"Sides":"2 Sides","Material":"Textured Card (100#)","Quantity":"100"},{"price":189.99,"Sides":"2 Sides","Material":"Textured Card (100#)","Quantity":"250"},{"price":349.99,"Sides":"2 Sides","Material":"Textured Card (100#)","Quantity":"500"}]},{"id":"die-cut-stickers","title":"Die-Cut Stickers","originalTitle":"Die-Cut Stickers","shopifyHandle":"die-cut-stickers","options":[{"name":"Size","values":["2 x 3","2 x 4","2 x 5","3 x 3","3 x 4","3 x 5","3 x 6","3 x 7","4 x 4","4 x 5","4 x 6","4 x 7","5 x 5","5 x 7","6 x 6","7 x 7"]},{"name":"Quantity","values":["50","100","250","500"]}],"variants":[{"price":99.99,"Size":"3 x 3","Quantity":"50"},{"price":129.99,"Size":"3 x 3","Quantity":"100"},{"price":187.59,"Size":"3 x 3","Quantity":"250"},{"price":249.99,"Size":"3 x 3","Quantity":"500"},{"price":119.99,"Size":"4 x 4","Quantity":"50"},{"price":149.99,"Size":"4 x 4","Quantity":"100"},{"price":249.99,"Size":"4 x 4","Quantity":"250"},{"price":359.99,"Size":"4 x 4","Quantity":"500"},{"price":159.99,"Size":"5 x 5","Quantity":"50"},{"price":189.99,"Size":"5 x 5","Quantity":"100"},{"price":349.99,"Size":"5 x 5","Quantity":"250"},{"price":499.99,"Size":"5 x 5","Quantity":"500"},{"price":159.99,"Size":"6 x 6","Quantity":"50"},{"price":189.99,"Size":"6 x 6","Quantity":"100"},{"price":349.99,"Size":"6 x 6","Quantity":"250"},{"price":499.99,"Size":"6 x 6","Quantity":"500"},{"price":169.99,"Size":"7 x 7","Quantity":"50"},{"price":219.99,"Size":"7 x 7","Quantity":"100"},{"price":399.99,"Size":"7 x 7","Quantity":"250"},{"price":699.99,"Size":"7 x 7","Quantity":"500"},{"price":99.99,"Size":"2 x 3","Quantity":"50"},{"price":129.99,"Size":"2 x 3","Quantity":"100"},{"price":187.5,"Size":"2 x 3","Quantity":"250"},{"price":299.99,"Size":"2 x 3","Quantity":"500"},{"price":109.99,"Size":"2 x 4","Quantity":"50"},{"price":129.99,"Size":"2 x 4","Quantity":"100"},{"price":187.5,"Size":"2 x 4","Quantity":"250"},{"price":299.99,"Size":"2 x 4","Quantity":"500"},{"price":109.99,"Size":"2 x 5","Quantity":"50"},{"price":129.99,"Size":"2 x 5","Quantity":"100"},{"price":187.5,"Size":"2 x 5","Quantity":"250"},{"price":299.99,"Size":"2 x 5","Quantity":"500"},{"price":134.99,"Size":"3 x 4","Quantity":"50"},{"price":149.99,"Size":"3 x 4","Quantity":"100"},{"price":249.99,"Size":"3 x 4","Quantity":"250"},{"price":349.99,"Size":"3 x 4","Quantity":"500"},{"price":134.99,"Size":"3 x 5","Quantity":"50"},{"price":159.99,"Size":"3 x 5","Quantity":"100"},{"price":249.99,"Size":"3 x 5","Quantity":"250"},{"price":349.99,"Size":"3 x 5","Quantity":"500"},{"price":134.99,"Size":"3 x 6","Quantity":"50"},{"price":159.99,"Size":"3 x 6","Quantity":"100"},{"price":249.99,"Size":"3 x 6","Quantity":"250"},{"price":349.99,"Size":"3 x 6","Quantity":"500"},{"price":159.99,"Size":"3 x 7","Quantity":"50"},{"price":189.99,"Size":"3 x 7","Quantity":"100"},{"price":349.99,"Size":"3 x 7","Quantity":"250"},{"price":599.99,"Size":"3 x 7","Quantity":"500"},{"price":159.99,"Size":"4 x 5","Quantity":"50"},{"price":189.99,"Size":"4 x 5","Quantity":"100"},{"price":349.99,"Size":"4 x 5","Quantity":"250"},{"price":599.99,"Size":"4 x 5","Quantity":"500"},{"price":159.99,"Size":"4 x 6","Quantity":"50"},{"price":189.99,"Size":"4 x 6","Quantity":"100"},{"price":349.99,"Size":"4 x 6","Quantity":"250"},{"price":599.99,"Size":"4 x 6","Quantity":"500"},{"price":159.99,"Size":"4 x 7","Quantity":"50"},{"price":189.99,"Size":"4 x 7","Quantity":"100"},{"price":349.99,"Size":"4 x 7","Quantity":"250"},{"price":599.99,"Size":"4 x 7","Quantity":"500"},{"price":159.99,"Size":"5 x 7","Quantity":"50"},{"price":189.99,"Size":"5 x 7","Quantity":"100"},{"price":349.99,"Size":"5 x 7","Quantity":"250"},{"price":599.99,"Size":"5 x 7","Quantity":"500"}]}],"shipping":{"tiers":[{"maxSubtotal":100,"cost":10},{"maxSubtotal":200,"cost":14},{"maxSubtotal":300,"cost":19},{"maxSubtotal":null,"cost":29}]},"platforms":[{"id":"etsy","name":"Etsy","transactionFeePercent":6.5,"paymentFeePercent":3.0,"paymentFeeFixed":0.25,"listingFee":0.2,"notes":"Transaction fee 6.5%, payment processing ~3% + $0.25, $0.20 listing fee per item."},{"id":"shopify","name":"Your own website (Shopify)","transactionFeePercent":0,"paymentFeePercent":2.9,"paymentFeeFixed":0.3,"listingFee":0,"notes":"Shopify Payments: 2.9% + $0.30 per transaction (Basic plan)."},{"id":"convention","name":"Convention / In-person","transactionFeePercent":0,"paymentFeePercent":2.6,"paymentFeeFixed":0.1,"listingFee":0,"notes":"Square in-person: 2.6% + $0.10 per swipe. Cash sales have no fee."},{"id":"gallery","name":"Gallery (50% consignment)","transactionFeePercent":50.0,"paymentFeePercent":0,"paymentFeeFixed":0,"listingFee":0,"notes":"Galleries typically take 40-50% consignment. Adjust as needed."}]}
+;
+
+// ============================================================
+// STATE
+// ============================================================
+const state = {
+  productId: "8x10-art-prints",
+  selections: {},
+  platformId: "etsy",
+  sellingPrice: 25,
+  useCustomCost: false,
+  customCostPerPrint: 5.00,
+};
+
+// ============================================================
+// UTIL
+// ============================================================
+const fmt$ = v => {
+  if (v === null || v === undefined || isNaN(v)) return "—";
+  const sign = v < 0 ? "-" : "";
+  return sign + "$" + Math.abs(v).toFixed(2);
+};
+const fmtPct = v => {
+  if (v === null || v === undefined || isNaN(v)) return "—";
+  return v.toFixed(1) + "%";
+};
+const $ = id => document.getElementById(id);
+
+const getProduct = () => PRICING.products.find(p => p.id === state.productId) || PRICING.products[0];
+const getPlatform = () => PRICING.platforms.find(p => p.id === state.platformId);
+
+function getDefaultSelections(product) {
+  const sel = {};
+  for (const opt of product.options) {
+    if (opt.name === "Quantity") {
+      const preferred = ["50", "100", "25"];
+      sel[opt.name] = preferred.find(p => opt.values.includes(p)) || opt.values[Math.floor(opt.values.length / 2)];
+    } else if (opt.name === "Material") {
+      sel[opt.name] = opt.values.find(v => v.toLowerCase().includes("matte")) || opt.values[0];
+    } else if (opt.name === "Sides") {
+      sel[opt.name] = opt.values.find(v => v.includes("1")) || opt.values[0];
+    } else if (opt.name === "Turnaround") {
+      sel[opt.name] = opt.values.find(v => v.includes("2")) || opt.values[0];
+    } else {
+      sel[opt.name] = opt.values[0];
+    }
+  }
+  return sel;
+}
+
+function findVariant(product, selections) {
+  return product.variants.find(v => product.options.every(opt => v[opt.name] === selections[opt.name])) || null;
+}
+
+function calculateShipping(printRunSubtotal) {
+  const tiers = PRICING.shipping.tiers;
+  for (const tier of tiers) {
+    if (tier.maxSubtotal === null || printRunSubtotal < tier.maxSubtotal) return tier.cost;
+  }
+  return tiers[tiers.length - 1].cost;
+}
+
+function calculatePlatformFees(sellingPrice, platform) {
+  if (!platform) return 0;
+  const tx = sellingPrice * (platform.transactionFeePercent / 100);
+  const pay = sellingPrice * (platform.paymentFeePercent / 100) + (platform.paymentFeeFixed || 0);
+  const listing = platform.listingFee || 0;
+  return tx + pay + listing;
+}
+
+function calculate(opts = {}) {
+  const product = getProduct();
+  const platform = getPlatform();
+  const variant = findVariant(product, state.selections);
+  if (!variant && !state.useCustomCost) return { valid: false, error: "No matching variant." };
+
+  const quantity = opts.quantityOverride !== undefined
+    ? opts.quantityOverride
+    : parseInt(state.selections.Quantity || "1", 10);
+  if (!quantity || quantity < 1) return { valid: false, error: "Invalid quantity." };
+
+  const printRunSubtotal = state.useCustomCost
+    ? state.customCostPerPrint * quantity
+    : variant.price;
+  const costPerPrint = printRunSubtotal / quantity;
+  const shippingCost = calculateShipping(printRunSubtotal);
+  const shippingPerPrint = shippingCost / quantity;
+  const landedCostPerPrint = costPerPrint + shippingPerPrint;
+  const platformFeesPerSale = calculatePlatformFees(state.sellingPrice, platform);
+  const profitPerPrint = state.sellingPrice - landedCostPerPrint - platformFeesPerSale;
+  const marginPercent = state.sellingPrice > 0 ? (profitPerPrint / state.sellingPrice) * 100 : 0;
+  const totalRunCost = printRunSubtotal + shippingCost;
+  const contributionMarginPerSale = state.sellingPrice - platformFeesPerSale;
+  const breakEvenQuantity = contributionMarginPerSale > 0 ? Math.ceil(totalRunCost / contributionMarginPerSale) : null;
+  const totalProfit = profitPerPrint * quantity;
+
+  return {
+    valid: true,
+    quantity, printRunSubtotal, costPerPrint, shippingCost, shippingPerPrint,
+    landedCostPerPrint, platformFeesPerSale, sellingPrice: state.sellingPrice,
+    profitPerPrint, marginPercent, breakEvenQuantity, totalRunCost, totalProfit,
+  };
+}
+
+function generateChartData() {
+  const product = getProduct();
+  const platform = getPlatform();
+  if (state.useCustomCost) {
+    return [10, 25, 50, 100, 250, 500].map(q => {
+      const result = calculate({ quantityOverride: q });
+      return {
+        quantity: q,
+        profitPerPrint: result.profitPerPrint,
+        marginPercent: result.marginPercent,
+        costPerPrint: result.landedCostPerPrint,
+      };
+    });
+  }
+  const nonQty = product.options.filter(o => o.name !== "Quantity");
+  const matching = product.variants.filter(v => nonQty.every(opt => v[opt.name] === state.selections[opt.name]));
+  return matching.map(v => {
+    const q = parseInt(v.Quantity, 10);
+    if (!q) return null;
+    const printRunSubtotal = v.price;
+    const costPerPrint = printRunSubtotal / q;
+    const shippingCost = calculateShipping(printRunSubtotal);
+    const shippingPerPrint = shippingCost / q;
+    const landedCostPerPrint = costPerPrint + shippingPerPrint;
+    const platformFeesPerSale = calculatePlatformFees(state.sellingPrice, platform);
+    const profitPerPrint = state.sellingPrice - landedCostPerPrint - platformFeesPerSale;
+    const marginPercent = state.sellingPrice > 0 ? (profitPerPrint / state.sellingPrice) * 100 : 0;
+    return { quantity: q, profitPerPrint, marginPercent, costPerPrint: landedCostPerPrint };
+  }).filter(Boolean).sort((a, b) => a.quantity - b.quantity);
+}
+
+// ============================================================
+// RENDER
+// ============================================================
+function renderProductSelect() {
+  const sel = $("product-select");
+  sel.innerHTML = PRICING.products.map(p =>
+    `<option value="${p.id}"${p.id === state.productId ? " selected" : ""}>${p.title}</option>`
+  ).join("");
+}
+
+function renderOptionControls() {
+  const product = getProduct();
+  const container = $("option-controls");
+  container.innerHTML = product.options.map(opt => `
+    <div class="form-group">
+      <label class="field-label" for="option-${opt.name}">${opt.name}</label>
+      <select id="option-${opt.name}" data-option-name="${opt.name}">
+        ${opt.values.map(v => `<option value="${v}"${state.selections[opt.name] === v ? " selected" : ""}>${v}</option>`).join("")}
+      </select>
+    </div>
+  `).join("");
+  container.querySelectorAll("select").forEach(s => {
+    s.addEventListener("change", e => {
+      state.selections[e.target.dataset.optionName] = e.target.value;
+      renderAll();
+    });
+  });
+}
+
+function renderPlatformGrid() {
+  const grid = $("platform-grid");
+  grid.innerHTML = PRICING.platforms.map(p => `
+    <button type="button" class="platform-btn${p.id === state.platformId ? " active" : ""}" data-platform-id="${p.id}">${p.name}</button>
+  `).join("");
+  grid.querySelectorAll(".platform-btn").forEach(b => {
+    b.addEventListener("click", () => {
+      state.platformId = b.dataset.platformId;
+      renderAll();
+    });
+  });
+  const platform = getPlatform();
+  $("platform-notes").textContent = platform ? platform.notes : "";
+}
+
+function renderPriceChips() {
+  const chips = [10, 15, 20, 25, 35, 50];
+  $("price-chips").innerHTML = chips.map(p =>
+    `<button type="button" class="price-chip${p === state.sellingPrice ? " active" : ""}" data-price="${p}">$${p}</button>`
+  ).join("");
+  $("price-chips").querySelectorAll(".price-chip").forEach(c => {
+    c.addEventListener("click", () => {
+      state.sellingPrice = parseFloat(c.dataset.price);
+      $("selling-price-input").value = state.sellingPrice;
+      renderAll();
+    });
+  });
+}
+
+function renderResults() {
+  const result = calculate();
+  const product = getProduct();
+  const platform = getPlatform();
+
+  if (!result.valid) {
+    $("results-container").innerHTML = `<div style="padding:2rem; color:var(--ink-500); font-family:var(--mono); font-size:0.875rem;">${result.error}</div>`;
+    return;
+  }
+
+  // Profit number coloring
+  const profitEl = $("profit-number");
+  profitEl.textContent = fmt$(result.profitPerPrint);
+  profitEl.className = "profit-number tabular " +
+    (result.marginPercent < 0 ? "negative" : result.marginPercent < 30 ? "warning" : "positive");
+
+  $("margin-percent").textContent = fmtPct(result.marginPercent) + " margin";
+
+  // Verdict pill
+  const verdictEl = $("margin-verdict");
+  if (result.marginPercent < 0) {
+    verdictEl.textContent = "Selling at a loss";
+    verdictEl.className = "pill pill-negative";
+  } else if (result.marginPercent < 20) {
+    verdictEl.textContent = "Thin margin";
+    verdictEl.className = "pill pill-warning";
+  } else if (result.marginPercent < 40) {
+    verdictEl.textContent = "Healthy margin";
+    verdictEl.className = "pill pill-neutral";
+  } else {
+    verdictEl.textContent = "Strong margin";
+    verdictEl.className = "pill pill-brand";
+  }
+
+  $("results-explainer").textContent = `After production, shipping, and ${platform.name} fees.`;
+  $("total-profit").textContent = fmt$(result.totalProfit);
+  $("break-even").innerHTML = result.breakEvenQuantity !== null
+    ? `${result.breakEvenQuantity}<small>of ${result.quantity}</small>`
+    : "—";
+
+  // Breakdown
+  $("breakdown-rows").innerHTML = `
+    <div class="breakdown-row">
+      <span class="breakdown-label">Selling price</span>
+      <span class="breakdown-value">${fmt$(state.sellingPrice)}</span>
+    </div>
+    <div class="breakdown-row">
+      <span class="breakdown-label subtract">Production cost (${fmt$(result.printRunSubtotal)} ÷ ${result.quantity})</span>
+      <span class="breakdown-value subtract">− ${fmt$(result.costPerPrint)}</span>
+    </div>
+    <div class="breakdown-row">
+      <span class="breakdown-label subtract">Shipping to you (${fmt$(result.shippingCost)} ÷ ${result.quantity})</span>
+      <span class="breakdown-value subtract">− ${fmt$(result.shippingPerPrint)}</span>
+    </div>
+    <div class="breakdown-row">
+      <span class="breakdown-label subtract">${platform.name} fees</span>
+      <span class="breakdown-value subtract">− ${fmt$(result.platformFeesPerSale)}</span>
+    </div>
+    <div class="breakdown-divider">
+      <div class="breakdown-row emphasis">
+        <span class="breakdown-label">Profit per print</span>
+        <span class="breakdown-value">${fmt$(result.profitPerPrint)}</span>
+      </div>
+    </div>
+  `;
+
+  $("product-link").href = `https://www.printkeg.com/products/${product.shopifyHandle}`;
+  $("product-link").textContent = `See ${product.title} →`;
+}
+
+function renderChart() {
+  const data = generateChartData();
+  if (data.length < 2) {
+    $("chart-section").style.display = "none";
+    return;
+  }
+  $("chart-section").style.display = "";
+
+  const svg = $("chart-svg");
+  const W = 700, H = 260, padL = 50, padR = 24, padT = 16, padB = 36;
+  const innerW = W - padL - padR;
+  const innerH = H - padT - padB;
+
+  const profits = data.map(d => d.profitPerPrint);
+  const minY = Math.min(0, Math.min(...profits));
+  const maxY = Math.max(...profits, 1);
+  const yRange = maxY - minY || 1;
+
+  const xScale = i => padL + (i / Math.max(1, data.length - 1)) * innerW;
+  const yScale = v => padT + innerH - ((v - minY) / yRange) * innerH;
+
+  const result = calculate();
+  const currentIdx = data.findIndex(d => d.quantity === result.quantity);
+
+  // Path
+  let path = "";
+  data.forEach((d, i) => {
+    const x = xScale(i), y = yScale(d.profitPerPrint);
+    path += (i === 0 ? "M" : "L") + x.toFixed(1) + "," + y.toFixed(1) + " ";
+  });
+
+  // Y-axis ticks
+  const yTicks = 4;
+  let yAxisHtml = "";
+  for (let i = 0; i <= yTicks; i++) {
+    const v = minY + (yRange * i / yTicks);
+    const y = yScale(v);
+    yAxisHtml += `
+      <line x1="${padL}" x2="${W - padR}" y1="${y}" y2="${y}" stroke="#e8e6e1" stroke-dasharray="3 3"/>
+      <text x="${padL - 8}" y="${y + 4}" text-anchor="end" font-family="JetBrains Mono" font-size="11" fill="#7a766d">$${v.toFixed(0)}</text>
+    `;
+  }
+
+  // X-axis labels
+  let xAxisHtml = "";
+  data.forEach((d, i) => {
+    const x = xScale(i);
+    xAxisHtml += `
+      <text x="${x}" y="${H - 14}" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#7a766d">${d.quantity}</text>
+    `;
+  });
+
+  // Dots
+  let dotsHtml = "";
+  data.forEach((d, i) => {
+    const x = xScale(i), y = yScale(d.profitPerPrint);
+    const isCurrent = i === currentIdx;
+    dotsHtml += `
+      <circle cx="${x}" cy="${y}" r="${isCurrent ? 7 : 4}" fill="${isCurrent ? "#0f832b" : "#fff"}" stroke="#0f832b" stroke-width="${isCurrent ? 3 : 2}" data-idx="${i}" class="chart-dot" style="cursor:pointer"/>
+    `;
+  });
+
+  // Axis label
+  const axisLabelHtml = `<text x="${W / 2}" y="${H - 2}" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#7a766d" letter-spacing="1.5">RUN QUANTITY</text>`;
+
+  svg.innerHTML = `
+    ${yAxisHtml}
+    ${xAxisHtml}
+    ${axisLabelHtml}
+    <path d="${path}" stroke="#0f832b" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    ${dotsHtml}
+  `;
+
+  // Tooltip wiring
+  const tooltip = $("chart-tooltip");
+  svg.querySelectorAll(".chart-dot").forEach(dot => {
+    dot.addEventListener("mouseenter", e => {
+      const i = parseInt(dot.dataset.idx, 10);
+      const d = data[i];
+      tooltip.innerHTML = `
+        <div class="chart-tooltip-label">Quantity ${d.quantity}</div>
+        <div>Profit: <strong>${fmt$(d.profitPerPrint)}/print</strong></div>
+        <div style="color:var(--ink-300)">Margin: ${fmtPct(d.marginPercent)}</div>
+        <div style="color:var(--ink-400)">Cost/print: ${fmt$(d.costPerPrint)}</div>
+      `;
+      const cx = parseFloat(dot.getAttribute("cx"));
+      const cy = parseFloat(dot.getAttribute("cy"));
+      const container = $("chart-container");
+      const rect = container.getBoundingClientRect();
+      const svgRect = svg.getBoundingClientRect();
+      const x = (cx / W) * svgRect.width;
+      const y = (cy / H) * svgRect.height;
+      tooltip.style.left = (x + 12) + "px";
+      tooltip.style.top = (y - 12) + "px";
+      tooltip.classList.add("visible");
+    });
+    dot.addEventListener("mouseleave", () => tooltip.classList.remove("visible"));
+  });
+
+  $("chart-subtitle").textContent = `How profit per print changes with run size, holding selling price at ${fmt$(state.sellingPrice)}.`;
+}
+
+function renderAll() {
+  renderOptionControls();
+  renderResults();
+  renderChart();
+  renderPlatformGrid();
+  renderPriceChips();
+}
+
+// ============================================================
+// EVENTS
+// ============================================================
+$("product-select").addEventListener("change", e => {
+  state.productId = e.target.value;
+  state.selections = getDefaultSelections(getProduct());
+  renderAll();
+});
+
+$("custom-cost-toggle").addEventListener("change", e => {
+  state.useCustomCost = e.target.checked;
+  $("custom-cost-group").style.display = state.useCustomCost ? "" : "none";
+  renderResults();
+  renderChart();
+});
+
+$("custom-cost-input").addEventListener("input", e => {
+  state.customCostPerPrint = parseFloat(e.target.value) || 0;
+  if (state.useCustomCost) { renderResults(); renderChart(); }
+});
+
+$("selling-price-input").addEventListener("input", e => {
+  state.sellingPrice = parseFloat(e.target.value) || 0;
+  renderResults();
+  renderChart();
+  renderPriceChips();
+});
+
+// Copy summary
+$("copy-btn").addEventListener("click", () => {
+  const result = calculate();
+  const product = getProduct();
+  const platform = getPlatform();
+  if (!result.valid) return;
+  const text = `${product.title} — ${result.quantity} prints
+
+Production cost: ${fmt$(result.printRunSubtotal)} ($${result.costPerPrint.toFixed(2)}/print)
+Shipping to me: ${fmt$(result.shippingCost)}
+Total run cost: ${fmt$(result.totalRunCost)}
+
+Selling on: ${platform.name}
+Selling price: ${fmt$(state.sellingPrice)} per print
+Platform fees: ${fmt$(result.platformFeesPerSale)} per sale
+
+→ Profit per print: ${fmt$(result.profitPerPrint)}
+→ Margin: ${fmtPct(result.marginPercent)}
+→ Break-even: sell ${result.breakEvenQuantity} of ${result.quantity} to cover run
+
+Calculated at tools.printkeg.com/print-pricing-calculator`;
+
+  navigator.clipboard.writeText(text).then(() => {
+    $("copy-btn-label").textContent = "Copied ✓";
+    setTimeout(() => { $("copy-btn-label").textContent = "Copy summary"; }, 2000);
+  });
+});
+
+// Embed modal
+const EMBED_URL = "https://tools.printkeg.com/print-pricing-calculator/?embed=1";
+const SNIPPETS = {
+  iframe: `<iframe
+  src="${EMBED_URL}"
+  width="100%"
+  height="900"
+  frameborder="0"
+  style="border: 1px solid #e8e6e1; border-radius: 8px;"
+  title="Art Print Pricing Calculator by Printkeg"
+  loading="lazy">
+</iframe>
+<p style="font-size: 11px; color: #7a766d; margin-top: 4px;">
+  <a href="https://tools.printkeg.com/print-pricing-calculator/" target="_blank" rel="noopener">
+    Art Print Pricing Calculator
+  </a> by Printkeg
+</p>`,
+  responsive: `<div style="position: relative; padding-bottom: 75%; height: 0; overflow: hidden;">
+  <iframe
+    src="${EMBED_URL}"
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 1px solid #e8e6e1; border-radius: 8px;"
+    title="Art Print Pricing Calculator by Printkeg"
+    loading="lazy">
+  </iframe>
+</div>
+<p style="font-size: 11px; color: #7a766d; margin-top: 4px;">
+  <a href="https://tools.printkeg.com/print-pricing-calculator/" target="_blank" rel="noopener">
+    Art Print Pricing Calculator
+  </a> by Printkeg
+</p>`
+};
+
+let activeSnippet = "iframe";
+function renderSnippet() {
+  $("snippet-pre").textContent = SNIPPETS[activeSnippet];
+  document.querySelectorAll(".snippet-toggle .platform-btn").forEach(b => {
+    b.classList.toggle("active", b.dataset.snippet === activeSnippet);
+  });
+}
+
+$("embed-btn").addEventListener("click", () => {
+  renderSnippet();
+  $("embed-modal").hidden = false;
+});
+
+$("modal-close-btn").addEventListener("click", () => { $("embed-modal").hidden = true; });
+$("modal-done-btn").addEventListener("click", () => { $("embed-modal").hidden = true; });
+$("embed-modal").addEventListener("click", e => {
+  if (e.target === $("embed-modal")) $("embed-modal").hidden = true;
+});
+
+document.querySelectorAll(".snippet-toggle .platform-btn").forEach(b => {
+  b.addEventListener("click", () => {
+    activeSnippet = b.dataset.snippet;
+    renderSnippet();
+  });
+});
+
+$("copy-snippet-btn").addEventListener("click", () => {
+  navigator.clipboard.writeText(SNIPPETS[activeSnippet]).then(() => {
+    $("copy-snippet-btn").textContent = "✓ Copied to clipboard";
+    setTimeout(() => { $("copy-snippet-btn").textContent = "Copy snippet"; }, 2000);
+  });
+});
+
+// ============================================================
+// INIT
+// ============================================================
+function init() {
+  // Embed mode detection
+  const isEmbed = new URLSearchParams(window.location.search).get("embed") === "1";
+  if (isEmbed) document.body.classList.add("embed-mode");
+
+  state.selections = getDefaultSelections(getProduct());
+  renderProductSelect();
+  renderAll();
+}
+
+init();
+</script>
+
+</body>
+</html>
